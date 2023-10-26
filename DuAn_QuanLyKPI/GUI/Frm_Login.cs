@@ -17,15 +17,11 @@ namespace DuAn_QuanLyKPI.GUI
         public static string MaNV;
         public static string MaPhongKhoa;
         public static string MaChucDanh;
-
-        public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        //public static string mconnectstring = "Data Source=LEDUONG\\SQLEXPRESS;Initial Catalog=frmCaNhan;Integrated Security=True";
+        private string mconnectstring = Database.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
         private SqlConnection conn;
-
-
         public Frm_Login()
         {
             InitializeComponent();
@@ -60,9 +56,9 @@ namespace DuAn_QuanLyKPI.GUI
 
             if (dt.Rows.Count == 1)
             {
-                MaNV = dt.Rows[0][0].ToString();
-                MaPhongKhoa = dt.Rows[0][7].ToString();
-                MaChucDanh = dt.Rows[0][8].ToString();
+                MaNV = dt.Rows[0]["MaNV"].ToString();
+                MaPhongKhoa = dt.Rows[0]["MaPhongKhoa"].ToString();
+                MaChucDanh = dt.Rows[0]["MaChucDanh"].ToString();
 
                 KPI_CaNhan f = new KPI_CaNhan();
                 f.Show();

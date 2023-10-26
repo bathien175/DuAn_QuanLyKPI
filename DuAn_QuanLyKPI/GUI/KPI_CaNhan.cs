@@ -1,5 +1,6 @@
 ﻿using BusinessCommon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Native;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,10 @@ namespace DuAn_QuanLyKPI.GUI
 {
     public partial class KPI_CaNhan : DevExpress.XtraEditors.XtraForm
     {
-        public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        //public static string mconnectstring = "Data Source=LEDUONG\\SQLEXPRESS;Initial Catalog=frmCaNhan;Integrated Security=True";
-
-        DataGridViewCheckBoxColumn dgvcCheckBox = new DataGridViewCheckBoxColumn();
-
-
+        private string mconnectstring = Database.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
-
-        public static string MaPhieuKPI;
         private static string MaNV = Frm_Login.MaNV;
         private static string MaPhongKhoa = Frm_Login.MaPhongKhoa;
         private static string MaChucDanh = Frm_Login.MaChucDanh;
@@ -45,14 +39,13 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void LoadDB_MucTieu()
         {
+            DataGridViewCheckBoxColumn dgvcCheckBox = new DataGridViewCheckBoxColumn();
             dgvcCheckBox.Name = "cbMT";
             dgvMucTieu.Columns.Add(dgvcCheckBox);
-            msql = "select kpi.NoiDung from KPI kpi inner join KPITrongNganHang kpitnh on kpi.MaKPI = kpitnh.MaKPI inner join NganHangKPI nhkpi on kpitnh.MaNganHangKPI = nhkpi.MaNganHangKPI where nhkpi.MaChucDanh = '" + MaChucDanh + "' and nhkpi.MaPK = '" + MaPhongKhoa + "'";
+            msql = "select kpi.MaKPI, kpi.NoiDung from KPI kpi inner join KPITrongNganHang kpitnh on kpi.MaKPI = kpitnh.MaKPI inner join NganHangKPI nhkpi on kpitnh.MaNganHangKPI = nhkpi.MaNganHangKPI where nhkpi.MaChucDanh = '" + MaChucDanh + "' and nhkpi.MaPK = '" + MaPhongKhoa + "'";
             DataTable dtPKI = comm.GetDataTable(mconnectstring, msql, "KPI");
             dgvMucTieu.ReadOnly = false;
             dgvMucTieu.DataSource = dtPKI;
-
-
         }
 
         private void Loadtxt()
@@ -126,23 +119,24 @@ namespace DuAn_QuanLyKPI.GUI
             panel2.Visible = false;
             tablePanel6.Visible = false;
             tablePanel2.Visible = true;
-
         }
 
 
         private void btnTiepTucMTCV_Click(object sender, EventArgs e)
         {
             int checkcb = 0;
+
             for (int i = 0; i < dgvMucTieu.Rows.Count; i++)
             {
                 DataGridViewCheckBoxCell cell = dgvMucTieu.Rows[i].Cells[0] as DataGridViewCheckBoxCell;
+                //cell.Value = true;
+
                 if (cell != null && cell.Value != null && (bool)cell.Value)
                 {
                     checkcb++;
                 }
             }
-
-            if (checkcb <= dgvMucTieu.Rows.Count / 2)
+            if (checkcb < dgvMucTieu.Rows.Count)
             {
                 MessageBox.Show("Chưa đủ chỉ tiêu !");
             }
