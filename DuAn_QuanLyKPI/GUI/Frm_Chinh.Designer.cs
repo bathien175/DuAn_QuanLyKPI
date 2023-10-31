@@ -1,6 +1,7 @@
-﻿namespace DuAn_QuanLyKPI.GUI
+﻿
+namespace DuAn_QuanLyKPI
 {
-    partial class Frm_Login
+    partial class Frm_Chinh
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +29,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Frm_Login
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
-            this.Name = "Frm_Login";
-            this.ClientSize = new System.Drawing.Size(1020, 507);
-            this.Name = "Frm_Login";
-            this.Text = "Frm_Login";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Frm_Chinh";
         }
 
         #endregion
