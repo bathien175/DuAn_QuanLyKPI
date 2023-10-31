@@ -234,6 +234,7 @@ namespace DuAn_QuanLyKPI
             this.btnKiemDuyet.ImageOptions.Image = global::DuAn_QuanLyKPI.Properties.Resources.task_32x32;
             this.btnKiemDuyet.ImageOptions.LargeImage = global::DuAn_QuanLyKPI.Properties.Resources.task_32x32;
             this.btnKiemDuyet.Name = "btnKiemDuyet";
+            this.btnKiemDuyet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKiemDuyet_ItemClick);
             // 
             // barButtonItem3
             // 

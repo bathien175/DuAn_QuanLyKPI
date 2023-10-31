@@ -52,5 +52,10 @@ namespace DuAn_QuanLyKPI
         {
             ev.QFrmThongBao("Đây là phần mềm do team IT của Bệnh viện Nhi Đồng 2 thực hiện  phát triển và xây dựng! Nếu có lỗi hay vấn đề gì, vui lòng liện hệ team IT để được hỗ trợ nhé! Cảm ơn bạn ^-^");
         }
+
+        private void btnKiemDuyet_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }
