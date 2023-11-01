@@ -17,7 +17,7 @@ namespace DuAn_QuanLyKPI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Chinh_GUI());
+            Application.Run(new FrmDangNhapTest());
         }
     }
 }

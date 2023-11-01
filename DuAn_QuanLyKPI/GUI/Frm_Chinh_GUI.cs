@@ -40,7 +40,7 @@ namespace DuAn_QuanLyKPI
         private void btnThongTinCaNhan_ItemClick(object sender, ItemClickEventArgs e)
         {
             //Gọi hàm mở form ra
-            OpenForm(typeof(FrmTest));
+            //OpenForm(typeof(FrmTest));
         }
         private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
         {
