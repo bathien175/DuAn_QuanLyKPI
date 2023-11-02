@@ -33,17 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="barcode">
-      <HintPath>D:\ThucTap\References\barcode.dll</HintPath>
+    <Reference Include="barcode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\ThucTap\Projects\References\barcode.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>D:\ThucTap\References\Bunifu_UI_v1.5.3.dll</HintPath>
+    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\ThucTap\Projects\References\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
-    <Reference Include="BusinessCommon">
-      <HintPath>D:\ThucTap\References\BusinessCommon.dll</HintPath>
+    <Reference Include="BusinessCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\ThucTap\Projects\References\BusinessCommon.dll</HintPath>
     </Reference>
-    <Reference Include="ControlProject1510">
-      <HintPath>D:\ThucTap\References\ControlProject1510.dll</HintPath>
+    <Reference Include="ControlProject1510, Version=1.0.7075.38120, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\ThucTap\Projects\References\ControlProject1510.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.Desktop.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -65,25 +69,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database.cs" />
+    <Compile Include="GUI\Frm_KPI_CaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_KPI_CaNhan.Designer.cs">
+      <DependentUpon>Frm_KPI_CaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\KPI_CaNhan.cs">
+    <Compile Include="GUI\KPI_CaNhan_ChonMucTieu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\KPI_CaNhan.Designer.cs">
-      <DependentUpon>KPI_CaNhan.cs</DependentUpon>
+    <Compile Include="GUI\KPI_CaNhan_ChonMucTieu.Designer.cs">
+      <DependentUpon>KPI_CaNhan_ChonMucTieu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Frm_KPI_CaNhan.resx">
+      <DependentUpon>Frm_KPI_CaNhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\KPI_CaNhan.resx">
-      <DependentUpon>KPI_CaNhan.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\KPI_CaNhan_ChonMucTieu.resx">
+      <DependentUpon>KPI_CaNhan_ChonMucTieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

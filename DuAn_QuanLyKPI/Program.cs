@@ -17,7 +17,7 @@ namespace DuAn_QuanLyKPI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Login());
+            Application.Run(new Frm_KPI_CaNhan());
         }
     }
 }

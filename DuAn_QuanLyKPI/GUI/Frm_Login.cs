@@ -60,7 +60,7 @@ namespace DuAn_QuanLyKPI.GUI
                 MaPhongKhoa = dt.Rows[0]["MaPhongKhoa"].ToString();
                 MaChucDanh = dt.Rows[0]["MaChucDanh"].ToString();
 
-                KPI_CaNhan f = new KPI_CaNhan();
+                KPI_CaNhan_ChonMucTieu f = new KPI_CaNhan_ChonMucTieu();
                 f.Show();
                 this.Hide();
             }

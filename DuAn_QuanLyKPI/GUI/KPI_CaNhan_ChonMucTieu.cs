@@ -13,18 +13,19 @@ using System.Windows.Forms;
 
 namespace DuAn_QuanLyKPI.GUI
 {
-    public partial class KPI_CaNhan : DevExpress.XtraEditors.XtraForm
+    public partial class KPI_CaNhan_ChonMucTieu : DevExpress.XtraEditors.XtraForm
     {
         private string mconnectstring = Database.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
+        public string MaKPI { get; set; }
         private static string MaNV = Frm_Login.MaNV;
         private static string MaPhongKhoa = Frm_Login.MaPhongKhoa;
         private static string MaChucDanh = Frm_Login.MaChucDanh;
         private static DateTime now = DateTime.Now;
 
-        public KPI_CaNhan()
+        public KPI_CaNhan_ChonMucTieu()
         {
             InitializeComponent();
             Loadtxt();
@@ -37,15 +38,23 @@ namespace DuAn_QuanLyKPI.GUI
             tablePanel6.Visible = false;
         }
 
+      
+
+
         private void LoadDB_MucTieu()
         {
+            //nếu kpi cá nhân truyền vào == kpi cá nhân trong csdl thì hiển thị mục tiêu cá nhân trong cơ sở dữ liệu.
+            var MaKP = new List<KPI_CaNhan_ChonMucTieu>(); 
+
+            if (mconnectstring != null) { }
             DataGridViewCheckBoxColumn dgvcCheckBox = new DataGridViewCheckBoxColumn();
             dgvcCheckBox.Name = "cbMT";
             dgvMucTieu.Columns.Add(dgvcCheckBox);
-            msql = "select kpi.MaKPI, kpi.NoiDung from KPI kpi inner join KPITrongNganHang kpitnh on kpi.MaKPI = kpitnh.MaKPI inner join NganHangKPI nhkpi on kpitnh.MaNganHangKPI = nhkpi.MaNganHangKPI where nhkpi.MaChucDanh = '" + MaChucDanh + "' and nhkpi.MaPK = '" + MaPhongKhoa + "'";
+            msql = "select kpi.MaKPI, kpi.NoiDung from KPI kpi inner join KPITrongNganHang kpitnh on kpi.MaKPI = kpitnh.MaKPI inner join NganHangKPI nhkpi on kpitnh.MaNganHangKPI = nhkpi.MaNganHangKPI where nhkpi.MaChucDanh = '" + MaChucDanh + "' and nhkpi.MaPK = '" + MaPhongKhoa + "' and CongViecCaNhan = 1";
             DataTable dtPKI = comm.GetDataTable(mconnectstring, msql, "KPI");
             dgvMucTieu.ReadOnly = false;
             dgvMucTieu.DataSource = dtPKI;
+
         }
 
         private void Loadtxt()
