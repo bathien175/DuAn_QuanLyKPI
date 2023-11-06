@@ -26,9 +26,15 @@ namespace DuAn_QuanLyKPI.GUI
         public FrmA73()
         {
             InitializeComponent();
-
+            LoadData();
         }
-
+        private void LoadData()
+        {
+            msql = "select * from BangTamMucTieuKhoaPhong";
+            DataTable tb = comm.GetDataTable(mconnectstring, msql, "BangTamMucTieuKhoaPhong");
+            dgrTaiChinh.AutoGenerateColumns = false;
+            dgrTaiChinh.DataSource = tb;
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -41,7 +47,7 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnTiepTucTaiChinh_Click(object sender, EventArgs e)
         {
-            ChuyenTrangThai(1);
+            KiemTraTyTrong();
         }
 
         private void btnQuayLaiKhachHang_Click(object sender, EventArgs e)
@@ -85,7 +91,6 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void FrmA73_Load(object sender, EventArgs e)
         {
-            
             TrangThai();
             TrangThai1();
             TrangThai2();
@@ -229,7 +234,24 @@ namespace DuAn_QuanLyKPI.GUI
         {
             ev.Qdgr_RowPostPaint(sender, e, dgrChonMucTieu);
         }
+        private void dgrTaiChinh_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            ev.Qdgr_RowPostPaint(sender, e, dgrTaiChinh);
+        }
+        private void txtTrongSoTC_Click(object sender, EventArgs e)
+        {
+            dgrChonMucTieu.Visible = false;
+        }
 
+        private void txtTieuChiDanhGiaTC_Click(object sender, EventArgs e)
+        {
+            dgrChonMucTieu.Visible = false;
+        }
+
+        private void txtHoanThanhTC_Click(object sender, EventArgs e)
+        {
+            dgrChonMucTieu.Visible = false;
+        }
         private void dgrChonMucTieu_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtMucTieuTC.Text = dgrChonMucTieu.CurrentRow.Cells["cNoiDung"].Value.ToString();
@@ -248,9 +270,101 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            msql = "INSERT INTO [dbo].[BangTamMucTieuKhoaPhong]([MaKPI],[MucTieu],[TrongSo],[TieuChiDanhGia],[HoanThanh])" +
-                "VALUES ('"+ txtMaKPITC.Text +"', N'"+txtMucTieuTC.Text+"', '"+txtTrongSoTC.Text+"', N'"+txtTieuChiDanhGiaTC.Text+"', '"+txtHoanThanhTC.Text+"')";
-            comm.RunSQL(mconnectstring, msql);
+            ThemDuLieu();
+            LoadData();
+            XoaThongTin();
         }
+        private void ThemDuLieu()
+        {
+            //// Lấy tổng các giá trị trong các cột
+            //int total = 0;
+            //for (int i = 0; i < dgrTaiChinh.Rows.Count; i++)
+            //{
+            //    total += int.Parse(dgrTaiChinh.CurrentRow.Cells["cTrongSo"].Value.ToString());
+            //}
+
+            //int value = int.Parse(txtTrongSoTC.Text);
+            //int tytrong = total + value;
+            //// Kiểm tra giá trị
+            //if (tytrong > 100)
+            //{
+            //    ev.QFrmThongBao("Lưu ý: Tỷ trọng vượt quá 100%");
+            //}
+            //else 
+            //{
+            //    msql = "INSERT INTO [dbo].[BangTamMucTieuKhoaPhong]([MaKPI],[MucTieu],[TrongSo],[TieuChiDanhGia],[HoanThanh])" +
+            //    "VALUES ('" + txtMaKPITC.Text + "', N'" + txtMucTieuTC.Text + "', '" + txtTrongSoTC.Text + "', N'" + txtTieuChiDanhGiaTC.Text + "', '" + txtHoanThanhTC.Text + "')";
+            //    comm.RunSQL(mconnectstring, msql);
+            //    ev.QFrmThongBao("Đã thêm thành công");
+            //}
+
+
+            {
+                // Khai báo biến tổng và biến đếm
+                int total = 0;
+                int count = 0;
+
+                // Vòng lặp duyệt qua tất cả các hàng trong bảng
+                for (int i = 0; i < dgrTaiChinh.Rows.Count; i++)
+                {
+                    // Lấy giá trị trong cột tỷ trọng của hàng hiện tại
+                    int trongSo = int.Parse(dgrTaiChinh.CurrentRow.Cells["cTrongSo"].Value.ToString());
+
+                    // Thêm giá trị này vào biến tổng
+                    total += trongSo;
+
+                    // Tăng biến đếm lên 1
+                    count++;
+                    
+                }
+                if (total > 100)
+                {
+                    ev.QFrmThongBao("Lưu ý: Tỷ trọng vượt quá 100%");
+                }
+                else
+                {
+                    msql = "INSERT INTO [dbo].[BangTamMucTieuKhoaPhong]([MaKPI],[MucTieu],[TrongSo],[TieuChiDanhGia],[HoanThanh])" +
+                    "VALUES ('" + txtMaKPITC.Text + "', N'" + txtMucTieuTC.Text + "', '" + txtTrongSoTC.Text + "', N'" + txtTieuChiDanhGiaTC.Text + "', '" + txtHoanThanhTC.Text + "')";
+                    comm.RunSQL(mconnectstring, msql);
+                    ev.QFrmThongBao("Đã thêm thành công");
+                }
+            }
+            
+
+
+
+        }
+        private void KiemTraTyTrong()
+        {
+            // Lấy tổng các giá trị trong các cột
+            int total = 0;
+            for (int i = 1; i < dgrTaiChinh.Rows.Count; i++)
+            {
+                total += int.Parse(dgrTaiChinh.CurrentRow.Cells["cTrongSo"].Value.ToString());
+            }
+
+            // Kiểm tra tổng các giá trị
+            if (total > 100)
+            {
+                ev.QFrmThongBao("Lưu ý: Kiểm tra tỷ trọng vượt quá 100%");
+                
+            }
+            else 
+            {
+                // Thông báo
+                ChuyenTrangThai(1);
+            }
+            
+        }
+        private void XoaThongTin()
+        {
+            txtMaKPITC.Text = "";
+            txtMucTieuTC.Text = "";
+            txtTrongSoTC.Text = "";
+            txtTieuChiDanhGiaTC.Text = "";
+            txtHoanThanhTC.Text = "";
+        }
+
+        
     }
 }
