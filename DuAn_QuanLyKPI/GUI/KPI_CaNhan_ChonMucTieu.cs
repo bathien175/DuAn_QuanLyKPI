@@ -20,9 +20,9 @@ namespace DuAn_QuanLyKPI.GUI
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
         public string MaKPI { get; set; }
-        private static string MaNV = Frm_Login.MaNV;
-        private static string MaPhongKhoa = Frm_Login.MaPhongKhoa;
-        private static string MaChucDanh = Frm_Login.MaChucDanh;
+        private static string MaNV = "";
+        private static string MaPhongKhoa = "";
+        private static string MaChucDanh = "";
         private static DateTime now = DateTime.Now;
 
         public KPI_CaNhan_ChonMucTieu()
