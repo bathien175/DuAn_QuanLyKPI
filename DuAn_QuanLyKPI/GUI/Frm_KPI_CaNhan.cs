@@ -19,7 +19,7 @@ namespace DuAn_QuanLyKPI.GUI
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
-        private List<int> listMaKPI = new List<int> { 4, 5, 6, 7, 8 };
+        private List<int> listMaKPI = new List<int> { 4, 5, 6, 7, 8 ,9,10,11,12,13,14,15,16,17,55,6,63,2,4,6,4,52,};
 
         private string MaNV;
         private string MaPhongKhoa;
@@ -44,6 +44,7 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void LoadDB_MucTieu()
         {
+
             List<string> listNoiDung = new List<string>();
             dgvMucTieu.Columns.Add("", "");
             foreach (int i in listMaKPI)
@@ -55,8 +56,20 @@ namespace DuAn_QuanLyKPI.GUI
                 {
                     dgvMucTieu.Rows.Add(noidung.Rows[0]["NoiDung"].ToString(),"");
                 }
-               
             }
+
+            //DataGridViewComboBoxColumn comboboxColumn = new DataGridViewComboBoxColumn();
+            //comboboxColumn.DataPropertyName = "TrongSo";
+            //comboboxColumn.HeaderText = "Trọng số";
+            //dgvMucTieu.Columns.Add(comboboxColumn);
+
+            //int trongso = 0;
+            //foreach (int i in listMaKPI)
+            //{
+            //    trongso = 100 / listMaKPI.Count * 100;
+            //    dgvMucTieu.Rows[i].Cells["TrongSo"].Value = trongso;
+
+            //}
         }
 
         private void Loadtxt()
@@ -154,6 +167,11 @@ namespace DuAn_QuanLyKPI.GUI
             txtChucDanh.ReadOnly = false;
             txtKhoaPhong.ReadOnly = false;
             dgvMucTieu.Visible = false;
+        }
+
+        private void btnHoanThanh_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

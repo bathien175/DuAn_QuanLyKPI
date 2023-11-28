@@ -290,6 +290,7 @@
             this.dgvMucTieu.MultiSelect = false;
             this.dgvMucTieu.Name = "dgvMucTieu";
             this.dgvMucTieu.ReadOnly = true;
+            this.dgvMucTieu.RowHeadersWidth = 50;
             this.dgvMucTieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMucTieu.Size = new System.Drawing.Size(1358, 444);
             this.dgvMucTieu.TabIndex = 0;
@@ -452,6 +453,7 @@
             this.btnHoanThanh.TabIndex = 0;
             this.btnHoanThanh.Text = "HOÀN THÀNH";
             this.btnHoanThanh.UseVisualStyleBackColor = true;
+            this.btnHoanThanh.Click += new System.EventHandler(this.btnHoanThanh_Click);
             // 
             // panel2
             // 
