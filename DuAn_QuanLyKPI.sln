@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuAn_QuanLyKPI", "DuAn_QuanLyKPI\DuAn_QuanLyKPI.csproj", "{0D59704F-BB38-4EFC-97F5-0F105512F9B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuAn_QuanLyKPI1", "D:\ThucTap\Projects\Dự án quản lý KPI\DuAn_QuanLyKPI-Thanh_Phuc\DuAn_QuanLyKPI-Thanh_Phuc\DuAn_QuanLyKPI1\DuAn_QuanLyKPI1.csproj", "{63E37810-851A-4938-B99E-96916EB9A9B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0D59704F-BB38-4EFC-97F5-0F105512F9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D59704F-BB38-4EFC-97F5-0F105512F9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D59704F-BB38-4EFC-97F5-0F105512F9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63E37810-851A-4938-B99E-96916EB9A9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E37810-851A-4938-B99E-96916EB9A9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E37810-851A-4938-B99E-96916EB9A9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E37810-851A-4938-B99E-96916EB9A9B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
