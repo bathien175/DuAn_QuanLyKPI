@@ -33,9 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dgvCN = new System.Windows.Forms.DataGridView();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btncopyDataBVtoTC = new System.Windows.Forms.Button();
             this.btnSelectAllBVTC = new System.Windows.Forms.Button();
@@ -46,9 +43,6 @@
             this.pnTongGrid = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dgvCN2 = new System.Windows.Forms.DataGridView();
-            this.NoiDung2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoBV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCaNhan = new System.Windows.Forms.TabPage();
             this.pTongGridView = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -73,6 +67,7 @@
             this.pnTongScroll = new System.Windows.Forms.Panel();
             this.dgvHT = new System.Windows.Forms.DataGridView();
             this.panel32 = new System.Windows.Forms.Panel();
+            this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
             this.btnHoanThanh = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
@@ -96,6 +91,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.svgImageCollection1 = new DevExpress.Utils.SvgImageCollection(this.components);
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
+            this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
+            this.MaPhieuKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MaPhieuKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoBV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieuKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel28.SuspendLayout();
@@ -148,6 +156,8 @@
             this.dgvCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhieuKPI,
+            this.MaKPI,
             this.NoiDung,
             this.TrongSo,
             this.Chon});
@@ -159,25 +169,6 @@
             this.dgvCN.Size = new System.Drawing.Size(1350, 200);
             this.dgvCN.TabIndex = 7;
             // 
-            // NoiDung
-            // 
-            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDung.DataPropertyName = "NoiDung";
-            this.NoiDung.HeaderText = "Nội Dung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.ReadOnly = true;
-            // 
-            // TrongSo
-            // 
-            this.TrongSo.HeaderText = "Trọng Số";
-            this.TrongSo.Name = "TrongSo";
-            // 
-            // Chon
-            // 
-            this.Chon.FalseValue = "";
-            this.Chon.HeaderText = "Chọn";
-            this.Chon.Name = "Chon";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btncopyDataBVtoTC);
@@ -186,18 +177,18 @@
             this.panel2.Controls.Add(this.btnClearTC);
             this.panel2.Controls.Add(this.btnCoppyAllBVtoTC);
             this.panel2.Controls.Add(this.btnTiepTucTaiChinh);
-            this.panel2.Location = new System.Drawing.Point(3, 200);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 200);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1343, 51);
+            this.panel2.Size = new System.Drawing.Size(1350, 51);
             this.panel2.TabIndex = 3;
             // 
             // btncopyDataBVtoTC
             // 
-            this.btncopyDataBVtoTC.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btncopyDataBVtoTC.BackColor = System.Drawing.Color.White;
             this.btncopyDataBVtoTC.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncopyDataBVtoTC.ForeColor = System.Drawing.Color.Black;
-            this.btncopyDataBVtoTC.Location = new System.Drawing.Point(692, 3);
+            this.btncopyDataBVtoTC.Location = new System.Drawing.Point(696, 3);
             this.btncopyDataBVtoTC.Name = "btncopyDataBVtoTC";
             this.btncopyDataBVtoTC.Size = new System.Drawing.Size(166, 45);
             this.btncopyDataBVtoTC.TabIndex = 20;
@@ -207,11 +198,10 @@
             // 
             // btnSelectAllBVTC
             // 
-            this.btnSelectAllBVTC.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSelectAllBVTC.BackColor = System.Drawing.Color.White;
             this.btnSelectAllBVTC.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelectAllBVTC.ForeColor = System.Drawing.Color.Black;
-            this.btnSelectAllBVTC.Location = new System.Drawing.Point(346, 3);
+            this.btnSelectAllBVTC.Location = new System.Drawing.Point(350, 3);
             this.btnSelectAllBVTC.Name = "btnSelectAllBVTC";
             this.btnSelectAllBVTC.Size = new System.Drawing.Size(166, 45);
             this.btnSelectAllBVTC.TabIndex = 17;
@@ -247,11 +237,10 @@
             // 
             // btnCoppyAllBVtoTC
             // 
-            this.btnCoppyAllBVtoTC.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCoppyAllBVtoTC.BackColor = System.Drawing.Color.White;
             this.btnCoppyAllBVtoTC.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCoppyAllBVtoTC.ForeColor = System.Drawing.Color.Black;
-            this.btnCoppyAllBVtoTC.Location = new System.Drawing.Point(519, 3);
+            this.btnCoppyAllBVtoTC.Location = new System.Drawing.Point(523, 3);
             this.btnCoppyAllBVtoTC.Name = "btnCoppyAllBVtoTC";
             this.btnCoppyAllBVtoTC.Size = new System.Drawing.Size(166, 45);
             this.btnCoppyAllBVtoTC.TabIndex = 19;
@@ -265,7 +254,7 @@
             this.btnTiepTucTaiChinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnTiepTucTaiChinh.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTiepTucTaiChinh.ForeColor = System.Drawing.Color.Black;
-            this.btnTiepTucTaiChinh.Location = new System.Drawing.Point(1201, 3);
+            this.btnTiepTucTaiChinh.Location = new System.Drawing.Point(1208, 3);
             this.btnTiepTucTaiChinh.Name = "btnTiepTucTaiChinh";
             this.btnTiepTucTaiChinh.Size = new System.Drawing.Size(139, 45);
             this.btnTiepTucTaiChinh.TabIndex = 16;
@@ -286,11 +275,13 @@
             // 
             // panel27
             // 
+            this.panel27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel27.Controls.Add(this.dgvCN2);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel27.Location = new System.Drawing.Point(0, 259);
+            this.panel27.Location = new System.Drawing.Point(0, 257);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(1350, 200);
+            this.panel27.Size = new System.Drawing.Size(1350, 202);
             this.panel27.TabIndex = 1;
             // 
             // dgvCN2
@@ -298,6 +289,8 @@
             this.dgvCN2.AllowUserToAddRows = false;
             this.dgvCN2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCN2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhieuKPI2,
+            this.MaKPI2,
             this.NoiDung2,
             this.TrongSoBV,
             this.TrongSoHT});
@@ -305,25 +298,8 @@
             this.dgvCN2.Location = new System.Drawing.Point(0, 0);
             this.dgvCN2.Name = "dgvCN2";
             this.dgvCN2.RowTemplate.Height = 30;
-            this.dgvCN2.Size = new System.Drawing.Size(1350, 200);
+            this.dgvCN2.Size = new System.Drawing.Size(1350, 202);
             this.dgvCN2.TabIndex = 7;
-            // 
-            // NoiDung2
-            // 
-            this.NoiDung2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDung2.HeaderText = "Nội dung";
-            this.NoiDung2.Name = "NoiDung2";
-            // 
-            // TrongSoBV
-            // 
-            this.TrongSoBV.HeaderText = "Trọng số Mục Tiêu";
-            this.TrongSoBV.Name = "TrongSoBV";
-            this.TrongSoBV.ReadOnly = true;
-            // 
-            // TrongSoHT
-            // 
-            this.TrongSoHT.HeaderText = "Trọng số Hoàn Thành";
-            this.TrongSoHT.Name = "TrongSoHT";
             // 
             // tabCaNhan
             // 
@@ -384,6 +360,8 @@
             // 
             // txtQTUX
             // 
+            this.txtQTUX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQTUX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQTUX.Location = new System.Drawing.Point(6, 116);
             this.txtQTUX.Multiline = true;
@@ -585,6 +563,8 @@
             this.dgvHT.AllowUserToAddRows = false;
             this.dgvHT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhieuKPIHT,
+            this.MaKPIHT,
             this.NoiDungHT,
             this.TrongSoHTHT});
             this.dgvHT.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -596,6 +576,7 @@
             // 
             // panel32
             // 
+            this.panel32.Controls.Add(this.btnExel);
             this.panel32.Controls.Add(this.btnQuayLaiHoanThanh);
             this.panel32.Controls.Add(this.btnHoanThanh);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -603,6 +584,20 @@
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(1350, 64);
             this.panel32.TabIndex = 2;
+            // 
+            // btnExel
+            // 
+            this.btnExel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnExel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExel.ForeColor = System.Drawing.Color.Black;
+            this.btnExel.Location = new System.Drawing.Point(920, 5);
+            this.btnExel.Name = "btnExel";
+            this.btnExel.Size = new System.Drawing.Size(124, 55);
+            this.btnExel.TabIndex = 18;
+            this.btnExel.Text = "Xuất Exel";
+            this.btnExel.UseVisualStyleBackColor = false;
+            this.btnExel.Click += new System.EventHandler(this.btnExel_Click);
             // 
             // btnQuayLaiHoanThanh
             // 
@@ -657,6 +652,8 @@
             // 
             // txtQTUXHT
             // 
+            this.txtQTUXHT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQTUXHT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQTUXHT.Location = new System.Drawing.Point(6, 116);
             this.txtQTUXHT.Multiline = true;
@@ -698,7 +695,8 @@
             // 
             // panel31
             // 
-            this.panel31.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel31.Controls.Add(this.label63);
             this.panel31.Controls.Add(this.txtKhoaPhong4);
@@ -889,6 +887,91 @@
             this.stepProgressBar2.Size = new System.Drawing.Size(260, 90);
             this.stepProgressBar2.TabIndex = 20;
             // 
+            // excelDataSource1
+            // 
+            this.excelDataSource1.Name = "excelDataSource1";
+            // 
+            // MaPhieuKPI
+            // 
+            this.MaPhieuKPI.DataPropertyName = "MaPhieuKPI";
+            this.MaPhieuKPI.HeaderText = "Mã Phiếu KPI";
+            this.MaPhieuKPI.Name = "MaPhieuKPI";
+            this.MaPhieuKPI.ReadOnly = true;
+            this.MaPhieuKPI.Visible = false;
+            // 
+            // MaKPI
+            // 
+            this.MaKPI.DataPropertyName = "MaKPI";
+            this.MaKPI.HeaderText = "Mã KPI";
+            this.MaKPI.Name = "MaKPI";
+            this.MaKPI.ReadOnly = true;
+            this.MaKPI.Visible = false;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDung.DataPropertyName = "NoiDung";
+            this.NoiDung.HeaderText = "Nội Dung";
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.ReadOnly = true;
+            // 
+            // TrongSo
+            // 
+            this.TrongSo.DataPropertyName = "TrongSoKPIBV";
+            this.TrongSo.HeaderText = "Trọng Số";
+            this.TrongSo.Name = "TrongSo";
+            // 
+            // Chon
+            // 
+            this.Chon.FalseValue = "";
+            this.Chon.HeaderText = "Chọn";
+            this.Chon.Name = "Chon";
+            // 
+            // MaPhieuKPI2
+            // 
+            this.MaPhieuKPI2.HeaderText = "Mã Phiếu KPI";
+            this.MaPhieuKPI2.Name = "MaPhieuKPI2";
+            this.MaPhieuKPI2.ReadOnly = true;
+            this.MaPhieuKPI2.Visible = false;
+            // 
+            // MaKPI2
+            // 
+            this.MaKPI2.HeaderText = "Mã KPI";
+            this.MaKPI2.Name = "MaKPI2";
+            this.MaKPI2.ReadOnly = true;
+            this.MaKPI2.Visible = false;
+            // 
+            // NoiDung2
+            // 
+            this.NoiDung2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDung2.HeaderText = "Nội dung";
+            this.NoiDung2.Name = "NoiDung2";
+            // 
+            // TrongSoBV
+            // 
+            this.TrongSoBV.HeaderText = "Trọng số Mục Tiêu";
+            this.TrongSoBV.Name = "TrongSoBV";
+            this.TrongSoBV.ReadOnly = true;
+            // 
+            // TrongSoHT
+            // 
+            this.TrongSoHT.HeaderText = "Trọng số Hoàn Thành";
+            this.TrongSoHT.Name = "TrongSoHT";
+            // 
+            // MaPhieuKPIHT
+            // 
+            this.MaPhieuKPIHT.HeaderText = "Mã Phiếu KPI";
+            this.MaPhieuKPIHT.Name = "MaPhieuKPIHT";
+            this.MaPhieuKPIHT.ReadOnly = true;
+            this.MaPhieuKPIHT.Visible = false;
+            // 
+            // MaKPIHT
+            // 
+            this.MaKPIHT.HeaderText = "Mã KPI";
+            this.MaKPIHT.Name = "MaKPIHT";
+            this.MaKPIHT.ReadOnly = true;
+            this.MaKPIHT.Visible = false;
+            // 
             // NoiDungHT
             // 
             this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -998,12 +1081,6 @@
         private DevExpress.XtraEditors.StepProgressBar stepProgressBar2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoBV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT;
         private System.Windows.Forms.DataGridView dgvHT;
         private ControlProject1510.XFilteg txtQTUX;
         private System.Windows.Forms.CheckBox cbQTUX;
@@ -1012,6 +1089,20 @@
         private ControlProject1510.XFilteg txtQTUXHT;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnExel;
+        private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuKPI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuKPI2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoBV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuKPIHT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPIHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDungHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHTHT;
     }

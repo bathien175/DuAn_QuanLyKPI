@@ -15,11 +15,7 @@ namespace DuAn_QuanLyKPI.GUI
         private SqlConnection conn;
 
         public static string MaNV;
-
-        public static string TenNV;
-        public static string TenChucDanh;
-        public static string TenPhongKhoa;
-
+        public static string MaPK;
 
         public Frm_Login()
         {
@@ -33,6 +29,8 @@ namespace DuAn_QuanLyKPI.GUI
             if (dt.Rows.Count == 1)
             {
                 MaNV = dt.Rows[0]["MaNV"].ToString();
+                MaPK = dt.Rows[0]["MaPK"].ToString();
+
                 Frm_A78 f = new Frm_A78();
                 f.Show();
                 this.Hide();
