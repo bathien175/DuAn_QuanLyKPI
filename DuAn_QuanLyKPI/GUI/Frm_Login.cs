@@ -29,7 +29,7 @@ namespace DuAn_QuanLyKPI.GUI
             if (dt.Rows.Count == 1)
             {
                 MaNV = dt.Rows[0]["MaNV"].ToString();
-                MaPK = dt.Rows[0]["MaPK"].ToString();
+                MaPK = dt.Rows[0]["MaPhongKhoa"].ToString();
 
                 Frm_A78 f = new Frm_A78();
                 f.Show();
