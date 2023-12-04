@@ -17,6 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using DevExpress.XtraExport.Helpers;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DevExpress.CodeParser;
+using System.Reflection.Emit;
 
 namespace DuAn_QuanLyKPI.GUI
 {
@@ -27,9 +28,6 @@ namespace DuAn_QuanLyKPI.GUI
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
         private string maphieukpi;
-
-        //private List<int> listMaKPI = new List<int> { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 55, 6, 63, 2, 4, 6, 4, 52,55 };
-
 
         public Frm_A78()
         {
@@ -65,7 +63,7 @@ namespace DuAn_QuanLyKPI.GUI
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             maphieukpi = dtt.Rows[0]["MaPhieuKPI"].ToString();
 
-            msql = "SELECT p.MaKPI, k.NoiDung ,p.TrongSoKPIBV FROM [QuanLyKPI].[dbo].[PhieuKPITongHop] p inner join KPI k on k.MaKPI = p.MaKPI where p.MaPK = '"+ Frm_Login.MaPK +"' and p.TruongPK = 'true' and p.CongViecCaNhan = 'true' and p.MaPhieuKPI = '"+ maphieukpi +"'";
+            msql = "SELECT p.MaKPI, k.NoiDung ,p.TrongSoKPIBV FROM [QuanLyKPI].[dbo].[PhieuKPITongHop] p inner join KPI k on k.MaKPI = p.MaKPI where p.MaPK = '"+ Frm_Login.MaPK + "' and p.TruongPK = 'false' and p.CongViecCaNhan = 'true' and p.MaPhieuKPI = '" + maphieukpi +"'";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "KPI");
             dgvCN.DataSource = dt;
         }
@@ -196,10 +194,10 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
-            msql = "insert into KPI_CaNhan ([MaPhieuKPI],[MaNhanVien],[NgayTaoCaNhan],[TrangThai]) values ('" + maphieukpi + "','" + Frm_Login.MaNV + "', GETDATE(),0)";
+            msql = "insert into KPI_CaNhan ([MaPhieuKPI],[MaNhanVien],[NgayTaoCaNhan],[TrangThai],QuyTacUngXu) values ('" + maphieukpi + "','" + Frm_Login.MaNV + "', GETDATE(),0,N'"+ txtQTUXHT.Text + "')";
             comm.RunSQL(mconnectstring, msql);
 
-            msql = "select MaKPICN from KPI_CaNhan where MaNhanVien = '"+ Frm_Login.MaNV + "' and CONVERT(date, NgayTaoCaNhan, 23) = CONVERT(date, GETDATE(), 23) and TrangThai = 0 and MaPhieuKPI = '" + maphieukpi +"'";
+            msql = "select MaKPICN from KPI_CaNhan where MaNhanVien = '"+ Frm_Login.MaNV + "' and CONVERT(VARCHAR, NgayTaoCaNhan, 112) = CONVERT(VARCHAR, GETDATE(), 112) and TrangThai = 0 and MaPhieuKPI = '" + maphieukpi +"'";
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             string makpicn = dtt.Rows[0]["MaKPICN"].ToString();
 
@@ -217,37 +215,44 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnExel_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            app.Visible = true;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            for (int i = 1; i < dgvHT.Columns.Count + 1; i++)
-            {
-                worksheet.Cells[1, i] = dgvHT.Columns[i - 1].HeaderText;
-            }
-            for (int i = 0; i < dgvHT.Rows.Count; i++)
-            {
-                for (int j = 0; j < dgvHT.Columns.Count; j++)
-                {
-                    if (dgvHT.Rows[i].Cells[j].Value != null)
-                    {
-                        worksheet.Cells[i + 2, j + 1] = dgvHT.Rows[i].Cells[j].Value.ToString();
-                    }
-                    else
-                    {
-                        worksheet.Cells[i + 2, j + 1] = "";
-                    }
-                }
-            }
+            //if (dgvHT.Rows.Count > 0)
+            //{
 
+            //    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+            //    xcelApp.Application.Workbooks.Add(Type.Missing);
+            //    Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)xcelApp.ActiveSheet;
 
-            //// Thiết lập tiêu đề cho bảng
-            //worksheet.Cells[1, 1].Value = "Họ và tên";
-            //worksheet.Cells[1, 2].Value = "Chức danh";
-            //worksheet.Cells[1, 3].Value = "Mã nhân viên";
-            //worksheet.Cells[1, 4].Value = "Khoa Phòng Bộ phận";
+            //    //Microsoft.Office.Interop.Excel.Range headerRange = worksheet.Range[worksheet.Cells[dataGridView.Rows.Count, dataGridView.Columns.Count ],worksheet.Cells[dataGridView.Rows.Count + 1, dataGridView.Columns.Count+1]];
+            //    //headerRange.Merge();
+
+            //    for (int i = 1; i < dgvHT.Columns.Count + 1; i++)
+            //    {
+            //        xcelApp.Cells[2, i] = dgvHT.Columns[i - 1].HeaderText;
+            //    }
+
+            //    for (int i = 0; i < dgvHT.Rows.Count; i++)
+            //    {
+            //        for (int j = 0; j < dgvHT.Columns.Count; j++)
+            //        {
+            //            xcelApp.Cells[i + 2, j + 1] = dgvHT.Rows[i].Cells[j].Value.ToString();
+            //        }
+            //    }
+            //    // Tạo dòng tổng
+            //    int totalRow = dgvHT.Rows.Count + 2;
+            //    Microsoft.Office.Interop.Excel.Range totalRange = worksheet.Range[worksheet.Cells[totalRow, 3], worksheet.Cells[totalRow, dgvHT.Columns.Count - 1]];
+            //    totalRange.Merge();
+            //    totalRange.Value = "Tổng";
+            //    // Tạo dòng Quy tắc ứng sử
+            //    totalRange = worksheet.Range[worksheet.Cells[1, 3], worksheet.Cells[1, 2]];
+            //    totalRange.Merge();
+            //    totalRange.Value = "Quy Tắc Ứng Xử";
+
+            //    xcelApp.Columns.AutoFit();
+            //    xcelApp.Visible = true;
+            //}
+
+            copyDataCNtoCN2();
+
         }
     }
 }

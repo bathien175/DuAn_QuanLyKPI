@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dgvCN = new System.Windows.Forms.DataGridView();
+            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btncopyDataBVtoTC = new System.Windows.Forms.Button();
             this.btnSelectAllBVTC = new System.Windows.Forms.Button();
@@ -71,6 +75,9 @@
             this.pnTong = new System.Windows.Forms.Panel();
             this.pnTongScroll = new System.Windows.Forms.Panel();
             this.dgvHT = new System.Windows.Forms.DataGridView();
+            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel32 = new System.Windows.Forms.Panel();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
@@ -97,13 +104,7 @@
             this.svgImageCollection1 = new DevExpress.Utils.SvgImageCollection(this.components);
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
-            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCN)).BeginInit();
             this.panel2.SuspendLayout();
@@ -166,6 +167,35 @@
             this.dgvCN.Size = new System.Drawing.Size(1350, 200);
             this.dgvCN.TabIndex = 7;
             // 
+            // MaKPI
+            // 
+            this.MaKPI.DataPropertyName = "MaKPI";
+            this.MaKPI.HeaderText = "Mã KPI";
+            this.MaKPI.Name = "MaKPI";
+            this.MaKPI.ReadOnly = true;
+            this.MaKPI.Visible = false;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDung.DataPropertyName = "NoiDung";
+            this.NoiDung.HeaderText = "Nội Dung";
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.ReadOnly = true;
+            // 
+            // TrongSo
+            // 
+            this.TrongSo.DataPropertyName = "TrongSoKPIBV";
+            this.TrongSo.HeaderText = "Trọng Số";
+            this.TrongSo.Name = "TrongSo";
+            // 
+            // Chon
+            // 
+            this.Chon.FalseValue = "false";
+            this.Chon.HeaderText = "Chọn";
+            this.Chon.Name = "Chon";
+            this.Chon.TrueValue = "true";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btncopyDataBVtoTC);
@@ -174,8 +204,8 @@
             this.panel2.Controls.Add(this.btnClearTC);
             this.panel2.Controls.Add(this.btnCoppyAllBVtoTC);
             this.panel2.Controls.Add(this.btnTiepTucTaiChinh);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 200);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 408);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1350, 51);
             this.panel2.TabIndex = 3;
@@ -276,9 +306,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel27.Controls.Add(this.dgvCN2);
-            this.panel27.Location = new System.Drawing.Point(0, 257);
+            this.panel27.Location = new System.Drawing.Point(0, 206);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(1350, 202);
+            this.panel27.Size = new System.Drawing.Size(1350, 253);
             this.panel27.TabIndex = 1;
             // 
             // dgvCN2
@@ -295,7 +325,7 @@
             this.dgvCN2.Location = new System.Drawing.Point(0, 0);
             this.dgvCN2.Name = "dgvCN2";
             this.dgvCN2.RowTemplate.Height = 30;
-            this.dgvCN2.Size = new System.Drawing.Size(1350, 202);
+            this.dgvCN2.Size = new System.Drawing.Size(1350, 253);
             this.dgvCN2.TabIndex = 7;
             // 
             // MaPhieuKPI2
@@ -600,6 +630,24 @@
             this.dgvHT.RowTemplate.Height = 30;
             this.dgvHT.Size = new System.Drawing.Size(1350, 398);
             this.dgvHT.TabIndex = 8;
+            // 
+            // MaKPIHT
+            // 
+            this.MaKPIHT.HeaderText = "Mã KPI";
+            this.MaKPIHT.Name = "MaKPIHT";
+            this.MaKPIHT.ReadOnly = true;
+            this.MaKPIHT.Visible = false;
+            // 
+            // NoiDungHT
+            // 
+            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDungHT.HeaderText = "Nội dung";
+            this.NoiDungHT.Name = "NoiDungHT";
+            // 
+            // TrongSoHTHT
+            // 
+            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
+            this.TrongSoHTHT.Name = "TrongSoHTHT";
             // 
             // panel32
             // 
@@ -918,53 +966,6 @@
             // 
             this.excelDataSource1.Name = "excelDataSource1";
             // 
-            // MaKPI
-            // 
-            this.MaKPI.DataPropertyName = "MaKPI";
-            this.MaKPI.HeaderText = "Mã KPI";
-            this.MaKPI.Name = "MaKPI";
-            this.MaKPI.ReadOnly = true;
-            this.MaKPI.Visible = false;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDung.DataPropertyName = "NoiDung";
-            this.NoiDung.HeaderText = "Nội Dung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.ReadOnly = true;
-            // 
-            // TrongSo
-            // 
-            this.TrongSo.DataPropertyName = "TrongSoKPIBV";
-            this.TrongSo.HeaderText = "Trọng Số";
-            this.TrongSo.Name = "TrongSo";
-            // 
-            // Chon
-            // 
-            this.Chon.FalseValue = "false";
-            this.Chon.HeaderText = "Chọn";
-            this.Chon.Name = "Chon";
-            this.Chon.TrueValue = "true";
-            // 
-            // MaKPIHT
-            // 
-            this.MaKPIHT.HeaderText = "Mã KPI";
-            this.MaKPIHT.Name = "MaKPIHT";
-            this.MaKPIHT.ReadOnly = true;
-            this.MaKPIHT.Visible = false;
-            // 
-            // NoiDungHT
-            // 
-            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDungHT.HeaderText = "Nội dung";
-            this.NoiDungHT.Name = "NoiDungHT";
-            // 
-            // TrongSoHTHT
-            // 
-            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
-            this.TrongSoHTHT.Name = "TrongSoHTHT";
-            // 
             // Frm_A78
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1085,5 +1086,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPIHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDungHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHTHT;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
