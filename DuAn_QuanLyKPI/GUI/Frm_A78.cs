@@ -80,7 +80,6 @@ namespace DuAn_QuanLyKPI.GUI
                     dgvCN2.Rows[n].Cells["TrongSoBV"].Value = dgvCN.Rows[i].Cells["TrongSo"].Value.ToString();
                     dgvCN2.Rows[n].Cells["MaKPI2"].Value = dgvCN.Rows[i].Cells["MaKPI"].Value.ToString();
                 }
-                
             }
         }
 
@@ -252,6 +251,26 @@ namespace DuAn_QuanLyKPI.GUI
             //}
 
             copyDataCNtoCN2();
+
+        }
+
+        private void dgvCN_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DataGridViewColumn clickedColumn = dgvCN.Columns[e.ColumnIndex];
+                if (clickedColumn != null)
+                {
+                    for (int i = 0; i < dgvCN.Rows.Count; i++)
+                    {
+                        dgvCN.Rows[i].Cells["Chon"].Value = true;
+                    }
+                }
+            }
+        }
+
+        private void dgvCN2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
