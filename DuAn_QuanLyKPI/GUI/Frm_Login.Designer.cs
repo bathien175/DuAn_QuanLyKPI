@@ -89,7 +89,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 29);
             this.txtUsername.TabIndex = 5;
-            this.txtUsername.Text = "phuc28";
+            this.txtUsername.Text = "quyen";
             this.txtUsername.xCoTimMoRong = false;
             this.txtUsername.xDataGrid = null;
             this.txtUsername.xField_Key = "";

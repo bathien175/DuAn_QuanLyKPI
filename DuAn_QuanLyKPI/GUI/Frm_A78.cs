@@ -27,25 +27,32 @@ namespace DuAn_QuanLyKPI.GUI
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
-        private string maphieukpi;
+        private string maphieukpikp;
+        private string MaQuyen;
+        Timer updateTimer;
 
         public Frm_A78()
         {
             InitializeComponent();
             LoadThongTinNhanVien();
             LoadDB_MucTieu();
-            GetQuy();
-            txtQTUX.Enabled = false;
+
+            updateTimer = new Timer { Interval = 100 };
+            updateTimer.Tick += UpdateTimer_Tick;
         }
 
         private void LoadThongTinNhanVien()
         {
-            msql = "SELECT * FROM dbo.ChucDanh cd INNER JOIN dbo.NguoiDung nd ON cd.MaChucDanh = nd.MaChucDanh INNER JOIN dbo.PhongKhoa pk ON nd.MaPhongKhoa = pk.MaPK where nd.MaNV = '"+ Frm_Login.MaNV + "'";
+            msql = "SELECT * FROM dbo.ChucDanh cd " +
+                "INNER JOIN dbo.NguoiDung nd ON cd.MaChucDanh = nd.MaChucDanh " +
+                "INNER JOIN dbo.PhongKhoa pk ON nd.MaPhongKhoa = pk.MaPK " +
+                "where nd.MaNV = '"+ Frm_Login.MaNV + "'";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "NguoiDung");
 
             string TenNV = dt.Rows[0]["TenNV"].ToString();
             string TenChucDanh = dt.Rows[0]["TenChucDanh"].ToString();
             string TenPhongKhoa = dt.Rows[0]["TenPK"].ToString();
+            MaQuyen = dt.Rows[0]["MaQuyen"].ToString();
 
             txtTenNV.Text = TenNV;
             txtTenNV4.Text = TenNV;
@@ -55,21 +62,50 @@ namespace DuAn_QuanLyKPI.GUI
 
             txtKhoaPhong.Text = TenPhongKhoa;
             txtKhoaPhong4.Text = TenPhongKhoa;
+
+            DateTime currentDate = DateTime.Now;
+            int result = (currentDate.Month - 1) / 3 + 1;
+            label3.Text = "QUÝ " + result + "";
+            label5.Text = "QUÝ " + result + "";
         }
 
         private void LoadDB_MucTieu()
         {
-            msql = "select MaPhieuKPI from [TongHopBieuMauPhieuKPI] where IDBieuMau = 78 and Nam = YEAR(GETDATE()) and Quy = DATEPART(QUARTER, GETDATE())";
-            DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
-            maphieukpi = dtt.Rows[0]["MaPhieuKPI"].ToString();
+            string QuyNam = $"{(DateTime.Now.Month - 1) / 3 + 1}{DateTime.Now.Year}";
 
-            msql = "SELECT p.MaKPI, k.NoiDung ,p.TrongSoKPIBV FROM [QuanLyKPI].[dbo].[PhieuKPITongHop] p inner join KPI k on k.MaKPI = p.MaKPI where p.MaPK = '"+ Frm_Login.MaPK + "' and p.TruongPK = 'false' and p.CongViecCaNhan = 'true' and p.MaPhieuKPI = '" + maphieukpi +"'";
+            msql = "SELECT * FROM KPI_KhoaPhong " +
+                "where MaPK = 'CNTT' " +
+                "and IDBieuMau = '78' " +
+                "and QuyNam = '"+ QuyNam + "'";
+            DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
+            maphieukpikp = dtt.Rows[0]["MaPhieuKPIKP"].ToString();
+
+            msql = "SELECT A.MaKPI, B.NoiDung, A.TrongSoKPIKP FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B " +
+                "where A.MaKPI = B.MaKPI " +
+                "and A.MaPhieuKPIKP = '"+ maphieukpikp +"' " +
+                "and B.CongViecCaNhan = 'true'";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "KPI");
             dgvCN.DataSource = dt;
+
+            dgvCN.CurrentCellDirtyStateChanged += Dgv1_CurrentCellDirtyStateChanged;
+            dgvCN.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
         private void copyDataCNtoCN2()
         {
+            for (int i = 0; i < dgvCN.Rows.Count; i++)
+            {
+                foreach (DataGridViewRow row in dgvCN.Rows)
+                {
+                    if (dgvCN2.Rows[i].Cells["MaKPI2"].Value.ToString() == row.Cells["MaKPI"].Value.ToString())
+                    {
+                        int n = dgvCN.Rows.Add();
+                        dgvCN.Rows[n].Cells["TrongSoHT_temp"].Value = dgvCN2.Rows[i].Cells["TrongSoHT"].Value.ToString();
+                    }
+                }                
+            }
+
+
             dgvCN2.Rows.Clear();
             for (int i = 0; i < dgvCN.Rows.Count; i++)
             {
@@ -79,6 +115,7 @@ namespace DuAn_QuanLyKPI.GUI
                     dgvCN2.Rows[n].Cells["NoiDung2"].Value = dgvCN.Rows[i].Cells["NoiDung"].Value.ToString();
                     dgvCN2.Rows[n].Cells["TrongSoBV"].Value = dgvCN.Rows[i].Cells["TrongSo"].Value.ToString();
                     dgvCN2.Rows[n].Cells["MaKPI2"].Value = dgvCN.Rows[i].Cells["MaKPI"].Value.ToString();
+                    dgvCN2.Rows[n].Cells["TrongSoHT"].Value = dgvCN.Rows[i].Cells["TrongSoHT_temp"].Value.ToString();
                 }
             }
         }
@@ -96,14 +133,7 @@ namespace DuAn_QuanLyKPI.GUI
             }
         }
 
-        public string GetQuy()
-        {
-            DateTime currentDate = DateTime.Now;
-            int result = (currentDate.Month - 1) / 3 + 1;
-            label3.Text = "QUÝ " + result + "";
-            label5.Text = "QUÝ " + result + "";
-            return result.ToString();
-        }
+        
 
         private int SumTrongSo()
         {
@@ -117,6 +147,17 @@ namespace DuAn_QuanLyKPI.GUI
             }
             return sum;
         }
+
+        private void Dgv1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            dgvCN.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            copyDataCNtoCN2();
+        }
+
         private void btnClearTC_Click(object sender, EventArgs e)
         {
             if (ev.QFrmThongBao_YesNo("Bạn có thật sự muốn xóa Form Nhập này không?"))
@@ -175,7 +216,7 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 ev.QFrmThongBao("Trọng số lớn hơn 100% !");
             }
-            tabMucTieuKhoaPhong.SelectTab(1);
+            tabMucTieuKhoaPhong.SelectTab(3);
 
             txtQTUXHT.Text = txtQTUX.Text;
             copyDataCNtoHT();
@@ -193,23 +234,23 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
-            msql = "insert into KPI_CaNhan ([MaPhieuKPI],[MaNhanVien],[NgayTaoCaNhan],[TrangThai],QuyTacUngXu) values ('" + maphieukpi + "','" + Frm_Login.MaNV + "', GETDATE(),0,N'"+ txtQTUXHT.Text + "')";
-            comm.RunSQL(mconnectstring, msql);
+            //msql = "insert into KPI_CaNhan ([MaPhieuKPI],[MaNhanVien],[NgayTaoCaNhan],[TrangThai],QuyTacUngXu) values ('" + maphieukpi + "','" + Frm_Login.MaNV + "', GETDATE(),0,N'"+ txtQTUXHT.Text + "')";
+            //comm.RunSQL(mconnectstring, msql);
 
-            msql = "select MaKPICN from KPI_CaNhan where MaNhanVien = '"+ Frm_Login.MaNV + "' and CONVERT(VARCHAR, NgayTaoCaNhan, 112) = CONVERT(VARCHAR, GETDATE(), 112) and TrangThai = 0 and MaPhieuKPI = '" + maphieukpi +"'";
-            DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
-            string makpicn = dtt.Rows[0]["MaKPICN"].ToString();
+            //msql = "select MaKPICN from KPI_CaNhan where MaNhanVien = '"+ Frm_Login.MaNV + "' and CONVERT(VARCHAR, NgayTaoCaNhan, 112) = CONVERT(VARCHAR, GETDATE(), 112) and TrangThai = 0 and MaPhieuKPI = '" + maphieukpi +"'";
+            //DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
+            //string makpicn = dtt.Rows[0]["MaKPICN"].ToString();
 
 
-            for (int i = 0; i < dgvHT.Rows.Count; i++)
-            {
-                string makpi = dgvHT.Rows[i].Cells["MaKPIHT"].Value.ToString();
-                string trongso = dgvHT.Rows[i].Cells["TrongSoHTHT"].Value.ToString();
+            //for (int i = 0; i < dgvHT.Rows.Count; i++)
+            //{
+            //    string makpi = dgvHT.Rows[i].Cells["MaKPIHT"].Value.ToString();
+            //    string trongso = dgvHT.Rows[i].Cells["TrongSoHTHT"].Value.ToString();
 
-                msql = "INSERT INTO [dbo].[ChiTietTieuChiMucTieuCaNhan] ([MaKPI],[ChiTieuHT],[TrongSoKPIHT],[MaKPICN]) VALUES ("+ makpi +", "+ dgvCN2.Rows[i].Cells["TrongSoBV"].Value.ToString() + ", "+ trongso + ", "+ makpicn + ")";
-                comm.RunSQL(mconnectstring, msql);
-            }
-            ev.QFrmThongBao("Chúc mừng bạn đã hoàn thành KPI Cá nhân !");
+            //    msql = "INSERT INTO [dbo].[ChiTietTieuChiMucTieuCaNhan] ([MaKPI],[ChiTieuHT],[TrongSoKPIHT],[MaKPICN]) VALUES ("+ makpi +", "+ dgvCN2.Rows[i].Cells["TrongSoBV"].Value.ToString() + ", "+ trongso + ", "+ makpicn + ")";
+            //    comm.RunSQL(mconnectstring, msql);
+            //}
+            //ev.QFrmThongBao("Chúc mừng bạn đã hoàn thành KPI Cá nhân !");
         }
 
         private void btnExel_Click(object sender, EventArgs e)
@@ -256,22 +297,60 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void dgvCN_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.ColumnIndex == 0)
             {
-                DataGridViewColumn clickedColumn = dgvCN.Columns[e.ColumnIndex];
-                if (clickedColumn != null)
+                dgvCN2.Rows.Clear();
+                for (int i = 0; i < dgvCN.Rows.Count; i++)
                 {
-                    for (int i = 0; i < dgvCN.Rows.Count; i++)
-                    {
-                        dgvCN.Rows[i].Cells["Chon"].Value = true;
-                    }
+                    dgvCN.Rows[i].Cells["Chon"].Value = "true";
                 }
+                copyDataCNtoCN2();
             }
         }
 
-        private void dgvCN2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void dgvCN2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                dgvCN2.Rows.Clear();
+                for (int i = 0; i < dgvCN.Rows.Count; i++)
+                {
+                    dgvCN.Rows[i].Cells["Chon"].Value = false;
+                }
+                copyDataCNtoCN2();
+            }
+        }
+
+        private void dgvCN_MouseHover(object sender, EventArgs e)
+        {
+            updateTimer.Start();
+        }
+
+        private void dgvCN_MouseLeave(object sender, EventArgs e)
+        {
+            updateTimer.Stop();
+        }
+
+        private void dgvCN2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvCN2.Rows.Count && e.ColumnIndex == 0)
+            {
+                foreach (DataGridViewRow row in dgvCN.Rows)
+                {
+                    if (dgvCN2.Rows[e.RowIndex].Cells["MaKPI2"].Value.ToString() == row.Cells["MaKPI"].Value.ToString())
+                    {
+                        row.Cells["Chon"].Value = false;
+                        break;
+                    }
+                }
+                copyDataCNtoCN2();
+            }
+        }
+
+        private void dgvCN2_MouseHover(object sender, EventArgs e)
+        {
+            updateTimer.Stop();
         }
     }
 }
