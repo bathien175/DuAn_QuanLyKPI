@@ -16,6 +16,8 @@ namespace DuAn_QuanLyKPI.GUI
 
         public static string MaNV;
         public static string MaPK;
+        public static string MaCD;
+
 
         public Frm_Login()
         {
@@ -30,6 +32,7 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 MaNV = dt.Rows[0]["MaNV"].ToString();
                 MaPK = dt.Rows[0]["MaPhongKhoa"].ToString();
+                MaCD = dt.Rows[0]["MaChucDanh"].ToString();
 
                 Frm_A78 f = new Frm_A78();
                 f.Show();
