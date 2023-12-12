@@ -12,7 +12,6 @@ namespace DuAn_QuanLyKPI.GUI
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
-        private SqlConnection conn;
 
         public static string MaNV;
         public static string MaPK;

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TabPage tabDKMTT_ThamKhao;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TabPage tabDKMTT_KPI;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_A78));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -46,12 +46,19 @@
             this.cChonMTKPI1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cMaKPIMTKPI1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNoiDungMTKPI1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoMTKPI1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnQLtabDKMTTKPI = new System.Windows.Forms.Button();
             this.btnTiepTucDKMTTKPI = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dgvCN = new System.Windows.Forms.DataGridView();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHT_temp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDangKiThem = new System.Windows.Forms.Button();
             this.txtTongTrongSo = new System.Windows.Forms.TextBox();
@@ -99,7 +106,12 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDKTDGV1 = new System.Windows.Forms.Panel();
             this.dgvDKMTT_KP1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDKTbottom = new System.Windows.Forms.Panel();
+            this.btnQLtabMTTKP = new System.Windows.Forms.Button();
             this.btnTTpnDKTPK = new System.Windows.Forms.Button();
             this.panelDKTTop = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -108,8 +120,14 @@
             this.pnTongScroll = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHT = new System.Windows.Forms.DataGridView();
+            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelHTDGV2 = new System.Windows.Forms.Panel();
             this.dgvHTDGV2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNoiDungMTTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoMTTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel32 = new System.Windows.Forms.Panel();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
@@ -137,31 +155,13 @@
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHT_temp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnQLtabDKMTTKPI = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNoiDungMTTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrongSoMTTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cXoaMTTKPI2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cXoaMTTKPI2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cMaKPIMTKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNoiDungMTTKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTrongSoMTTKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTrongSoHTMTTKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            tabDKMTT_ThamKhao = new System.Windows.Forms.TabPage();
-            tabDKMTT_ThamKhao.SuspendLayout();
+            tabDKMTT_KPI = new System.Windows.Forms.TabPage();
+            tabDKMTT_KPI.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -206,15 +206,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar2)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabDKMTT_ThamKhao
+            // tabDKMTT_KPI
             // 
-            tabDKMTT_ThamKhao.Controls.Add(this.panel4);
-            tabDKMTT_ThamKhao.Location = new System.Drawing.Point(4, 22);
-            tabDKMTT_ThamKhao.Name = "tabDKMTT_ThamKhao";
-            tabDKMTT_ThamKhao.Size = new System.Drawing.Size(1356, 710);
-            tabDKMTT_ThamKhao.TabIndex = 9;
-            tabDKMTT_ThamKhao.Text = "Đăng kí mục tiêu thêm tham khảo";
-            tabDKMTT_ThamKhao.UseVisualStyleBackColor = true;
+            tabDKMTT_KPI.Controls.Add(this.panel4);
+            tabDKMTT_KPI.Location = new System.Drawing.Point(4, 22);
+            tabDKMTT_KPI.Name = "tabDKMTT_KPI";
+            tabDKMTT_KPI.Size = new System.Drawing.Size(1356, 710);
+            tabDKMTT_KPI.TabIndex = 9;
+            tabDKMTT_KPI.Text = "Đăng kí mục tiêu thêm tham khảo";
+            tabDKMTT_KPI.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -252,8 +252,7 @@
             this.dgvDKMTT_KPI2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDKMTT_KPI2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cXoaMTTKPI2,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
+            this.cMaKPIMTKPI2,
             this.cNoiDungMTTKPI2,
             this.cTrongSoMTTKPI2,
             this.cTrongSoHTMTTKPI2});
@@ -279,21 +278,22 @@
             this.dgvDKMTT_KPI1.AllowDrop = true;
             this.dgvDKMTT_KPI1.AllowUserToAddRows = false;
             this.dgvDKMTT_KPI1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvDKMTT_KPI1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDKMTT_KPI1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvDKMTT_KPI1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDKMTT_KPI1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDKMTT_KPI1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDKMTT_KPI1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cChonMTKPI1,
             this.cMaKPIMTKPI1,
-            this.cNoiDungMTKPI1});
+            this.cNoiDungMTKPI1,
+            this.cTrongSoMTKPI1});
             this.dgvDKMTT_KPI1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDKMTT_KPI1.Location = new System.Drawing.Point(0, 0);
             this.dgvDKMTT_KPI1.Name = "dgvDKMTT_KPI1";
@@ -302,6 +302,7 @@
             this.dgvDKMTT_KPI1.Size = new System.Drawing.Size(1356, 233);
             this.dgvDKMTT_KPI1.TabIndex = 8;
             this.dgvDKMTT_KPI1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDKMTT_KPI1_CellClick);
+            this.dgvDKMTT_KPI1.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvDKMTT_KPI1_CurrentCellDirtyStateChanged);
             this.dgvDKMTT_KPI1.MouseLeave += new System.EventHandler(this.dgvDKMTT_KPI1_MouseLeave);
             // 
             // cChonMTKPI1
@@ -327,6 +328,12 @@
             this.cNoiDungMTKPI1.Name = "cNoiDungMTKPI1";
             this.cNoiDungMTKPI1.ReadOnly = true;
             // 
+            // cTrongSoMTKPI1
+            // 
+            this.cTrongSoMTKPI1.HeaderText = "Trọng số mục tiêu";
+            this.cTrongSoMTKPI1.Name = "cTrongSoMTKPI1";
+            this.cTrongSoMTKPI1.ReadOnly = true;
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.btnQLtabDKMTTKPI);
@@ -336,6 +343,20 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1356, 55);
             this.panel9.TabIndex = 1;
+            // 
+            // btnQLtabDKMTTKPI
+            // 
+            this.btnQLtabDKMTTKPI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQLtabDKMTTKPI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnQLtabDKMTTKPI.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLtabDKMTTKPI.ForeColor = System.Drawing.Color.Black;
+            this.btnQLtabDKMTTKPI.Location = new System.Drawing.Point(1071, 0);
+            this.btnQLtabDKMTTKPI.Name = "btnQLtabDKMTTKPI";
+            this.btnQLtabDKMTTKPI.Size = new System.Drawing.Size(124, 55);
+            this.btnQLtabDKMTTKPI.TabIndex = 18;
+            this.btnQLtabDKMTTKPI.Text = "QUAY LẠI";
+            this.btnQLtabDKMTTKPI.UseVisualStyleBackColor = false;
+            this.btnQLtabDKMTTKPI.Click += new System.EventHandler(this.btnQLtabDKMTTKPI_Click);
             // 
             // btnTiepTucDKMTTKPI
             // 
@@ -386,16 +407,16 @@
             this.dgvCN.AllowDrop = true;
             this.dgvCN.AllowUserToAddRows = false;
             this.dgvCN.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Chon,
@@ -413,6 +434,41 @@
             this.dgvCN.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCN_ColumnHeaderMouseClick);
             this.dgvCN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCN_MouseClick);
             this.dgvCN.MouseLeave += new System.EventHandler(this.dgvCN_MouseLeave);
+            // 
+            // Chon
+            // 
+            this.Chon.HeaderText = "Chọn";
+            this.Chon.Name = "Chon";
+            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Chon.TrueValue = "true";
+            // 
+            // MaKPI
+            // 
+            this.MaKPI.DataPropertyName = "MaKPI";
+            this.MaKPI.HeaderText = "Mã KPI";
+            this.MaKPI.Name = "MaKPI";
+            this.MaKPI.ReadOnly = true;
+            this.MaKPI.Visible = false;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDung.DataPropertyName = "NoiDung";
+            this.NoiDung.HeaderText = "Nội Dung";
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.ReadOnly = true;
+            // 
+            // TrongSo
+            // 
+            this.TrongSo.DataPropertyName = "TrongSoKPIKP";
+            this.TrongSo.HeaderText = "Trọng Số";
+            this.TrongSo.Name = "TrongSo";
+            // 
+            // TrongSoHT_temp
+            // 
+            this.TrongSoHT_temp.HeaderText = "Trọng Số Nhập Vào DGVCN2";
+            this.TrongSoHT_temp.Name = "TrongSoHT_temp";
+            this.TrongSoHT_temp.Visible = false;
             // 
             // panel2
             // 
@@ -786,8 +842,8 @@
             // tabMucTieuKhoaPhong
             // 
             this.tabMucTieuKhoaPhong.Controls.Add(this.tabCaNhan);
+            this.tabMucTieuKhoaPhong.Controls.Add(tabDKMTT_KPI);
             this.tabMucTieuKhoaPhong.Controls.Add(this.tabDKMTT_KhoaPhong);
-            this.tabMucTieuKhoaPhong.Controls.Add(tabDKMTT_ThamKhao);
             this.tabMucTieuKhoaPhong.Controls.Add(this.tabHoanThanh);
             this.tabMucTieuKhoaPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMucTieuKhoaPhong.Location = new System.Drawing.Point(0, 0);
@@ -907,16 +963,16 @@
             // 
             this.dgvDKMTT_KP1.AllowDrop = true;
             this.dgvDKMTT_KP1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvDKMTT_KP1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDKMTT_KP1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvDKMTT_KP1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDKMTT_KP1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDKMTT_KP1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDKMTT_KP1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1,
@@ -931,15 +987,57 @@
             this.dgvDKMTT_KP1.Size = new System.Drawing.Size(1350, 233);
             this.dgvDKMTT_KP1.TabIndex = 8;
             // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.FalseValue = "false";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.TrueValue = "true";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaKPI";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã KPI";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "NoiDung";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nội Dung";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TrongSoKPIBV";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Trọng Số";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
             // panelDKTbottom
             // 
-            this.panelDKTbottom.Controls.Add(this.button1);
+            this.panelDKTbottom.Controls.Add(this.btnQLtabMTTKP);
             this.panelDKTbottom.Controls.Add(this.btnTTpnDKTPK);
             this.panelDKTbottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDKTbottom.Location = new System.Drawing.Point(0, 652);
             this.panelDKTbottom.Name = "panelDKTbottom";
             this.panelDKTbottom.Size = new System.Drawing.Size(1350, 52);
             this.panelDKTbottom.TabIndex = 1;
+            // 
+            // btnQLtabMTTKP
+            // 
+            this.btnQLtabMTTKP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQLtabMTTKP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnQLtabMTTKP.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLtabMTTKP.ForeColor = System.Drawing.Color.Black;
+            this.btnQLtabMTTKP.Location = new System.Drawing.Point(1071, 0);
+            this.btnQLtabMTTKP.Name = "btnQLtabMTTKP";
+            this.btnQLtabMTTKP.Size = new System.Drawing.Size(124, 55);
+            this.btnQLtabMTTKP.TabIndex = 19;
+            this.btnQLtabMTTKP.Text = "QUAY LẠI";
+            this.btnQLtabMTTKP.UseVisualStyleBackColor = false;
+            this.btnQLtabMTTKP.Click += new System.EventHandler(this.btnQLtabMTTKP_Click);
             // 
             // btnTTpnDKTPK
             // 
@@ -1033,6 +1131,26 @@
             this.dgvHT.Size = new System.Drawing.Size(1350, 208);
             this.dgvHT.TabIndex = 8;
             // 
+            // MaKPIHT
+            // 
+            this.MaKPIHT.HeaderText = "Mã KPI";
+            this.MaKPIHT.Name = "MaKPIHT";
+            this.MaKPIHT.ReadOnly = true;
+            this.MaKPIHT.Visible = false;
+            // 
+            // NoiDungHT
+            // 
+            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDungHT.HeaderText = "Nội dung";
+            this.NoiDungHT.Name = "NoiDungHT";
+            this.NoiDungHT.ReadOnly = true;
+            // 
+            // TrongSoHTHT
+            // 
+            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
+            this.TrongSoHTHT.Name = "TrongSoHTHT";
+            this.TrongSoHTHT.ReadOnly = true;
+            // 
             // panelHTDGV2
             // 
             this.panelHTDGV2.Controls.Add(this.dgvHTDGV2);
@@ -1056,6 +1174,26 @@
             this.dgvHTDGV2.RowTemplate.Height = 30;
             this.dgvHTDGV2.Size = new System.Drawing.Size(1350, 190);
             this.dgvHTDGV2.TabIndex = 9;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Mã KPI";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // cNoiDungMTTHT
+            // 
+            this.cNoiDungMTTHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNoiDungMTTHT.HeaderText = "Nội dung";
+            this.cNoiDungMTTHT.Name = "cNoiDungMTTHT";
+            this.cNoiDungMTTHT.ReadOnly = true;
+            // 
+            // cTrongSoMTTHT
+            // 
+            this.cTrongSoMTTHT.HeaderText = "Trọng số Hoàn Thành";
+            this.cTrongSoMTTHT.Name = "cTrongSoMTTHT";
+            this.cTrongSoMTTHT.ReadOnly = true;
             // 
             // panel32
             // 
@@ -1374,163 +1512,27 @@
             // 
             this.excelDataSource1.Name = "excelDataSource1";
             // 
-            // Chon
-            // 
-            this.Chon.HeaderText = "Chọn";
-            this.Chon.Name = "Chon";
-            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Chon.TrueValue = "true";
-            // 
-            // MaKPI
-            // 
-            this.MaKPI.DataPropertyName = "MaKPI";
-            this.MaKPI.HeaderText = "Mã KPI";
-            this.MaKPI.Name = "MaKPI";
-            this.MaKPI.ReadOnly = true;
-            this.MaKPI.Visible = false;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDung.DataPropertyName = "NoiDung";
-            this.NoiDung.HeaderText = "Nội Dung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.ReadOnly = true;
-            // 
-            // TrongSo
-            // 
-            this.TrongSo.DataPropertyName = "TrongSoKPIKP";
-            this.TrongSo.HeaderText = "Trọng Số";
-            this.TrongSo.Name = "TrongSo";
-            // 
-            // TrongSoHT_temp
-            // 
-            this.TrongSoHT_temp.HeaderText = "Trọng Số Nhập Vào DGVCN2";
-            this.TrongSoHT_temp.Name = "TrongSoHT_temp";
-            this.TrongSoHT_temp.Visible = false;
-            // 
-            // btnQLtabDKMTTKPI
-            // 
-            this.btnQLtabDKMTTKPI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQLtabDKMTTKPI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnQLtabDKMTTKPI.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLtabDKMTTKPI.ForeColor = System.Drawing.Color.Black;
-            this.btnQLtabDKMTTKPI.Location = new System.Drawing.Point(1071, 0);
-            this.btnQLtabDKMTTKPI.Name = "btnQLtabDKMTTKPI";
-            this.btnQLtabDKMTTKPI.Size = new System.Drawing.Size(124, 55);
-            this.btnQLtabDKMTTKPI.TabIndex = 18;
-            this.btnQLtabDKMTTKPI.Text = "QUAY LẠI";
-            this.btnQLtabDKMTTKPI.UseVisualStyleBackColor = false;
-            this.btnQLtabDKMTTKPI.Click += new System.EventHandler(this.btnQLtabDKMTTKPI_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(1071, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 55);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "QUAY LẠI";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.FalseValue = "false";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Chọn";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.TrueValue = "true";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaKPI";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã KPI";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "NoiDung";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nội Dung";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TrongSoKPIBV";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Trọng Số";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // MaKPIHT
-            // 
-            this.MaKPIHT.HeaderText = "Mã KPI";
-            this.MaKPIHT.Name = "MaKPIHT";
-            this.MaKPIHT.ReadOnly = true;
-            this.MaKPIHT.Visible = false;
-            // 
-            // NoiDungHT
-            // 
-            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDungHT.HeaderText = "Nội dung";
-            this.NoiDungHT.Name = "NoiDungHT";
-            this.NoiDungHT.ReadOnly = true;
-            // 
-            // TrongSoHTHT
-            // 
-            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
-            this.TrongSoHTHT.Name = "TrongSoHTHT";
-            this.TrongSoHTHT.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Mã KPI";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // cNoiDungMTTHT
-            // 
-            this.cNoiDungMTTHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cNoiDungMTTHT.HeaderText = "Nội dung";
-            this.cNoiDungMTTHT.Name = "cNoiDungMTTHT";
-            this.cNoiDungMTTHT.ReadOnly = true;
-            // 
-            // cTrongSoMTTHT
-            // 
-            this.cTrongSoMTTHT.HeaderText = "Trọng số Hoàn Thành";
-            this.cTrongSoMTTHT.Name = "cTrongSoMTTHT";
-            this.cTrongSoMTTHT.ReadOnly = true;
-            // 
             // cXoaMTTKPI2
             // 
             this.cXoaMTTKPI2.HeaderText = "Xóa";
+            this.cXoaMTTKPI2.Image = ((System.Drawing.Image)(resources.GetObject("cXoaMTTKPI2.Image")));
             this.cXoaMTTKPI2.Name = "cXoaMTTKPI2";
             this.cXoaMTTKPI2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cXoaMTTKPI2.Text = "-";
             this.cXoaMTTKPI2.Width = 50;
             // 
-            // dataGridViewTextBoxColumn12
+            // cMaKPIMTKPI2
             // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Mã Phiếu KPI";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Mã KPI";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
+            this.cMaKPIMTKPI2.HeaderText = "Mã KPI";
+            this.cMaKPIMTKPI2.Name = "cMaKPIMTKPI2";
+            this.cMaKPIMTKPI2.ReadOnly = true;
+            this.cMaKPIMTKPI2.Visible = false;
             // 
             // cNoiDungMTTKPI2
             // 
             this.cNoiDungMTTKPI2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cNoiDungMTTKPI2.HeaderText = "Nội dung";
             this.cNoiDungMTTKPI2.Name = "cNoiDungMTTKPI2";
+            this.cNoiDungMTTKPI2.ReadOnly = true;
             // 
             // cTrongSoMTTKPI2
             // 
@@ -1558,7 +1560,7 @@
             this.Controls.Add(this.stepProgressBar2);
             this.Name = "Frm_A78";
             this.Text = "Frm_A78";
-            tabDKMTT_ThamKhao.ResumeLayout(false);
+            tabDKMTT_KPI.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1705,9 +1707,6 @@
         private System.Windows.Forms.TextBox txtTongTrongSo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnDangKiThem;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cChonMTKPI1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPIMTKPI1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDungMTKPI1;
         private System.Windows.Forms.DataGridViewImageColumn cXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuKPI2;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI2;
@@ -1720,7 +1719,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT_temp;
         private System.Windows.Forms.Button btnQLtabDKMTTKPI;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnQLtabMTTKP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1731,9 +1730,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDungMTTHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMTTHT;
-        private System.Windows.Forms.DataGridViewButtonColumn cXoaMTTKPI2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cChonMTKPI1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPIMTKPI1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDungMTKPI1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMTKPI1;
+        private System.Windows.Forms.DataGridViewImageColumn cXoaMTTKPI2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPIMTKPI2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDungMTTKPI2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMTTKPI2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHTMTTKPI2;
