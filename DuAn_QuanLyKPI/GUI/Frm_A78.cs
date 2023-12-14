@@ -29,7 +29,7 @@ namespace DuAn_QuanLyKPI.GUI
         private string msql;
         private string maphieukpikp;
         Timer Time1;
-        Timer Time2;
+        Timer Time2; 
 
         public Frm_A78()
         {
