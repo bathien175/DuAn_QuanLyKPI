@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_A78));
             this.panel28 = new System.Windows.Forms.Panel();
             this.dgvCN = new System.Windows.Forms.DataGridView();
@@ -76,34 +76,21 @@
             this.panelDKT_Tong = new System.Windows.Forms.Panel();
             this.panelDKTDGV = new System.Windows.Forms.Panel();
             this.panelDKTDGV2 = new System.Windows.Forms.Panel();
-            this.dgvDKMTT_KP2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDKMTT = new System.Windows.Forms.DataGridView();
             this.panelDKTbottom = new System.Windows.Forms.Panel();
-            this.btnQLtabMTT = new System.Windows.Forms.Button();
-            this.btnTTpnDKTPK = new System.Windows.Forms.Button();
+            this.btnQLtabDKMTT = new System.Windows.Forms.Button();
+            this.txtTongTrongSoMucTieuThem = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnTTtabDKMTT = new System.Windows.Forms.Button();
             this.panelDKTTop = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.tabHoanThanh = new System.Windows.Forms.TabPage();
             this.pnTong = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.dgvHTDGV3 = new System.Windows.Forms.DataGridView();
-            this.cMaKPI_KP_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNoiDung_KP_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrongSoHT_KP_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dgvHTDGV2 = new System.Windows.Forms.DataGridView();
-            this.cMaKPI_KPI_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNoiDung_KPI_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrongSoHT_KPI_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvHTDGV1 = new System.Windows.Forms.DataGridView();
-            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel32 = new System.Windows.Forms.Panel();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
@@ -131,9 +118,16 @@
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.txtTongTrongSoMucTieuThem = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnTTtabMTT = new System.Windows.Forms.Button();
+            this.cMaKPI_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNoiDung_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoMT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoHT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cMaKPI_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNoiDung_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoHT_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCN)).BeginInit();
             this.panel2.SuspendLayout();
@@ -151,14 +145,12 @@
             this.panelDKT_Tong.SuspendLayout();
             this.panelDKTDGV.SuspendLayout();
             this.panelDKTDGV2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDKMTT_KP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDKMTT)).BeginInit();
             this.panelDKTbottom.SuspendLayout();
             this.panelDKTTop.SuspendLayout();
             this.tabHoanThanh.SuspendLayout();
             this.pnTong.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV3)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV2)).BeginInit();
             this.panel11.SuspendLayout();
@@ -184,16 +176,16 @@
             this.dgvCN.AllowDrop = true;
             this.dgvCN.AllowUserToAddRows = false;
             this.dgvCN.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Chon,
@@ -650,93 +642,90 @@
             // 
             // panelDKTDGV2
             // 
-            this.panelDKTDGV2.Controls.Add(this.dgvDKMTT_KP2);
+            this.panelDKTDGV2.Controls.Add(this.dgvDKMTT);
             this.panelDKTDGV2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDKTDGV2.Location = new System.Drawing.Point(0, 0);
             this.panelDKTDGV2.Name = "panelDKTDGV2";
             this.panelDKTDGV2.Size = new System.Drawing.Size(1350, 554);
             this.panelDKTDGV2.TabIndex = 1;
             // 
-            // dgvDKMTT_KP2
+            // dgvDKMTT
             // 
-            this.dgvDKMTT_KP2.AllowUserToAddRows = false;
-            this.dgvDKMTT_KP2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDKMTT_KP2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.dgvDKMTT_KP2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDKMTT_KP2.Location = new System.Drawing.Point(0, 0);
-            this.dgvDKMTT_KP2.Name = "dgvDKMTT_KP2";
-            this.dgvDKMTT_KP2.RowTemplate.Height = 30;
-            this.dgvDKMTT_KP2.Size = new System.Drawing.Size(1350, 554);
-            this.dgvDKMTT_KP2.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Mã KPI";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nội dung";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Trọng số Mục Tiêu";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Trọng số Hoàn Thành";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dgvDKMTT.AllowUserToAddRows = false;
+            this.dgvDKMTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDKMTT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cMaKPI_MTT,
+            this.cNoiDung_MTT,
+            this.cTrongSoMT_MTT,
+            this.cTrongSoHT_MTT});
+            this.dgvDKMTT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDKMTT.Location = new System.Drawing.Point(0, 0);
+            this.dgvDKMTT.Name = "dgvDKMTT";
+            this.dgvDKMTT.RowTemplate.Height = 30;
+            this.dgvDKMTT.Size = new System.Drawing.Size(1350, 554);
+            this.dgvDKMTT.TabIndex = 8;
             // 
             // panelDKTbottom
             // 
-            this.panelDKTbottom.Controls.Add(this.btnTTtabMTT);
+            this.panelDKTbottom.Controls.Add(this.btnQLtabDKMTT);
             this.panelDKTbottom.Controls.Add(this.txtTongTrongSoMucTieuThem);
             this.panelDKTbottom.Controls.Add(this.label9);
-            this.panelDKTbottom.Controls.Add(this.btnQLtabMTT);
-            this.panelDKTbottom.Controls.Add(this.btnTTpnDKTPK);
+            this.panelDKTbottom.Controls.Add(this.btnTTtabDKMTT);
             this.panelDKTbottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDKTbottom.Location = new System.Drawing.Point(0, 654);
             this.panelDKTbottom.Name = "panelDKTbottom";
             this.panelDKTbottom.Size = new System.Drawing.Size(1350, 50);
             this.panelDKTbottom.TabIndex = 1;
             // 
-            // btnQLtabMTT
+            // btnQLtabDKMTT
             // 
-            this.btnQLtabMTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnQLtabMTT.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnQLtabMTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLtabMTT.ForeColor = System.Drawing.Color.Black;
-            this.btnQLtabMTT.Location = new System.Drawing.Point(0, 0);
-            this.btnQLtabMTT.Name = "btnQLtabMTT";
-            this.btnQLtabMTT.Size = new System.Drawing.Size(140, 50);
-            this.btnQLtabMTT.TabIndex = 19;
-            this.btnQLtabMTT.Text = "QUAY LẠI";
-            this.btnQLtabMTT.UseVisualStyleBackColor = false;
-            this.btnQLtabMTT.Click += new System.EventHandler(this.btnQLtabMTTKP_Click);
+            this.btnQLtabDKMTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnQLtabDKMTT.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnQLtabDKMTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLtabDKMTT.ForeColor = System.Drawing.Color.Black;
+            this.btnQLtabDKMTT.Location = new System.Drawing.Point(1070, 0);
+            this.btnQLtabDKMTT.Name = "btnQLtabDKMTT";
+            this.btnQLtabDKMTT.Size = new System.Drawing.Size(140, 50);
+            this.btnQLtabDKMTT.TabIndex = 24;
+            this.btnQLtabDKMTT.Text = "QUAY LẠI";
+            this.btnQLtabDKMTT.UseVisualStyleBackColor = false;
+            this.btnQLtabDKMTT.Click += new System.EventHandler(this.btnQLtabDKMTT_Click);
             // 
-            // btnTTpnDKTPK
+            // txtTongTrongSoMucTieuThem
             // 
-            this.btnTTpnDKTPK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTTpnDKTPK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTTpnDKTPK.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTpnDKTPK.ForeColor = System.Drawing.Color.Black;
-            this.btnTTpnDKTPK.Location = new System.Drawing.Point(1210, 0);
-            this.btnTTpnDKTPK.Name = "btnTTpnDKTPK";
-            this.btnTTpnDKTPK.Size = new System.Drawing.Size(140, 50);
-            this.btnTTpnDKTPK.TabIndex = 17;
-            this.btnTTpnDKTPK.Text = "TIẾP TỤC";
-            this.btnTTpnDKTPK.UseVisualStyleBackColor = false;
-            this.btnTTpnDKTPK.Click += new System.EventHandler(this.btnTTpnDKTPK_Click);
+            this.txtTongTrongSoMucTieuThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTongTrongSoMucTieuThem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongTrongSoMucTieuThem.Location = new System.Drawing.Point(665, 9);
+            this.txtTongTrongSoMucTieuThem.Name = "txtTongTrongSoMucTieuThem";
+            this.txtTongTrongSoMucTieuThem.ReadOnly = true;
+            this.txtTongTrongSoMucTieuThem.Size = new System.Drawing.Size(204, 32);
+            this.txtTongTrongSoMucTieuThem.TabIndex = 23;
+            this.txtTongTrongSoMucTieuThem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(476, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(183, 24);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "TỔNG TRỌNG SỐ";
+            // 
+            // btnTTtabDKMTT
+            // 
+            this.btnTTtabDKMTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTTtabDKMTT.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTTtabDKMTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTTtabDKMTT.ForeColor = System.Drawing.Color.Black;
+            this.btnTTtabDKMTT.Location = new System.Drawing.Point(1210, 0);
+            this.btnTTtabDKMTT.Name = "btnTTtabDKMTT";
+            this.btnTTtabDKMTT.Size = new System.Drawing.Size(140, 50);
+            this.btnTTtabDKMTT.TabIndex = 17;
+            this.btnTTtabDKMTT.Text = "TIẾP TỤC";
+            this.btnTTtabDKMTT.UseVisualStyleBackColor = false;
+            this.btnTTtabDKMTT.Click += new System.EventHandler(this.btnTTpnDKTPK_Click);
             // 
             // panelDKTTop
             // 
@@ -784,7 +773,6 @@
             // panel3
             // 
             this.panel3.AutoScroll = true;
-            this.panel3.Controls.Add(this.panel13);
             this.panel3.Controls.Add(this.panel12);
             this.panel3.Controls.Add(this.panel11);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -792,50 +780,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1350, 412);
             this.panel3.TabIndex = 3;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.dgvHTDGV3);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 474);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1333, 237);
-            this.panel13.TabIndex = 2;
-            // 
-            // dgvHTDGV3
-            // 
-            this.dgvHTDGV3.AllowUserToAddRows = false;
-            this.dgvHTDGV3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHTDGV3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cMaKPI_KP_HT,
-            this.cNoiDung_KP_HT,
-            this.cTrongSoHT_KP_HT});
-            this.dgvHTDGV3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHTDGV3.Location = new System.Drawing.Point(0, 0);
-            this.dgvHTDGV3.Name = "dgvHTDGV3";
-            this.dgvHTDGV3.RowTemplate.Height = 30;
-            this.dgvHTDGV3.Size = new System.Drawing.Size(1333, 237);
-            this.dgvHTDGV3.TabIndex = 11;
-            // 
-            // cMaKPI_KP_HT
-            // 
-            this.cMaKPI_KP_HT.HeaderText = "Mã KPI";
-            this.cMaKPI_KP_HT.Name = "cMaKPI_KP_HT";
-            this.cMaKPI_KP_HT.ReadOnly = true;
-            this.cMaKPI_KP_HT.Visible = false;
-            // 
-            // cNoiDung_KP_HT
-            // 
-            this.cNoiDung_KP_HT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cNoiDung_KP_HT.HeaderText = "Nội dung KPI cá nhân từ khoa phòng";
-            this.cNoiDung_KP_HT.Name = "cNoiDung_KP_HT";
-            this.cNoiDung_KP_HT.ReadOnly = true;
-            // 
-            // cTrongSoHT_KP_HT
-            // 
-            this.cTrongSoHT_KP_HT.HeaderText = "Trọng số Hoàn Thành";
-            this.cTrongSoHT_KP_HT.Name = "cTrongSoHT_KP_HT";
-            this.cTrongSoHT_KP_HT.ReadOnly = true;
             // 
             // panel12
             // 
@@ -851,35 +795,15 @@
             this.dgvHTDGV2.AllowUserToAddRows = false;
             this.dgvHTDGV2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHTDGV2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cMaKPI_KPI_HT,
-            this.cNoiDung_KPI_HT,
-            this.cTrongSoHT_KPI_HT});
+            this.cMaKPI_MTT_HT,
+            this.cNoiDung_MTT_HT,
+            this.cTrongSoHT_MTT_HT});
             this.dgvHTDGV2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHTDGV2.Location = new System.Drawing.Point(0, 0);
             this.dgvHTDGV2.Name = "dgvHTDGV2";
             this.dgvHTDGV2.RowTemplate.Height = 30;
             this.dgvHTDGV2.Size = new System.Drawing.Size(1333, 237);
             this.dgvHTDGV2.TabIndex = 10;
-            // 
-            // cMaKPI_KPI_HT
-            // 
-            this.cMaKPI_KPI_HT.HeaderText = "Mã KPI";
-            this.cMaKPI_KPI_HT.Name = "cMaKPI_KPI_HT";
-            this.cMaKPI_KPI_HT.ReadOnly = true;
-            this.cMaKPI_KPI_HT.Visible = false;
-            // 
-            // cNoiDung_KPI_HT
-            // 
-            this.cNoiDung_KPI_HT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cNoiDung_KPI_HT.HeaderText = "Nội dung ngân hàng KPI tham khảo";
-            this.cNoiDung_KPI_HT.Name = "cNoiDung_KPI_HT";
-            this.cNoiDung_KPI_HT.ReadOnly = true;
-            // 
-            // cTrongSoHT_KPI_HT
-            // 
-            this.cTrongSoHT_KPI_HT.HeaderText = "Trọng số Hoàn Thành";
-            this.cTrongSoHT_KPI_HT.Name = "cTrongSoHT_KPI_HT";
-            this.cTrongSoHT_KPI_HT.ReadOnly = true;
             // 
             // panel11
             // 
@@ -904,26 +828,6 @@
             this.dgvHTDGV1.RowTemplate.Height = 30;
             this.dgvHTDGV1.Size = new System.Drawing.Size(1333, 237);
             this.dgvHTDGV1.TabIndex = 9;
-            // 
-            // MaKPIHT
-            // 
-            this.MaKPIHT.HeaderText = "Mã KPI";
-            this.MaKPIHT.Name = "MaKPIHT";
-            this.MaKPIHT.ReadOnly = true;
-            this.MaKPIHT.Visible = false;
-            // 
-            // NoiDungHT
-            // 
-            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDungHT.HeaderText = "Nội dung KPI Cá Nhân";
-            this.NoiDungHT.Name = "NoiDungHT";
-            this.NoiDungHT.ReadOnly = true;
-            // 
-            // TrongSoHTHT
-            // 
-            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
-            this.TrongSoHTHT.Name = "TrongSoHTHT";
-            this.TrongSoHTHT.ReadOnly = true;
             // 
             // panel32
             // 
@@ -1242,40 +1146,70 @@
             // 
             this.excelDataSource1.Name = "excelDataSource1";
             // 
-            // txtTongTrongSoMucTieuThem
+            // cMaKPI_MTT
             // 
-            this.txtTongTrongSoMucTieuThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTongTrongSoMucTieuThem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTrongSoMucTieuThem.Location = new System.Drawing.Point(665, 9);
-            this.txtTongTrongSoMucTieuThem.Name = "txtTongTrongSoMucTieuThem";
-            this.txtTongTrongSoMucTieuThem.ReadOnly = true;
-            this.txtTongTrongSoMucTieuThem.Size = new System.Drawing.Size(204, 32);
-            this.txtTongTrongSoMucTieuThem.TabIndex = 23;
-            this.txtTongTrongSoMucTieuThem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cMaKPI_MTT.HeaderText = "Mã KPI";
+            this.cMaKPI_MTT.Name = "cMaKPI_MTT";
+            this.cMaKPI_MTT.ReadOnly = true;
+            this.cMaKPI_MTT.Visible = false;
             // 
-            // label9
+            // cNoiDung_MTT
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(476, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 24);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "TỔNG TRỌNG SỐ";
+            this.cNoiDung_MTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNoiDung_MTT.HeaderText = "Nội dung";
+            this.cNoiDung_MTT.Name = "cNoiDung_MTT";
+            this.cNoiDung_MTT.ReadOnly = true;
             // 
-            // btnTTtabMTT
+            // cTrongSoMT_MTT
             // 
-            this.btnTTtabMTT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTTtabMTT.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTTtabMTT.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTTtabMTT.ForeColor = System.Drawing.Color.Black;
-            this.btnTTtabMTT.Location = new System.Drawing.Point(1070, 0);
-            this.btnTTtabMTT.Name = "btnTTtabMTT";
-            this.btnTTtabMTT.Size = new System.Drawing.Size(140, 50);
-            this.btnTTtabMTT.TabIndex = 24;
-            this.btnTTtabMTT.Text = "QUAY LẠI";
-            this.btnTTtabMTT.UseVisualStyleBackColor = false;
+            this.cTrongSoMT_MTT.HeaderText = "Trọng số Mục Tiêu";
+            this.cTrongSoMT_MTT.Name = "cTrongSoMT_MTT";
+            this.cTrongSoMT_MTT.ReadOnly = true;
+            // 
+            // cTrongSoHT_MTT
+            // 
+            this.cTrongSoHT_MTT.HeaderText = "Trọng số Hoàn Thành";
+            this.cTrongSoHT_MTT.Name = "cTrongSoHT_MTT";
+            // 
+            // MaKPIHT
+            // 
+            this.MaKPIHT.HeaderText = "Mã KPI";
+            this.MaKPIHT.Name = "MaKPIHT";
+            this.MaKPIHT.ReadOnly = true;
+            this.MaKPIHT.Visible = false;
+            // 
+            // NoiDungHT
+            // 
+            this.NoiDungHT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDungHT.HeaderText = "Nội dung mục tiêu bắt buộc";
+            this.NoiDungHT.Name = "NoiDungHT";
+            this.NoiDungHT.ReadOnly = true;
+            // 
+            // TrongSoHTHT
+            // 
+            this.TrongSoHTHT.HeaderText = "Trọng số Hoàn Thành";
+            this.TrongSoHTHT.Name = "TrongSoHTHT";
+            this.TrongSoHTHT.ReadOnly = true;
+            // 
+            // cMaKPI_MTT_HT
+            // 
+            this.cMaKPI_MTT_HT.HeaderText = "Mã KPI";
+            this.cMaKPI_MTT_HT.Name = "cMaKPI_MTT_HT";
+            this.cMaKPI_MTT_HT.ReadOnly = true;
+            this.cMaKPI_MTT_HT.Visible = false;
+            // 
+            // cNoiDung_MTT_HT
+            // 
+            this.cNoiDung_MTT_HT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNoiDung_MTT_HT.HeaderText = "Nội dung mục tiêu đăng kí thêm";
+            this.cNoiDung_MTT_HT.Name = "cNoiDung_MTT_HT";
+            this.cNoiDung_MTT_HT.ReadOnly = true;
+            // 
+            // cTrongSoHT_MTT_HT
+            // 
+            this.cTrongSoHT_MTT_HT.HeaderText = "Trọng số Hoàn Thành";
+            this.cTrongSoHT_MTT_HT.Name = "cTrongSoHT_MTT_HT";
+            this.cTrongSoHT_MTT_HT.ReadOnly = true;
             // 
             // Frm_A78
             // 
@@ -1313,7 +1247,7 @@
             this.panelDKT_Tong.ResumeLayout(false);
             this.panelDKTDGV.ResumeLayout(false);
             this.panelDKTDGV2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDKMTT_KP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDKMTT)).EndInit();
             this.panelDKTbottom.ResumeLayout(false);
             this.panelDKTbottom.PerformLayout();
             this.panelDKTTop.ResumeLayout(false);
@@ -1321,8 +1255,6 @@
             this.tabHoanThanh.ResumeLayout(false);
             this.pnTong.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV3)).EndInit();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV2)).EndInit();
             this.panel11.ResumeLayout(false);
@@ -1401,9 +1333,9 @@
         private System.Windows.Forms.Panel panelDKTDGV2;
         private System.Windows.Forms.Panel panelDKTbottom;
         private System.Windows.Forms.Panel panelDKTTop;
-        private System.Windows.Forms.DataGridView dgvDKMTT_KP2;
+        private System.Windows.Forms.DataGridView dgvDKMTT;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnTTpnDKTPK;
+        private System.Windows.Forms.Button btnTTtabDKMTT;
         private System.Windows.Forms.TextBox txtTongTrongSoCaNhan;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnDangKiThem;
@@ -1418,29 +1350,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT_temp;
-        private System.Windows.Forms.Button btnQLtabMTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.DataGridView dgvHTDGV1;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.DataGridView dgvHTDGV3;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataGridView dgvHTDGV2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_KP_HT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_KP_HT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_KP_HT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_KPI_HT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_KPI_HT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_KPI_HT;
+        private System.Windows.Forms.Button btnQLtabDKMTT;
+        private System.Windows.Forms.TextBox txtTongTrongSoMucTieuThem;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMT_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPIHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDungHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHTHT;
-        private System.Windows.Forms.Button btnTTtabMTT;
-        private System.Windows.Forms.TextBox txtTongTrongSoMucTieuThem;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_MTT_HT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_MTT_HT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_MTT_HT;
     }
 }
