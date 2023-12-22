@@ -291,6 +291,7 @@ namespace DuAn_QuanLyKPI.GUI
             for (int i = 0; i < dgvDKMTT.Rows.Count; i++)
             {
                 int n = dgvKPICN_MTT.Rows.Add();
+                dgvKPICN_MTT.Rows[n].Cells["cMaKPI_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cMaKPI_MTT"].Value.ToString();
                 dgvKPICN_MTT.Rows[n].Cells["cNoiDung_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cNoiDung_MTT"].Value.ToString();
                 dgvKPICN_MTT.Rows[n].Cells["cTrongSoHT_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cTrongSoHT_MTT"].Value.ToString();
             }
@@ -330,11 +331,11 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
-            string MaPhieuKPICN = "KPICN"+ DateTime.Now +"";
+            string MaPhieuKPICN = "KPICN"+ DateTime.Now.ToString("yyyyMMddHHmmss") +"";
             msql = "INSERT INTO [dbo].[KPI_CaNhan] " +
                 "([MaPhieuKPICN],[MaPhieuKPIKP],[QuyTacUngXu],[TrongSoQuyTacUngXu],[IDBieuMau],[MaNV],[QuyNam],[NgayLapPhieuKPICN]) " +
                 "VALUES " +
-                "('"+ MaPhieuKPICN + "','" + maphieukpikp + "','"+ txtQTUXHT.Text +"',10,'78','"+ Frm_Login.MaNV +"','"+ QuyNam +"', GETDATE())";
+                "('"+ MaPhieuKPICN + "','" + maphieukpikp + "','"+ txtQTUXHT.Text +"','10','78','"+ Frm_Login.MaNV +"','"+ QuyNam +"', GETDATE())";
             comm.RunSQL(mconnectstring, msql);
 
             //KPI cá nhân bắt buộc
@@ -344,9 +345,9 @@ namespace DuAn_QuanLyKPI.GUI
                 string trongsoHT = dgvKPICN_MTBB.Rows[i].Cells["TrongSoHTHT"].Value.ToString();
 
                 msql = "INSERT INTO [dbo].[ChiTietKPICaNhan] " +
-                    "([MaPhieuKPICN],[MaKPI],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh],[ThoiDiemGhiNhan]) " +
+                    "([MaPhieuKPICN],[MaKPI],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh]) " +
                     "VALUES " +
-                    "('" + MaPhieuKPICN + "','" + makpi + "','" + trongsoHT + "','0','" + Frm_Login.MaPK + "','" + DateTime.Now + "')";
+                    "('" + MaPhieuKPICN + "','" + makpi + "','" + trongsoHT + "','0','" + Frm_Login.MaPK + "')";
                 comm.RunSQL(mconnectstring, msql);
             }
 
@@ -357,25 +358,22 @@ namespace DuAn_QuanLyKPI.GUI
                 string trongsoHT = dgvKPICN_MTT.Rows[i].Cells["cTrongSoHT_MTT_HT"].Value.ToString();
 
                 msql = "INSERT INTO [dbo].[ChiTietKPICaNhan] " +
-                    "([MaPhieuKPICN],[MaKPI_DKT],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh],[ThoiDiemGhiNhan]) " +
+                    "([MaPhieuKPICN],[MaKPI_DKT],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh]) " +
                     "VALUES " +
-                    "('" + MaPhieuKPICN + "','" + makpi + "','" + trongsoHT + "','1','" + Frm_Login.MaPK + "','" + DateTime.Now + "')";
+                    "('" + MaPhieuKPICN + "','" + makpi + "','" + trongsoHT + "','1','" + Frm_Login.MaPK + "')";
                 comm.RunSQL(mconnectstring, msql);
             }
 
-            //ev.QFrmThongBao("Chúc mừng bạn đã hoàn thành KPI Cá nhân !");
+            ev.QFrmThongBao("Chúc mừng bạn đã hoàn thành KPI Cá nhân !");
         }
         private void btnExel_Click(object sender, EventArgs e)
         {
-            ExportToExcel(dgvCN2, @"D:\Test_" + DateTime.Now + ".csv");
-            copyDataCNtoCN2();
-
+            ExportToExcel();
         }
-
-
-        #endregion
-        private void ExportToExcel(DataGridView dataGridView, string filePath)
+        private void ExportToExcel()
         {
+            DataGridView dataGridView = new DataGridView();
+            string filePath = "";
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
             Excel.Worksheet worksheet = workbook.ActiveSheet;
@@ -424,6 +422,7 @@ namespace DuAn_QuanLyKPI.GUI
                 GC.Collect();
             }
         }
+        #endregion
     }
 }
 
@@ -442,6 +441,6 @@ namespace DuAn_QuanLyKPI.GUI
 //alter table ChiTietKPICaNhan
 //add MaKPI_DKT int references ChiTietDangKiThem_KPICaNhan(MaKPI_DKT)
 
-//xoá cột TrongSoKPICaNhanDangKyThem trong bảng ChiTietKPICaNhan
-
+//xoá cột TrongSoKPICaNhanDangKyThem, ThoiDiemGhiNhan trong bảng ChiTietKPICaNhan
+//Cột tieuchidanhgiaQK, MaKPI trong bảng ChiTietKPICaNhan chuyển thành allow null
 //Cột chưa đụng đến : ChiTieuKPICN, TrongSoTCCN, KeHoach, ThucHien, TyLeHoanThanh, TieuChiDanhGiaKQ, KetQua, KetQuaKPIBV, KetQuaKPIKP, KetQuaKPIKPGiaTriCotLoiBV
