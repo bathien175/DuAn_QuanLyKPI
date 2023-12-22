@@ -34,16 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_A78));
             this.panel28 = new System.Windows.Forms.Panel();
             this.dgvCN = new System.Windows.Forms.DataGridView();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrongSoHT_temp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDangKiThem = new System.Windows.Forms.Button();
             this.txtTongTrongSoCaNhan = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnTiepTucTaiChinh = new System.Windows.Forms.Button();
+            this.btnTTtabCaNhan = new System.Windows.Forms.Button();
             this.pnTongGrid = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dgvCN2 = new System.Windows.Forms.DataGridView();
@@ -88,9 +83,9 @@
             this.pnTong = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.dgvHTDGV2 = new System.Windows.Forms.DataGridView();
+            this.dgvKPICN_MTT = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.dgvHTDGV1 = new System.Windows.Forms.DataGridView();
+            this.dgvKPICN_MTBB = new System.Windows.Forms.DataGridView();
             this.panel32 = new System.Windows.Forms.Panel();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
@@ -118,16 +113,25 @@
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.cMaKPI_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNoiDung_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrongSoMT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTrongSoHT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKPIHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoiDungHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrongSoHTHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cMaKPI_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNoiDung_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cTrongSoHT_MTT_HT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cMaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cQuyNam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cMaKPI_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNoiDung_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPPD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoMT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTrongSoHT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MaKPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrongSoHT_temp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCN)).BeginInit();
             this.panel2.SuspendLayout();
@@ -152,9 +156,9 @@
             this.pnTong.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKPICN_MTT)).BeginInit();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKPICN_MTBB)).BeginInit();
             this.panel32.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel31.SuspendLayout();
@@ -204,47 +208,12 @@
             this.dgvCN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCN_MouseClick);
             this.dgvCN.MouseLeave += new System.EventHandler(this.dgvCN_MouseLeave);
             // 
-            // Chon
-            // 
-            this.Chon.HeaderText = "Chọn";
-            this.Chon.Name = "Chon";
-            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Chon.TrueValue = "true";
-            // 
-            // MaKPI
-            // 
-            this.MaKPI.DataPropertyName = "MaKPI";
-            this.MaKPI.HeaderText = "Mã KPI";
-            this.MaKPI.Name = "MaKPI";
-            this.MaKPI.ReadOnly = true;
-            this.MaKPI.Visible = false;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NoiDung.DataPropertyName = "NoiDung";
-            this.NoiDung.HeaderText = "Nội Dung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.ReadOnly = true;
-            // 
-            // TrongSo
-            // 
-            this.TrongSo.DataPropertyName = "TrongSoKPIKP";
-            this.TrongSo.HeaderText = "Trọng Số";
-            this.TrongSo.Name = "TrongSo";
-            // 
-            // TrongSoHT_temp
-            // 
-            this.TrongSoHT_temp.HeaderText = "Trọng Số Nhập Vào DGVCN2";
-            this.TrongSoHT_temp.Name = "TrongSoHT_temp";
-            this.TrongSoHT_temp.Visible = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnDangKiThem);
             this.panel2.Controls.Add(this.txtTongTrongSoCaNhan);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.btnTiepTucTaiChinh);
+            this.panel2.Controls.Add(this.btnTTtabCaNhan);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 409);
             this.panel2.Name = "panel2";
@@ -257,11 +226,11 @@
             this.btnDangKiThem.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDangKiThem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangKiThem.ForeColor = System.Drawing.Color.Black;
-            this.btnDangKiThem.Location = new System.Drawing.Point(1070, 0);
+            this.btnDangKiThem.Location = new System.Drawing.Point(996, 0);
             this.btnDangKiThem.Name = "btnDangKiThem";
-            this.btnDangKiThem.Size = new System.Drawing.Size(140, 50);
+            this.btnDangKiThem.Size = new System.Drawing.Size(214, 50);
             this.btnDangKiThem.TabIndex = 22;
-            this.btnDangKiThem.Text = "Đăng kí thêm";
+            this.btnDangKiThem.Text = "Đăng kí mục tiêu thêm";
             this.btnDangKiThem.UseVisualStyleBackColor = false;
             this.btnDangKiThem.Click += new System.EventHandler(this.btnDangKiThem_Click);
             // 
@@ -269,7 +238,7 @@
             // 
             this.txtTongTrongSoCaNhan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTongTrongSoCaNhan.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTrongSoCaNhan.Location = new System.Drawing.Point(840, 9);
+            this.txtTongTrongSoCaNhan.Location = new System.Drawing.Point(774, 9);
             this.txtTongTrongSoCaNhan.Name = "txtTongTrongSoCaNhan";
             this.txtTongTrongSoCaNhan.ReadOnly = true;
             this.txtTongTrongSoCaNhan.Size = new System.Drawing.Size(204, 32);
@@ -281,25 +250,25 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(651, 16);
+            this.label11.Location = new System.Drawing.Point(585, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(183, 24);
             this.label11.TabIndex = 20;
             this.label11.Text = "TỔNG TRỌNG SỐ";
             // 
-            // btnTiepTucTaiChinh
+            // btnTTtabCaNhan
             // 
-            this.btnTiepTucTaiChinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTiepTucTaiChinh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTiepTucTaiChinh.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTiepTucTaiChinh.ForeColor = System.Drawing.Color.Black;
-            this.btnTiepTucTaiChinh.Location = new System.Drawing.Point(1210, 0);
-            this.btnTiepTucTaiChinh.Name = "btnTiepTucTaiChinh";
-            this.btnTiepTucTaiChinh.Size = new System.Drawing.Size(140, 50);
-            this.btnTiepTucTaiChinh.TabIndex = 16;
-            this.btnTiepTucTaiChinh.Text = "TIẾP TỤC";
-            this.btnTiepTucTaiChinh.UseVisualStyleBackColor = false;
-            this.btnTiepTucTaiChinh.Click += new System.EventHandler(this.btnTiepTucTaiChinh_Click);
+            this.btnTTtabCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTTtabCaNhan.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTTtabCaNhan.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTTtabCaNhan.ForeColor = System.Drawing.Color.Black;
+            this.btnTTtabCaNhan.Location = new System.Drawing.Point(1210, 0);
+            this.btnTTtabCaNhan.Name = "btnTTtabCaNhan";
+            this.btnTTtabCaNhan.Size = new System.Drawing.Size(140, 50);
+            this.btnTTtabCaNhan.TabIndex = 16;
+            this.btnTTtabCaNhan.Text = "TIẾP TỤC";
+            this.btnTTtabCaNhan.UseVisualStyleBackColor = false;
+            this.btnTTtabCaNhan.Click += new System.EventHandler(this.btnTiepTucTaiChinh_Click);
             // 
             // pnTongGrid
             // 
@@ -654,8 +623,12 @@
             this.dgvDKMTT.AllowUserToAddRows = false;
             this.dgvDKMTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDKMTT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cMaNV,
+            this.cQuyNam,
             this.cMaKPI_MTT,
             this.cNoiDung_MTT,
+            this.cDVT,
+            this.cPPD,
             this.cTrongSoMT_MTT,
             this.cTrongSoHT_MTT});
             this.dgvDKMTT.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -664,6 +637,7 @@
             this.dgvDKMTT.RowTemplate.Height = 30;
             this.dgvDKMTT.Size = new System.Drawing.Size(1350, 554);
             this.dgvDKMTT.TabIndex = 8;
+            this.dgvDKMTT.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDKMTT_CellEndEdit);
             // 
             // panelDKTbottom
             // 
@@ -695,7 +669,7 @@
             // 
             this.txtTongTrongSoMucTieuThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTongTrongSoMucTieuThem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTrongSoMucTieuThem.Location = new System.Drawing.Point(665, 9);
+            this.txtTongTrongSoMucTieuThem.Location = new System.Drawing.Point(857, 9);
             this.txtTongTrongSoMucTieuThem.Name = "txtTongTrongSoMucTieuThem";
             this.txtTongTrongSoMucTieuThem.ReadOnly = true;
             this.txtTongTrongSoMucTieuThem.Size = new System.Drawing.Size(204, 32);
@@ -707,7 +681,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(476, 16);
+            this.label9.Location = new System.Drawing.Point(668, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(183, 24);
             this.label9.TabIndex = 22;
@@ -783,51 +757,51 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.dgvHTDGV2);
+            this.panel12.Controls.Add(this.dgvKPICN_MTT);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 237);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1333, 237);
             this.panel12.TabIndex = 1;
             // 
-            // dgvHTDGV2
+            // dgvKPICN_MTT
             // 
-            this.dgvHTDGV2.AllowUserToAddRows = false;
-            this.dgvHTDGV2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHTDGV2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvKPICN_MTT.AllowUserToAddRows = false;
+            this.dgvKPICN_MTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKPICN_MTT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cMaKPI_MTT_HT,
             this.cNoiDung_MTT_HT,
             this.cTrongSoHT_MTT_HT});
-            this.dgvHTDGV2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHTDGV2.Location = new System.Drawing.Point(0, 0);
-            this.dgvHTDGV2.Name = "dgvHTDGV2";
-            this.dgvHTDGV2.RowTemplate.Height = 30;
-            this.dgvHTDGV2.Size = new System.Drawing.Size(1333, 237);
-            this.dgvHTDGV2.TabIndex = 10;
+            this.dgvKPICN_MTT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKPICN_MTT.Location = new System.Drawing.Point(0, 0);
+            this.dgvKPICN_MTT.Name = "dgvKPICN_MTT";
+            this.dgvKPICN_MTT.RowTemplate.Height = 30;
+            this.dgvKPICN_MTT.Size = new System.Drawing.Size(1333, 237);
+            this.dgvKPICN_MTT.TabIndex = 10;
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.dgvHTDGV1);
+            this.panel11.Controls.Add(this.dgvKPICN_MTBB);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(1333, 237);
             this.panel11.TabIndex = 0;
             // 
-            // dgvHTDGV1
+            // dgvKPICN_MTBB
             // 
-            this.dgvHTDGV1.AllowUserToAddRows = false;
-            this.dgvHTDGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHTDGV1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvKPICN_MTBB.AllowUserToAddRows = false;
+            this.dgvKPICN_MTBB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKPICN_MTBB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKPIHT,
             this.NoiDungHT,
             this.TrongSoHTHT});
-            this.dgvHTDGV1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHTDGV1.Location = new System.Drawing.Point(0, 0);
-            this.dgvHTDGV1.Name = "dgvHTDGV1";
-            this.dgvHTDGV1.RowTemplate.Height = 30;
-            this.dgvHTDGV1.Size = new System.Drawing.Size(1333, 237);
-            this.dgvHTDGV1.TabIndex = 9;
+            this.dgvKPICN_MTBB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKPICN_MTBB.Location = new System.Drawing.Point(0, 0);
+            this.dgvKPICN_MTBB.Name = "dgvKPICN_MTBB";
+            this.dgvKPICN_MTBB.RowTemplate.Height = 30;
+            this.dgvKPICN_MTBB.Size = new System.Drawing.Size(1333, 237);
+            this.dgvKPICN_MTBB.TabIndex = 9;
             // 
             // panel32
             // 
@@ -1146,31 +1120,6 @@
             // 
             this.excelDataSource1.Name = "excelDataSource1";
             // 
-            // cMaKPI_MTT
-            // 
-            this.cMaKPI_MTT.HeaderText = "Mã KPI";
-            this.cMaKPI_MTT.Name = "cMaKPI_MTT";
-            this.cMaKPI_MTT.ReadOnly = true;
-            this.cMaKPI_MTT.Visible = false;
-            // 
-            // cNoiDung_MTT
-            // 
-            this.cNoiDung_MTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cNoiDung_MTT.HeaderText = "Nội dung";
-            this.cNoiDung_MTT.Name = "cNoiDung_MTT";
-            this.cNoiDung_MTT.ReadOnly = true;
-            // 
-            // cTrongSoMT_MTT
-            // 
-            this.cTrongSoMT_MTT.HeaderText = "Trọng số Mục Tiêu";
-            this.cTrongSoMT_MTT.Name = "cTrongSoMT_MTT";
-            this.cTrongSoMT_MTT.ReadOnly = true;
-            // 
-            // cTrongSoHT_MTT
-            // 
-            this.cTrongSoHT_MTT.HeaderText = "Trọng số Hoàn Thành";
-            this.cTrongSoHT_MTT.Name = "cTrongSoHT_MTT";
-            // 
             // MaKPIHT
             // 
             this.MaKPIHT.HeaderText = "Mã KPI";
@@ -1210,6 +1159,99 @@
             this.cTrongSoHT_MTT_HT.HeaderText = "Trọng số Hoàn Thành";
             this.cTrongSoHT_MTT_HT.Name = "cTrongSoHT_MTT_HT";
             this.cTrongSoHT_MTT_HT.ReadOnly = true;
+            // 
+            // cMaNV
+            // 
+            this.cMaNV.DataPropertyName = "MaNV";
+            this.cMaNV.HeaderText = "Mã nhân viên";
+            this.cMaNV.Name = "cMaNV";
+            this.cMaNV.ReadOnly = true;
+            this.cMaNV.Visible = false;
+            // 
+            // cQuyNam
+            // 
+            this.cQuyNam.DataPropertyName = "QuyNam";
+            this.cQuyNam.HeaderText = "Quý năm";
+            this.cQuyNam.Name = "cQuyNam";
+            this.cQuyNam.ReadOnly = true;
+            this.cQuyNam.Visible = false;
+            // 
+            // cMaKPI_MTT
+            // 
+            this.cMaKPI_MTT.DataPropertyName = "MaKPI_DKT";
+            this.cMaKPI_MTT.HeaderText = "Mã KPI";
+            this.cMaKPI_MTT.Name = "cMaKPI_MTT";
+            this.cMaKPI_MTT.ReadOnly = true;
+            this.cMaKPI_MTT.Visible = false;
+            // 
+            // cNoiDung_MTT
+            // 
+            this.cNoiDung_MTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cNoiDung_MTT.DataPropertyName = "NoiDung";
+            this.cNoiDung_MTT.HeaderText = "Nội dung";
+            this.cNoiDung_MTT.Name = "cNoiDung_MTT";
+            this.cNoiDung_MTT.ReadOnly = true;
+            // 
+            // cDVT
+            // 
+            this.cDVT.DataPropertyName = "DonViTinh";
+            this.cDVT.HeaderText = "Đơn vị tính";
+            this.cDVT.Name = "cDVT";
+            this.cDVT.ReadOnly = true;
+            // 
+            // cPPD
+            // 
+            this.cPPD.DataPropertyName = "PhuongPhapDo";
+            this.cPPD.HeaderText = "Phương pháp đo";
+            this.cPPD.Name = "cPPD";
+            this.cPPD.ReadOnly = true;
+            // 
+            // cTrongSoMT_MTT
+            // 
+            this.cTrongSoMT_MTT.DataPropertyName = "TrongSoMucTieu";
+            this.cTrongSoMT_MTT.HeaderText = "Trọng số Mục Tiêu";
+            this.cTrongSoMT_MTT.Name = "cTrongSoMT_MTT";
+            this.cTrongSoMT_MTT.ReadOnly = true;
+            // 
+            // cTrongSoHT_MTT
+            // 
+            this.cTrongSoHT_MTT.HeaderText = "Trọng số Hoàn Thành";
+            this.cTrongSoHT_MTT.Name = "cTrongSoHT_MTT";
+            // 
+            // Chon
+            // 
+            this.Chon.HeaderText = "Chọn";
+            this.Chon.Name = "Chon";
+            this.Chon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Chon.TrueValue = "true";
+            // 
+            // MaKPI
+            // 
+            this.MaKPI.DataPropertyName = "MaKPI";
+            this.MaKPI.HeaderText = "Mã KPI";
+            this.MaKPI.Name = "MaKPI";
+            this.MaKPI.ReadOnly = true;
+            this.MaKPI.Visible = false;
+            // 
+            // NoiDung
+            // 
+            this.NoiDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NoiDung.DataPropertyName = "NoiDung";
+            this.NoiDung.HeaderText = "Nội dung";
+            this.NoiDung.Name = "NoiDung";
+            this.NoiDung.ReadOnly = true;
+            // 
+            // TrongSo
+            // 
+            this.TrongSo.DataPropertyName = "TrongSoKPIKP";
+            this.TrongSo.HeaderText = "Trọng số mục tiêu";
+            this.TrongSo.Name = "TrongSo";
+            // 
+            // TrongSoHT_temp
+            // 
+            this.TrongSoHT_temp.HeaderText = "Trọng Số Nhập Vào DGVCN2";
+            this.TrongSoHT_temp.Name = "TrongSoHT_temp";
+            this.TrongSoHT_temp.Visible = false;
             // 
             // Frm_A78
             // 
@@ -1256,9 +1298,9 @@
             this.pnTong.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKPICN_MTT)).EndInit();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDGV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKPICN_MTBB)).EndInit();
             this.panel32.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel29.PerformLayout();
@@ -1274,7 +1316,7 @@
         #endregion
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnTiepTucTaiChinh;
+        private System.Windows.Forms.Button btnTTtabCaNhan;
         private System.Windows.Forms.Panel pnTongGrid;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.DataGridView dgvCN2;
@@ -1345,28 +1387,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung2;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoBV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT_temp;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.DataGridView dgvHTDGV1;
+        private System.Windows.Forms.DataGridView dgvKPICN_MTBB;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.DataGridView dgvHTDGV2;
+        private System.Windows.Forms.DataGridView dgvKPICN_MTT;
         private System.Windows.Forms.Button btnQLtabDKMTT;
         private System.Windows.Forms.TextBox txtTongTrongSoMucTieuThem;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_MTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_MTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMT_MTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPIHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoiDungHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHTHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_MTT_HT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_MTT_HT;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_MTT_HT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cQuyNam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cMaKPI_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNoiDung_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPPD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoMT_MTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cTrongSoHT_MTT;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoiDung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrongSoHT_temp;
     }
 }
