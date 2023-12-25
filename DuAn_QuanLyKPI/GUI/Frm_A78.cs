@@ -240,13 +240,13 @@ namespace DuAn_QuanLyKPI.GUI
         #region Tab2
         private void LoadDGVtab2()
         {
-            msql = "SELECT a.MaKPI_DKT, a.MaNV, a.QuyNam, b.NoiDung, a.TrongSoMucTieu, b.DonViTinh, b.PhuongPhapDo " +
+            msql = "SELECT a.MaKPI_DKT, a.MaNV, a.QuyNam, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo " +
                 "FROM ChiTietDangKiThem_KPICaNhan a " +
                 "inner join KPI b on a.MaKPI = b.MaKPI " +
                 "WHERE a.MaKPI IS NOT NULL";
             DataTable dtA = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
 
-            msql = "SELECT MaKPI_DKT, MaNV, QuyNam, NoiDung, TrongSoMucTieu, DonViTinh, PhuongPhapDo " +
+            msql = "SELECT MaKPI_DKT, MaNV, QuyNam, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo " +
                 "FROM ChiTietDangKiThem_KPICaNhan " +
                 "WHERE MaKPI IS NULL";
             DataTable dtB = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
@@ -368,60 +368,152 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void btnExel_Click(object sender, EventArgs e)
         {
-            ExportToExcel();
-        }
-        private void ExportToExcel()
-        {
-            DataGridView dataGridView = new DataGridView();
-            string filePath = "";
-            Excel.Application excelApp = new Excel.Application();
-            Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
-            Excel.Worksheet worksheet = workbook.ActiveSheet;
-
-            try
+            int sum = int.Parse(txtTongTrongSoMucTieuThem.Text);
+            if (sum < 100 && sum > 100)
             {
+                ev.QFrmThongBaoError("Trọng số chưa đạt đủ hoặc vượt quá 100%");
+            }
+            else if (sum == 100)
+            {
+                if (ev.QFrmThongBao_YesNo("Bạn có chắc muốn tiếp tục không? Hãy kiểm tra thật kĩ thông tin trước khi Hoàn thành nhé!"))
+                {
+                    string existingFilePath = Path.Combine("A73.xlsx");
+                    // Pass the full path to the function
+                    AddDataGridViewsToExistingExcelSheet(dgvKPICN_MTBB, dgvKPICN_MTT, existingFilePath);
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+
+            }
+
+        }
+
+        private void AddDataGridViewsToExistingExcelSheet(DataGridView dgvKPICN_MTBB, DataGridView dgvKPICN_MTT, string existingFilePath)
+        {
+            // Mở một workbook Excel đã có sẵn
+            Excel.Application excelApp = new Excel.Application();
+            excelApp.Visible = true;
+            Excel.Workbook workbook = excelApp.Workbooks.Open(existingFilePath);
+
+            // Tìm và sử dụng một worksheet đã có trong workbook
+            Excel.Worksheet worksheet = null;
+            foreach (Excel.Worksheet sheet in workbook.Sheets)
+            {
+                if (sheet.Name == "A7.3.Muc tieu khoa.phong")
+                {
+                    worksheet = sheet;
+                    break;
+                }
+            }
+
+            if (worksheet == null)
+            {
+                ev.QFrmThongBaoError("Không tìm thấy worksheet có tên A7.3.Muc tieu khoa.phong trong file Excel.");
+                workbook.Close();
+                excelApp.Quit();
+                return;
+            }
+            worksheet.Cells[3, 9] = txtQTUXHT.Text;  // TextBox1 vào F6
+            worksheet.Cells[4, 4] = txtTenNV.Text; // TextBox2 vào F12
+            worksheet.Cells[4, 5] = Frm_Login.MaNV; // TextBox3 vào F18
+            worksheet.Cells[8, 4] = Frm_Login.MaCD; // TextBox4 vào F18
+            worksheet.Cells[8, 5] = Frm_Login.MaPK; // TextBox4 vào F18
+                                                    // Vị trí bắt đầu cho từng group
+            int[] startRows = { 7, 13, 19, 25 };
+            int startCol = 5;  // Bắt đầu từ cột E
+
+            // Sao chép dữ liệu từ mỗi DataGridView sang worksheet
+            //MỤC TIÊU BẮT BUỘC
+            for (int groupIndex = 0; groupIndex < dgvKPICN_MTBB.RowCount; groupIndex++)
+            {
+                DataGridView dataGridView = dgvKPICN_MTBB[groupIndex];
+
+                int startRow = startRows[groupIndex];
+
+                // Sao chép dữ liệu từ cột 2 và cột 4 của DataGridView sang worksheet
                 for (int i = 0; i < dataGridView.Rows.Count; i++)
                 {
-                    for (int j = 0; j < dataGridView.Columns.Count; j++)
+                    // Kiểm tra xem dữ liệu đã tồn tại trong sheet chưa
+                    bool dataExists = false;
+                    for (int row = 1; row <= worksheet.UsedRange.Rows.Count; row++)
                     {
-                        string cellValue = dataGridView.Rows[i].Cells[j].Value?.ToString() ?? "";
-                        worksheet.Cells[i + 1, j + 1] = cellValue;
+                        if (worksheet.Cells[row, startCol].Value == dataGridView[2, i].Value &&
+                            worksheet.Cells[row, startCol + 1].Value == dataGridView[4, i].Value)
+                        {
+                            dataExists = true;
+                            break;
+                        }
+                    }
+                    // Nếu dữ liệu chưa tồn tại, thêm vào sheet
+                    if (!dataExists)
+                    {
+                        worksheet.Cells[startRow, startCol] = dataGridView[2, i].Value;  // Cột 2
+                        worksheet.Cells[startRow, startCol + 1] = dataGridView[4, i].Value;  // Cột 4
+                        startRow++;
                     }
                 }
 
-                workbook.SaveAs(filePath);
+                // Tạo khoảng trống giữa các nhóm (nếu không phải nhóm cuối cùng)
+                if (groupIndex != dgvKPICN_MTBB.RowCount - 1)
+                {
+                    startRow += 2;  // Dùng 2 dòng trống
+                }
+                else
+                {
+                    startRow++;  // Dùng 1 dòng trống cho nhóm cuối cùng
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
-            }
-            finally
-            {
-                workbook.Close();
-                excelApp.Quit();
-                releaseObject(worksheet);
-                releaseObject(workbook);
-                releaseObject(excelApp);
-            }
+
+            ////MỤC TIÊU ĐĂNG KÍ THÊM
+            //for (int groupIndex = 0; groupIndex < dgvKPICN_MTT.RowCount; groupIndex++)
+            //{
+            //    DataGridView dataGridView = dgvKPICN_MTT[groupIndex];
+
+            //    int startRow = startRows[groupIndex];
+
+            //    // Sao chép dữ liệu từ cột 2 và cột 4 của DataGridView sang worksheet
+            //    for (int i = 0; i < dataGridView.Rows.Count; i++)
+            //    {
+            //        // Kiểm tra xem dữ liệu đã tồn tại trong sheet chưa
+            //        bool dataExists = false;
+            //        for (int row = 1; row <= worksheet.UsedRange.Rows.Count; row++)
+            //        {
+            //            if (worksheet.Cells[row, startCol].Value == dataGridView[2, i].Value &&
+            //                worksheet.Cells[row, startCol + 1].Value == dataGridView[4, i].Value)
+            //            {
+            //                dataExists = true;
+            //                break;
+            //            }
+            //        }
+            //        // Nếu dữ liệu chưa tồn tại, thêm vào sheet
+            //        if (!dataExists)
+            //        {
+            //            worksheet.Cells[startRow, startCol] = dataGridView[2, i].Value;  // Cột 2
+            //            worksheet.Cells[startRow, startCol + 1] = dataGridView[4, i].Value;  // Cột 4
+            //            startRow++;
+            //        }
+            //    }
+
+            //    // Tạo khoảng trống giữa các nhóm (nếu không phải nhóm cuối cùng)
+            //    if (groupIndex != dgvKPICN_MTT.RowCount - 1)
+            //    {
+            //        startRow += 2;  // Dùng 2 dòng trống
+            //    }
+            //    else
+            //    {
+            //        startRow++;  // Dùng 1 dòng trống cho nhóm cuối cùng
+            //    }
+            //}
+
+            // Lưu workbook
+            workbook.Save();
         }
-        // Hàm này được sử dụng để giải phóng tài nguyên
-        private void releaseObject(object obj)
-        {
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
-            }
-            catch (Exception ex)
-            {
-                obj = null;
-                MessageBox.Show("Lỗi giải phóng tài nguyên: " + ex.ToString());
-            }
-            finally
-            {
-                GC.Collect();
-            }
-        }
+
         #endregion
     }
 }
@@ -433,7 +525,7 @@ namespace DuAn_QuanLyKPI.GUI
 //	MaNV varchar(20) references NguoiDung(MaNV),
 //	QuyNam varchar(5),
 //	NoiDung nvarchar(max),
-//	TrongSoMucTieu int,
+//	TrongSoKPIDK int,
 //    DonViTinh nvarchar(100),
 //	PhuongPhapDo nvarchar(200)
 //)
