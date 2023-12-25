@@ -81,24 +81,25 @@ namespace DuAn_QuanLyKPI.GUI
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             maphieukpikp = dtt.Rows[0]["MaPhieuKPIKP"].ToString();
 
-            msql = "SELECT A.MaKPI, B.NoiDung, A.TrongSoKPIKP FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B " +
+            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP " +
+                "FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B " +
                 "where A.MaKPI = B.MaKPI " +
                 "and A.MaPhieuKPIKP = '" + maphieukpikp + "' " +
                 "and B.CongViecCaNhan = 'true'";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "KPI");
-            dgvCN.DataSource = dt;
+            dgvKPICN_MTBB.DataSource = dt;
 
-            dgvCN.CurrentCellDirtyStateChanged += Dgv1_CurrentCellDirtyStateChanged;
-            dgvCN.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            dgvKPICN_MTBB.CurrentCellDirtyStateChanged += Dgv1_CurrentCellDirtyStateChanged;
+            dgvKPICN_MTBB.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
         private int SumTrongSotab1()
         {
             int sum = 0;
-            for (int i = 0; i < dgvCN2.Rows.Count; i++)
+            for (int i = 0; i < dgvKPICN_MTBB2.Rows.Count; i++)
             {
-                if (dgvCN2.Rows[i].Cells["TrongSoHT"].Value != null)
+                if (dgvKPICN_MTBB2.Rows[i].Cells["TSHT2_MTBB"].Value != null)
                 {
-                    string value = dgvCN2.Rows[i].Cells["TrongSoHT"].Value.ToString();
+                    string value = dgvKPICN_MTBB2.Rows[i].Cells["TSHT2_MTBB"].Value.ToString();
                     int number;
                     if (int.TryParse(value, out number))
                     {
@@ -145,28 +146,32 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void copyDataCNtoCN2()
         {
-            dgvCN2.Rows.Clear();
-            for (int i = 0; i < dgvCN.Rows.Count; i++)
+            dgvKPICN_MTBB2.Rows.Clear();
+            for (int i = 0; i < dgvKPICN_MTBB.Rows.Count; i++)
             {
-                if (dgvCN.Rows[i].Cells["Chon"].Value != null && dgvCN.Rows[i].Cells["Chon"].Value.ToString() == "true")
+                if (dgvKPICN_MTBB.Rows[i].Cells["Chon_MTBB"].Value != null && dgvKPICN_MTBB.Rows[i].Cells["Chon_MTBB"].Value.ToString() == "true")
                 {
-                    int n = dgvCN2.Rows.Add();
-                    dgvCN2.Rows[n].Cells["NoiDung2"].Value = dgvCN.Rows[i].Cells["NoiDung"].Value.ToString();
-                    dgvCN2.Rows[n].Cells["TrongSoBV"].Value = dgvCN.Rows[i].Cells["TrongSo"].Value.ToString();
-                    dgvCN2.Rows[n].Cells["MaKPI2"].Value = dgvCN.Rows[i].Cells["MaKPI"].Value.ToString();
+                    int n = dgvKPICN_MTBB2.Rows.Add();
+                    dgvKPICN_MTBB2.Rows[n].Cells["ND2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["ND_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["TSMT2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["TSMT_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["MaKPI2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["MaKPI_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["PPD2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["PPD_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["DVT2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["DVT_MTBB"].Value.ToString();
                 }
             }
         }
         private void copyDataCN2toHT()
         {
-            dgvKPICN_MTBB.Rows.Clear();
+            dgvKPICN_HTMTBB.Rows.Clear();
 
-            for (int i = 0; i < dgvCN2.Rows.Count; i++)
+            for (int i = 0; i < dgvKPICN_MTBB2.Rows.Count; i++)
             {
-                int n = dgvKPICN_MTBB.Rows.Add();
-                dgvKPICN_MTBB.Rows[n].Cells["NoiDungHT"].Value = dgvCN2.Rows[i].Cells["NoiDung2"].Value.ToString();
-                dgvKPICN_MTBB.Rows[n].Cells["TrongSoHTHT"].Value = dgvCN2.Rows[i].Cells["TrongSoHT"].Value.ToString();
-                dgvKPICN_MTBB.Rows[n].Cells["MaKPIHT"].Value = dgvCN2.Rows[i].Cells["MaKPI2"].Value.ToString();
+                int n = dgvKPICN_HTMTBB.Rows.Add();
+                dgvKPICN_HTMTBB.Rows[n].Cells["MaKPI_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["MaKPI2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["ND_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["ND2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["TSHT_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["TSHT2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["PPD_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["PPD2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["DVT_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["DVT2_MTBB"].Value.ToString();
             }
         }
         private void UpdateTimer_Tick(object sender, EventArgs e)
@@ -175,16 +180,16 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void Dgv1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            dgvCN.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            dgvKPICN_MTBB.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
         private void dgvCN_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
-                dgvCN2.Rows.Clear();
-                for (int i = 0; i < dgvCN.Rows.Count; i++)
+                dgvKPICN_MTBB2.Rows.Clear();
+                for (int i = 0; i < dgvKPICN_MTBB.Rows.Count; i++)
                 {
-                    dgvCN.Rows[i].Cells["Chon"].Value = "true";
+                    dgvKPICN_MTBB.Rows[i].Cells["Chon_MTBB"].Value = "true";
                 }
                 copyDataCNtoCN2();
             }
@@ -205,23 +210,23 @@ namespace DuAn_QuanLyKPI.GUI
         {
             if (e.ColumnIndex == 0)
             {
-                dgvCN2.Rows.Clear();
-                for (int i = 0; i < dgvCN.Rows.Count; i++)
+                dgvKPICN_MTBB2.Rows.Clear();
+                for (int i = 0; i < dgvKPICN_MTBB.Rows.Count; i++)
                 {
-                    dgvCN.Rows[i].Cells["Chon"].Value = false;
+                    dgvKPICN_MTBB.Rows[i].Cells["Chon_MTBB"].Value = false;
                 }
                 copyDataCNtoCN2();
             }
         }
         private void dgvCN2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvCN2.Rows.Count && e.ColumnIndex == 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dgvKPICN_MTBB2.Rows.Count && e.ColumnIndex == 0)
             {
-                foreach (DataGridViewRow row in dgvCN.Rows)
+                foreach (DataGridViewRow row in dgvKPICN_MTBB.Rows)
                 {
-                    if (dgvCN2.Rows[e.RowIndex].Cells["MaKPI2"].Value.ToString() == row.Cells["MaKPI"].Value.ToString())
+                    if (dgvKPICN_MTBB2.Rows[e.RowIndex].Cells["MaKPI2_MTBB"].Value.ToString() == row.Cells["MaKPI_MTBB"].Value.ToString())
                     {
-                        row.Cells["Chon"].Value = false;
+                        row.Cells["Chon_MTBB"].Value = false;
                         break;
                     }
                 }
@@ -249,7 +254,7 @@ namespace DuAn_QuanLyKPI.GUI
             msql = "SELECT MaKPI_DKT, MaNV, QuyNam, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo " +
                 "FROM ChiTietDangKiThem_KPICaNhan " +
                 "WHERE MaKPI IS NULL";
-            DataTable dtB = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
+            DataTable dtB = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem2");
 
             DataTable MTT = new DataTable();
             MTT = dtA.Copy();
@@ -257,7 +262,7 @@ namespace DuAn_QuanLyKPI.GUI
 
             if(MTT.Rows.Count > 0 ) 
             {
-                dgvDKMTT.DataSource = MTT;
+                dgvKPICN_MTT.DataSource = MTT;
             }
             else
             {
@@ -269,11 +274,11 @@ namespace DuAn_QuanLyKPI.GUI
         private int SumTrongSotab2()
         {
             int sum = 0;
-            for (int i = 0; i < dgvDKMTT.Rows.Count; i++)
+            for (int i = 0; i < dgvKPICN_MTT.Rows.Count; i++)
             {
-                if (dgvDKMTT.Rows[i].Cells["cTrongSoHT_MTT"].Value != null && dgvDKMTT.Rows[i].Cells["cTrongSoHT_MTT"].Value.ToString() != "")
+                if (dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value != null && dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value.ToString() != "")
                 {
-                    string value = dgvDKMTT.Rows[i].Cells["cTrongSoHT_MTT"].Value.ToString();
+                    string value = dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value.ToString();
                     int number;
                     if (int.TryParse(value, out number))
                     {
@@ -287,13 +292,16 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void copyDataDKMTTtoHT()
         {
-            dgvKPICN_MTT.Rows.Clear();
-            for (int i = 0; i < dgvDKMTT.Rows.Count; i++)
+            dgvKPICN_HTMTT.Rows.Clear();
+            for (int i = 0; i < dgvKPICN_MTT.Rows.Count; i++)
             {
-                int n = dgvKPICN_MTT.Rows.Add();
-                dgvKPICN_MTT.Rows[n].Cells["cMaKPI_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cMaKPI_MTT"].Value.ToString();
-                dgvKPICN_MTT.Rows[n].Cells["cNoiDung_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cNoiDung_MTT"].Value.ToString();
-                dgvKPICN_MTT.Rows[n].Cells["cTrongSoHT_MTT_HT"].Value = dgvDKMTT.Rows[i].Cells["cTrongSoHT_MTT"].Value.ToString();
+                int n = dgvKPICN_HTMTT.Rows.Add();
+                dgvKPICN_HTMTT.Rows[n].Cells["MaKPI_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["MaKPI_MTT"].Value.ToString();
+                dgvKPICN_HTMTT.Rows[n].Cells["ND_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["ND_MTT"].Value.ToString();
+                dgvKPICN_HTMTT.Rows[n].Cells["TSHT_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value.ToString();
+                dgvKPICN_HTMTT.Rows[n].Cells["PPD_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["PPD_MTT"].Value.ToString();
+                dgvKPICN_HTMTT.Rows[n].Cells["DVT_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["DVT_MTT"].Value.ToString();
+
             }
         }
         private void btnTTpnDKTPK_Click(object sender, EventArgs e)
@@ -339,10 +347,10 @@ namespace DuAn_QuanLyKPI.GUI
             comm.RunSQL(mconnectstring, msql);
 
             //KPI cá nhân bắt buộc
-            for (int i = 0; i < dgvKPICN_MTBB.Rows.Count; i++)
+            for (int i = 0; i < dgvKPICN_HTMTBB.Rows.Count; i++)
             {
-                string makpi = dgvKPICN_MTBB.Rows[i].Cells["MaKPIHT"].Value.ToString();
-                string trongsoHT = dgvKPICN_MTBB.Rows[i].Cells["TrongSoHTHT"].Value.ToString();
+                string makpi = dgvKPICN_HTMTBB.Rows[i].Cells["MaKPI_HTMTBB"].Value.ToString();
+                string trongsoHT = dgvKPICN_HTMTBB.Rows[i].Cells["TSHT_HTMTBB"].Value.ToString();
 
                 msql = "INSERT INTO [dbo].[ChiTietKPICaNhan] " +
                     "([MaPhieuKPICN],[MaKPI],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh]) " +
@@ -352,10 +360,10 @@ namespace DuAn_QuanLyKPI.GUI
             }
 
             //KPI cá nhân đăng kí thêm
-            for (int i = 0; i < dgvKPICN_MTT.Rows.Count; i++)
+            for (int i = 0; i < dgvKPICN_HTMTT.Rows.Count; i++)
             {
-                string makpi = dgvKPICN_MTT.Rows[i].Cells["cMaKPI_MTT_HT"].Value.ToString();
-                string trongsoHT = dgvKPICN_MTT.Rows[i].Cells["cTrongSoHT_MTT_HT"].Value.ToString();
+                string makpi = dgvKPICN_HTMTT.Rows[i].Cells["MaKPI_HTMTT"].Value.ToString();
+                string trongsoHT = dgvKPICN_HTMTT.Rows[i].Cells["TSHT_HTMTT"].Value.ToString();
 
                 msql = "INSERT INTO [dbo].[ChiTietKPICaNhan] " +
                     "([MaPhieuKPICN],[MaKPI_DKT],[TrongSoKPICN],[KPICaNhanDangKyThem],[NguonChungMinh]) " +
@@ -368,29 +376,13 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void btnExel_Click(object sender, EventArgs e)
         {
-            int sum = int.Parse(txtTongTrongSoMucTieuThem.Text);
-            if (sum < 100 && sum > 100)
-            {
-                ev.QFrmThongBaoError("Trọng số chưa đạt đủ hoặc vượt quá 100%");
-            }
-            else if (sum == 100)
-            {
-                if (ev.QFrmThongBao_YesNo("Bạn có chắc muốn tiếp tục không? Hãy kiểm tra thật kĩ thông tin trước khi Hoàn thành nhé!"))
-                {
-                    string existingFilePath = Path.Combine("A73.xlsx");
-                    // Pass the full path to the function
-                    AddDataGridViewsToExistingExcelSheet(dgvKPICN_MTBB, dgvKPICN_MTT, existingFilePath);
-                }
-                else
-                {
 
-                }
-            }
-            else
+            if (ev.QFrmThongBao_YesNo("Bạn có chắc muốn tiếp tục không? Hãy kiểm tra thật kĩ thông tin trước khi Hoàn thành nhé!"))
             {
-
+                string existingFilePath = Path.Combine("D:\\ThucTap\\Projects\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\bin\\Debug", "A78.xlsx");
+                // Pass the full path to the function
+                AddDataGridViewsToExistingExcelSheet(dgvKPICN_HTMTBB, dgvKPICN_HTMTT, existingFilePath);
             }
-
         }
 
         private void AddDataGridViewsToExistingExcelSheet(DataGridView dgvKPICN_MTBB, DataGridView dgvKPICN_MTT, string existingFilePath)
@@ -400,118 +392,40 @@ namespace DuAn_QuanLyKPI.GUI
             excelApp.Visible = true;
             Excel.Workbook workbook = excelApp.Workbooks.Open(existingFilePath);
 
-            // Tìm và sử dụng một worksheet đã có trong workbook
-            Excel.Worksheet worksheet = null;
-            foreach (Excel.Worksheet sheet in workbook.Sheets)
-            {
-                if (sheet.Name == "A7.3.Muc tieu khoa.phong")
-                {
-                    worksheet = sheet;
-                    break;
-                }
-            }
+            Excel.Worksheet worksheet = workbook.Sheets["A7.8"];
 
             if (worksheet == null)
             {
-                ev.QFrmThongBaoError("Không tìm thấy worksheet có tên A7.3.Muc tieu khoa.phong trong file Excel.");
+                ev.QFrmThongBaoError("Không tìm thấy worksheet có tên A7.8 trong file Excel.");
                 workbook.Close();
                 excelApp.Quit();
                 return;
             }
-            worksheet.Cells[3, 9] = txtQTUXHT.Text;  // TextBox1 vào F6
-            worksheet.Cells[4, 4] = txtTenNV.Text; // TextBox2 vào F12
-            worksheet.Cells[4, 5] = Frm_Login.MaNV; // TextBox3 vào F18
-            worksheet.Cells[8, 4] = Frm_Login.MaCD; // TextBox4 vào F18
-            worksheet.Cells[8, 5] = Frm_Login.MaPK; // TextBox4 vào F18
-                                                    // Vị trí bắt đầu cho từng group
-            int[] startRows = { 7, 13, 19, 25 };
-            int startCol = 5;  // Bắt đầu từ cột E
+            worksheet.Cells[10, 3] = txtQTUXHT.Text;  // TextBox1 vào C9
+            worksheet.Cells[4, 4] = txtTenNV.Text; // TextBox2 vào D4
+            worksheet.Cells[5, 4] = Frm_Login.MaNV.ToString(); // TextBox3 vào D5
+            worksheet.Cells[4, 8] = Frm_Login.MaCD; // TextBox4 vào G4
+            worksheet.Cells[5, 8] = Frm_Login.MaPK; // TextBox4 vào G5
+
 
             // Sao chép dữ liệu từ mỗi DataGridView sang worksheet
             //MỤC TIÊU BẮT BUỘC
-            for (int groupIndex = 0; groupIndex < dgvKPICN_MTBB.RowCount; groupIndex++)
+            int stt = 0;
+            for (int i = 0; i < dgvKPICN_MTBB.RowCount; i++)
             {
-                DataGridView dataGridView = dgvKPICN_MTBB[groupIndex];
+                stt++;
+                worksheet.Cells[i + 12, 2] = stt;//số thứ tự đầu dòng
+                worksheet.Cells[i + 12, 3] = dgvKPICN_MTBB.Rows[i].Cells[1].Value.ToString();//nội dung mục tiêu đánh giá
+                worksheet.Cells[i + 12, 4] = int.Parse(dgvKPICN_MTBB.Rows[i].Cells[2].Value.ToString()) / 100;//trọng số
+                worksheet.Cells[i + 12, 11] = "=D"+(i+12)+"*J"+(i+12)+"";
 
-                int startRow = startRows[groupIndex];
-
-                // Sao chép dữ liệu từ cột 2 và cột 4 của DataGridView sang worksheet
-                for (int i = 0; i < dataGridView.Rows.Count; i++)
-                {
-                    // Kiểm tra xem dữ liệu đã tồn tại trong sheet chưa
-                    bool dataExists = false;
-                    for (int row = 1; row <= worksheet.UsedRange.Rows.Count; row++)
-                    {
-                        if (worksheet.Cells[row, startCol].Value == dataGridView[2, i].Value &&
-                            worksheet.Cells[row, startCol + 1].Value == dataGridView[4, i].Value)
-                        {
-                            dataExists = true;
-                            break;
-                        }
-                    }
-                    // Nếu dữ liệu chưa tồn tại, thêm vào sheet
-                    if (!dataExists)
-                    {
-                        worksheet.Cells[startRow, startCol] = dataGridView[2, i].Value;  // Cột 2
-                        worksheet.Cells[startRow, startCol + 1] = dataGridView[4, i].Value;  // Cột 4
-                        startRow++;
-                    }
-                }
-
-                // Tạo khoảng trống giữa các nhóm (nếu không phải nhóm cuối cùng)
-                if (groupIndex != dgvKPICN_MTBB.RowCount - 1)
-                {
-                    startRow += 2;  // Dùng 2 dòng trống
-                }
-                else
-                {
-                    startRow++;  // Dùng 1 dòng trống cho nhóm cuối cùng
-                }
+                if(i < dgvKPICN_MTBB.RowCount - 1)
+                    worksheet.Rows[i + 13].Insert();
             }
 
-            ////MỤC TIÊU ĐĂNG KÍ THÊM
-            //for (int groupIndex = 0; groupIndex < dgvKPICN_MTT.RowCount; groupIndex++)
-            //{
-            //    DataGridView dataGridView = dgvKPICN_MTT[groupIndex];
-
-            //    int startRow = startRows[groupIndex];
-
-            //    // Sao chép dữ liệu từ cột 2 và cột 4 của DataGridView sang worksheet
-            //    for (int i = 0; i < dataGridView.Rows.Count; i++)
-            //    {
-            //        // Kiểm tra xem dữ liệu đã tồn tại trong sheet chưa
-            //        bool dataExists = false;
-            //        for (int row = 1; row <= worksheet.UsedRange.Rows.Count; row++)
-            //        {
-            //            if (worksheet.Cells[row, startCol].Value == dataGridView[2, i].Value &&
-            //                worksheet.Cells[row, startCol + 1].Value == dataGridView[4, i].Value)
-            //            {
-            //                dataExists = true;
-            //                break;
-            //            }
-            //        }
-            //        // Nếu dữ liệu chưa tồn tại, thêm vào sheet
-            //        if (!dataExists)
-            //        {
-            //            worksheet.Cells[startRow, startCol] = dataGridView[2, i].Value;  // Cột 2
-            //            worksheet.Cells[startRow, startCol + 1] = dataGridView[4, i].Value;  // Cột 4
-            //            startRow++;
-            //        }
-            //    }
-
-            //    // Tạo khoảng trống giữa các nhóm (nếu không phải nhóm cuối cùng)
-            //    if (groupIndex != dgvKPICN_MTT.RowCount - 1)
-            //    {
-            //        startRow += 2;  // Dùng 2 dòng trống
-            //    }
-            //    else
-            //    {
-            //        startRow++;  // Dùng 1 dòng trống cho nhóm cuối cùng
-            //    }
-            //}
-
             // Lưu workbook
-            workbook.Save();
+            string tenfile = ""+Frm_Login.MaNV+"_"+DateTime.Now.ToString("yyyyMMddHHmmss") +"";
+            workbook.SaveAs(""+ tenfile +".xlsx");
         }
 
         #endregion
