@@ -442,7 +442,7 @@ namespace DuAn_QuanLyKPI.GUI
             }
 
             //đổ dữ liệu vào file excel
-            worksheet.Cells[2, 3] = "KPI CÁ NHÂN - QUÝ "+ (currentDate.Month - 1) / 3 + 1 + " /  "+ DateTime.Now.ToString("yyyy") +"";  // Ngày tháng C2
+            worksheet.Cells[2, 3] = "KPI CÁ NHÂN - QUÝ "+ ((currentDate.Month - 1) / 3 + 1) + " /  "+ DateTime.Now.ToString("yyyy") +"";  // Ngày tháng C2
             worksheet.Cells[4, 4] = TenNV; // Tên nhân viên vào D4
             worksheet.Cells[5, 4] = Frm_Login.MaNV.ToString(); // Mã nhân viên vào D5
             worksheet.Cells[4, 8] = TenChucDanh; // Tên chức danh vào G4
@@ -452,7 +452,6 @@ namespace DuAn_QuanLyKPI.GUI
                 worksheet.Cells[9, 4] = "10";
             else
                 worksheet.Cells[9, 4] = "0";
-            worksheet.Cells[dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 13, 4] = "=SUM(D12:D" + dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 12 + ")";//công thức tính tổng trọng số mục tiêu
 
             // Sao chép dữ liệu từ mỗi DataGridView sang worksheet
             //MỤC TIÊU BẮT BUỘC (bắt đầu từ dòng 12)
@@ -468,7 +467,7 @@ namespace DuAn_QuanLyKPI.GUI
                 worksheet.Cells[i + 12, 7] = dgvKPICN_MTBB.Rows[i].Cells["DVT_HTMTBB"].Value.ToString();//đơn vị tính
                 worksheet.Cells[i + 12, 8] = dgvKPICN_MTBB.Rows[i].Cells["KH_HTMTBB"].Value.ToString();//kế hoạch
                 worksheet.Cells[i + 12, 9] = dgvKPICN_MTBB.Rows[i].Cells["TH_HTMTBB"].Value.ToString();//thực hiện
-                worksheet.Cells[i + 12, 10] = "=IF(AND(I" + (i + 12) + "<>\"\",I" + (i + 12) + ">=" + (i + 12) + "),I" + (i + 12) + "/H" + (i + 12) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
+                worksheet.Cells[i + 12, 10] = "=IF(AND(I" + (i + 12) + "<>\"\",I" + (i + 12) + "<=H" + (i + 12) + "),I" + (i + 12) + "/H" + (i + 12) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
                 worksheet.Cells[i + 12, 11] = "=D" + (i + 12) + "*J" + (i + 12) + "";//công thức tính kết quả KPI
 
                 if (i < dgvKPICN_MTBB.RowCount - 1)
@@ -487,12 +486,14 @@ namespace DuAn_QuanLyKPI.GUI
                 worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 7] = dgvKPICN_MTT.Rows[i].Cells["DVT_HTMTT"].Value.ToString();//đơn vị tính
                 worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 8] = dgvKPICN_MTT.Rows[i].Cells["KH_HTMTT"].Value.ToString();//kế hoạch
                 worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 9] = dgvKPICN_MTT.Rows[i].Cells["TH_HTMTT"].Value.ToString();//thực hiện
-                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 10] = "=IF(AND(I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "<>\"\",I" + (i + 13 + dgvKPICN_MTBB.RowCount) + ">=" + (i + 13 + dgvKPICN_MTBB.RowCount) + "),I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "/H" + (i + 13 + dgvKPICN_MTBB.RowCount) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 10] = "=IF(AND(I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "<>\"\",I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "<=H" + (i + 13 + dgvKPICN_MTBB.RowCount) + "),I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "/H" + (i + 13 + dgvKPICN_MTBB.RowCount) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
                 worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 11] = "=D" + (i + 13 + dgvKPICN_MTBB.RowCount) + "*J" + (i + 13 + dgvKPICN_MTBB.RowCount) + "";//công thức tính kết quả KPI
 
                 if (i < dgvKPICN_MTT.RowCount - 1)
                     worksheet.Rows[i + 14 + dgvKPICN_MTBB.RowCount].Insert();
             }
+            worksheet.Cells[(dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 13), 4] = "=SUM(D12:D" + (dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 12) + ")";//công thức tính tổng trọng số mục tiêu
+            worksheet.Cells[10, 11] = "=SUM(K12:K" + (dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 12) + ")*D10";//công thức tính tổng trọng số mục tiêu công việc
 
             // Lưu file
             string tenfile = ""+Frm_Login.MaNV+"_"+DateTime.Now.ToString("yyyyMMddHHmmss") +"";
@@ -522,7 +523,7 @@ namespace DuAn_QuanLyKPI.GUI
 //Cột tieuchidanhgiaQK, MaKPI trong bảng ChiTietKPICaNhan chuyển thành allow null
 //Cột chưa đụng đến : ChiTieuKPICN, TrongSoTCCN, KeHoach, ThucHien, TyLeHoanThanh, TieuChiDanhGiaKQ, KetQua, KetQuaKPIBV, KetQuaKPIKP, KetQuaKPIKPGiaTriCotLoiBV
 
-
+//kế hoạch, hoàn thành là từ trên giao xuống
 //mỗi đơn vị tính khác nhau là 1 công thức tính khác nhau (xem file excel điều dưỡng)
 //lỗi quý ô C2
 
