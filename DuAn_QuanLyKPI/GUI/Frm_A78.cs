@@ -20,6 +20,8 @@ using DevExpress.CodeParser;
 using System.Reflection.Emit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using DevExpress.Data.Linq.Helpers;
+using DevExpress.XtraPrinting.Native;
+using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 
 namespace DuAn_QuanLyKPI.GUI
@@ -32,6 +34,13 @@ namespace DuAn_QuanLyKPI.GUI
         private string msql;
         private string maphieukpikp;
         private string QuyNam;
+        string TenNV;
+        string TenChucDanh;
+        string TenPhongKhoa;
+        string MaNV = Frm_Login.MaNV;
+        string MaChucDanh;
+        string MaPhongKhoa;
+
         Timer Time1;
 
         public Frm_A78()
@@ -51,9 +60,11 @@ namespace DuAn_QuanLyKPI.GUI
                 "where nd.MaNV = '"+ Frm_Login.MaNV + "'";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "NguoiDung");
 
-            string TenNV = dt.Rows[0]["TenNV"].ToString();
-            string TenChucDanh = dt.Rows[0]["TenChucDanh"].ToString();
-            string TenPhongKhoa = dt.Rows[0]["TenPK"].ToString();
+            TenNV = dt.Rows[0]["TenNV"].ToString();
+            TenChucDanh = dt.Rows[0]["TenChucDanh"].ToString();
+            TenPhongKhoa = dt.Rows[0]["TenPK"].ToString();
+            MaChucDanh = dt.Rows[0]["MaChucDanh"].ToString();
+            MaPhongKhoa = dt.Rows[0]["MaPhongKhoa"].ToString();
 
             txtTenNV.Text = TenNV;
             txtTenNV4.Text = TenNV;
@@ -81,11 +92,17 @@ namespace DuAn_QuanLyKPI.GUI
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             maphieukpikp = dtt.Rows[0]["MaPhieuKPIKP"].ToString();
 
-            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP " +
-                "FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B " +
+            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP, E.TenPK " +
+                "FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B, KPITrongNganHang as C, NganHangKPI as D, PhongKhoa as E " +
                 "where A.MaKPI = B.MaKPI " +
+                "and C.MaKPI = B.MaKPI " +
+                "and D.MaNganHangKPI = C.MaNganHangKPI " +
+                "and E.MaPK = D.MaPK " +
                 "and A.MaPhieuKPIKP = '" + maphieukpikp + "' " +
-                "and B.CongViecCaNhan = 'true'";
+                "and B.CongViecCaNhan = 'true' " +
+                "and D.MaPK = '"+ MaPhongKhoa +"' " +
+                "and (D.MaChucDanh like 'PTP%' or D.MaChucDanh like 'PTK%') " +
+                "order by A.MaKPI";
             DataTable dt = comm.GetDataTable(mconnectstring, msql, "KPI");
             dgvKPICN_MTBB.DataSource = dt;
 
@@ -157,6 +174,9 @@ namespace DuAn_QuanLyKPI.GUI
                     dgvKPICN_MTBB2.Rows[n].Cells["MaKPI2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["MaKPI_MTBB"].Value.ToString();
                     dgvKPICN_MTBB2.Rows[n].Cells["PPD2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["PPD_MTBB"].Value.ToString();
                     dgvKPICN_MTBB2.Rows[n].Cells["DVT2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["DVT_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["NCM2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["NCM_MTBB"].Value.ToString();
+                    //dgvKPICN_MTBB2.Rows[n].Cells["KH2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["KH_MTBB"].Value.ToString();
+                    //dgvKPICN_MTBB2.Rows[n].Cells["TH2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["TH_MTBB"].Value.ToString();
                 }
             }
         }
@@ -172,6 +192,9 @@ namespace DuAn_QuanLyKPI.GUI
                 dgvKPICN_HTMTBB.Rows[n].Cells["TSHT_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["TSHT2_MTBB"].Value.ToString();
                 dgvKPICN_HTMTBB.Rows[n].Cells["PPD_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["PPD2_MTBB"].Value.ToString();
                 dgvKPICN_HTMTBB.Rows[n].Cells["DVT_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["DVT2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["NCM_HTMTBB"].Value = dgvKPICN_MTBB2.Rows[i].Cells["NCM2_MTBB"].Value.ToString();
+                dgvKPICN_HTMTBB.Rows[n].Cells["KH_HTMTBB"].Value = "100%";
+                dgvKPICN_HTMTBB.Rows[n].Cells["TH_HTMTBB"].Value = (Math.Round((float.Parse(dgvKPICN_MTBB2.Rows[i].Cells["TSHT2_MTBB"].Value.ToString())/ float.Parse(dgvKPICN_MTBB2.Rows[i].Cells["TSMT2_MTBB"].Value.ToString()) * 100),0) + "%").ToString();
             }
         }
         private void UpdateTimer_Tick(object sender, EventArgs e)
@@ -245,15 +268,26 @@ namespace DuAn_QuanLyKPI.GUI
         #region Tab2
         private void LoadDGVtab2()
         {
-            msql = "SELECT a.MaKPI_DKT, a.MaNV, a.QuyNam, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo " +
+            msql = "SELECT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK " +
                 "FROM ChiTietDangKiThem_KPICaNhan a " +
                 "inner join KPI b on a.MaKPI = b.MaKPI " +
-                "WHERE a.MaKPI IS NOT NULL";
+                "inner join KPITrongNganHang c on c.MaKPI = b.MaKPI " +
+                "inner join NganHangKPI d on d.MaNganHangKPI = c.MaNganHangKPI " +
+                "inner join PhongKhoa e on d.MaPK = e.MaPK " +
+                "WHERE a.MaKPI IS NOT NULL " +
+                "and e.MaPK = '" + MaPhongKhoa + "' " +
+                "and a.MaNV = '"+ MaNV +"' " +
+                "and a.QuyNam = '"+ QuyNam +"'" +
+                "and (d.MaChucDanh like 'PTP%' or d.MaChucDanh like 'PTK%')";
             DataTable dtA = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
 
-            msql = "SELECT MaKPI_DKT, MaNV, QuyNam, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo " +
-                "FROM ChiTietDangKiThem_KPICaNhan " +
-                "WHERE MaKPI IS NULL";
+            msql = "SELECT MaKPI_DKT, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo, c.TenPK " +
+                "FROM ChiTietDangKiThem_KPICaNhan a " +
+                "inner join NguoiDung b on a.MaNV = b.MaNV " +
+                "inner join PhongKhoa c on b.MaPhongKhoa = c.MaPK " +
+                "WHERE MaKPI IS NULL " +
+                "and a.MaNV = '"+ MaNV +"' " +
+                "and a.QuyNam = '" + QuyNam + "'";
             DataTable dtB = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem2");
 
             DataTable MTT = new DataTable();
@@ -301,7 +335,9 @@ namespace DuAn_QuanLyKPI.GUI
                 dgvKPICN_HTMTT.Rows[n].Cells["TSHT_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value.ToString();
                 dgvKPICN_HTMTT.Rows[n].Cells["PPD_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["PPD_MTT"].Value.ToString();
                 dgvKPICN_HTMTT.Rows[n].Cells["DVT_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["DVT_MTT"].Value.ToString();
-
+                dgvKPICN_HTMTT.Rows[n].Cells["NCM_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["NCM_MTT"].Value.ToString();
+                dgvKPICN_HTMTT.Rows[n].Cells["KH_HTMTT"].Value = "100%";
+                dgvKPICN_HTMTT.Rows[n].Cells["TH_HTMTT"].Value = (Math.Round((float.Parse(dgvKPICN_MTT.Rows[i].Cells["TSHT_MTT"].Value.ToString()) / float.Parse(dgvKPICN_MTT.Rows[i].Cells["TSMT_MTT"].Value.ToString()) * 100 ),0) + "%").ToString();
             }
         }
         private void btnTTpnDKTPK_Click(object sender, EventArgs e)
@@ -320,6 +356,8 @@ namespace DuAn_QuanLyKPI.GUI
                 ev.QFrmThongBao("Trọng số lớn hơn 100% !");
             }
             tabMucTieuKhoaPhong.SelectTab(2);
+            if (cbQTUX.Checked == true)
+                txtQTUXHT.Text = txtQTUX.Text;
             copyDataCN2toHT();
             copyDataDKMTTtoHT();
         }
@@ -379,19 +417,20 @@ namespace DuAn_QuanLyKPI.GUI
 
             if (ev.QFrmThongBao_YesNo("Bạn có chắc muốn tiếp tục không? Hãy kiểm tra thật kĩ thông tin trước khi Hoàn thành nhé!"))
             {
+                //đường dẫn đến file excel sẵn có
                 string existingFilePath = Path.Combine("D:\\ThucTap\\Projects\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\DuAn_QuanLyKPI\\bin\\Debug", "A78.xlsx");
-                // Pass the full path to the function
                 AddDataGridViewsToExistingExcelSheet(dgvKPICN_HTMTBB, dgvKPICN_HTMTT, existingFilePath);
             }
         }
 
         private void AddDataGridViewsToExistingExcelSheet(DataGridView dgvKPICN_MTBB, DataGridView dgvKPICN_MTT, string existingFilePath)
         {
-            // Mở một workbook Excel đã có sẵn
+            DateTime currentDate = DateTime.Now;
+            // Mở một file Excel đã có sẵn
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
             Excel.Workbook workbook = excelApp.Workbooks.Open(existingFilePath);
-
+            //mở sheets
             Excel.Worksheet worksheet = workbook.Sheets["A7.8"];
 
             if (worksheet == null)
@@ -401,29 +440,61 @@ namespace DuAn_QuanLyKPI.GUI
                 excelApp.Quit();
                 return;
             }
-            worksheet.Cells[10, 3] = txtQTUXHT.Text;  // TextBox1 vào C9
-            worksheet.Cells[4, 4] = txtTenNV.Text; // TextBox2 vào D4
-            worksheet.Cells[5, 4] = Frm_Login.MaNV.ToString(); // TextBox3 vào D5
-            worksheet.Cells[4, 8] = Frm_Login.MaCD; // TextBox4 vào G4
-            worksheet.Cells[5, 8] = Frm_Login.MaPK; // TextBox4 vào G5
 
+            //đổ dữ liệu vào file excel
+            worksheet.Cells[2, 3] = "KPI CÁ NHÂN - QUÝ "+ (currentDate.Month - 1) / 3 + 1 + " /  "+ DateTime.Now.ToString("yyyy") +"";  // Ngày tháng C2
+            worksheet.Cells[4, 4] = TenNV; // Tên nhân viên vào D4
+            worksheet.Cells[5, 4] = Frm_Login.MaNV.ToString(); // Mã nhân viên vào D5
+            worksheet.Cells[4, 8] = TenChucDanh; // Tên chức danh vào G4
+            worksheet.Cells[5, 8] = TenPhongKhoa; // Tên khoa phòng vào G5
+            worksheet.Cells[9, 3] = txtQTUXHT.Text;  // Quy tắc ứng xử vào C9
+            if (txtQTUXHT.Text.Length > 0)
+                worksheet.Cells[9, 4] = "10";
+            else
+                worksheet.Cells[9, 4] = "0";
+            worksheet.Cells[dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 13, 4] = "=SUM(D12:D" + dgvKPICN_MTBB.RowCount + dgvKPICN_MTT.RowCount + 12 + ")";//công thức tính tổng trọng số mục tiêu
 
             // Sao chép dữ liệu từ mỗi DataGridView sang worksheet
-            //MỤC TIÊU BẮT BUỘC
+            //MỤC TIÊU BẮT BUỘC (bắt đầu từ dòng 12)
             int stt = 0;
             for (int i = 0; i < dgvKPICN_MTBB.RowCount; i++)
             {
                 stt++;
                 worksheet.Cells[i + 12, 2] = stt;//số thứ tự đầu dòng
-                worksheet.Cells[i + 12, 3] = dgvKPICN_MTBB.Rows[i].Cells[1].Value.ToString();//nội dung mục tiêu đánh giá
-                worksheet.Cells[i + 12, 4] = int.Parse(dgvKPICN_MTBB.Rows[i].Cells[2].Value.ToString()) / 100;//trọng số
-                worksheet.Cells[i + 12, 11] = "=D"+(i+12)+"*J"+(i+12)+"";
+                worksheet.Cells[i + 12, 3] = dgvKPICN_MTBB.Rows[i].Cells["ND_HTMTBB"].Value.ToString();//nội dung mục tiêu đánh giá
+                worksheet.Cells[i + 12, 4] = float.Parse(dgvKPICN_MTBB.Rows[i].Cells["TSHT_HTMTBB"].Value.ToString()) / 100;//trọng số hoàn thành
+                worksheet.Cells[i + 12, 5] = dgvKPICN_MTBB.Rows[i].Cells["PPD_HTMTBB"].Value.ToString();//phương pháp đo
+                worksheet.Cells[i + 12, 6] = dgvKPICN_MTBB.Rows[i].Cells["NCM_HTMTBB"].Value.ToString();//nguồn chứng minh
+                worksheet.Cells[i + 12, 7] = dgvKPICN_MTBB.Rows[i].Cells["DVT_HTMTBB"].Value.ToString();//đơn vị tính
+                worksheet.Cells[i + 12, 8] = dgvKPICN_MTBB.Rows[i].Cells["KH_HTMTBB"].Value.ToString();//kế hoạch
+                worksheet.Cells[i + 12, 9] = dgvKPICN_MTBB.Rows[i].Cells["TH_HTMTBB"].Value.ToString();//thực hiện
+                worksheet.Cells[i + 12, 10] = "=IF(AND(I" + (i + 12) + "<>\"\",I" + (i + 12) + ">=" + (i + 12) + "),I" + (i + 12) + "/H" + (i + 12) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
+                worksheet.Cells[i + 12, 11] = "=D" + (i + 12) + "*J" + (i + 12) + "";//công thức tính kết quả KPI
 
-                if(i < dgvKPICN_MTBB.RowCount - 1)
+                if (i < dgvKPICN_MTBB.RowCount - 1)
                     worksheet.Rows[i + 13].Insert();
             }
 
-            // Lưu workbook
+            //MỤC TIÊU ĐĂNG KÍ THÊM (dòng 14 + số dòng mục tiêu bắt buộc)
+            for (int i = 0; i < dgvKPICN_MTT.RowCount; i++)
+            {
+                stt++;
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 2] = stt;//số thứ tự đầu dòng
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 3] = dgvKPICN_MTT.Rows[i].Cells["ND_HTMTT"].Value.ToString();//nội dung mục tiêu đánh giá
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 4] = float.Parse(dgvKPICN_MTT.Rows[i].Cells["TSHT_HTMTT"].Value.ToString()) / 100;//trọng số hoàn thành
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 5] = dgvKPICN_MTT.Rows[i].Cells["PPD_HTMTT"].Value.ToString();//phương pháp đo
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 6] = dgvKPICN_MTT.Rows[i].Cells["NCM_HTMTT"].Value.ToString();//nguồn chứng minh
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 7] = dgvKPICN_MTT.Rows[i].Cells["DVT_HTMTT"].Value.ToString();//đơn vị tính
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 8] = dgvKPICN_MTT.Rows[i].Cells["KH_HTMTT"].Value.ToString();//kế hoạch
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 9] = dgvKPICN_MTT.Rows[i].Cells["TH_HTMTT"].Value.ToString();//thực hiện
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 10] = "=IF(AND(I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "<>\"\",I" + (i + 13 + dgvKPICN_MTBB.RowCount) + ">=" + (i + 13 + dgvKPICN_MTBB.RowCount) + "),I" + (i + 13 + dgvKPICN_MTBB.RowCount) + "/H" + (i + 13 + dgvKPICN_MTBB.RowCount) + "*100%,0%)";//công thức tính Tỷ lệ (%) hoàn thành
+                worksheet.Cells[i + 13 + dgvKPICN_MTBB.RowCount, 11] = "=D" + (i + 13 + dgvKPICN_MTBB.RowCount) + "*J" + (i + 13 + dgvKPICN_MTBB.RowCount) + "";//công thức tính kết quả KPI
+
+                if (i < dgvKPICN_MTT.RowCount - 1)
+                    worksheet.Rows[i + 14 + dgvKPICN_MTBB.RowCount].Insert();
+            }
+
+            // Lưu file
             string tenfile = ""+Frm_Login.MaNV+"_"+DateTime.Now.ToString("yyyyMMddHHmmss") +"";
             workbook.SaveAs(""+ tenfile +".xlsx");
         }
@@ -450,3 +521,10 @@ namespace DuAn_QuanLyKPI.GUI
 //xoá cột TrongSoKPICaNhanDangKyThem, ThoiDiemGhiNhan trong bảng ChiTietKPICaNhan
 //Cột tieuchidanhgiaQK, MaKPI trong bảng ChiTietKPICaNhan chuyển thành allow null
 //Cột chưa đụng đến : ChiTieuKPICN, TrongSoTCCN, KeHoach, ThucHien, TyLeHoanThanh, TieuChiDanhGiaKQ, KetQua, KetQuaKPIBV, KetQuaKPIKP, KetQuaKPIKPGiaTriCotLoiBV
+
+
+//mỗi đơn vị tính khác nhau là 1 công thức tính khác nhau (xem file excel điều dưỡng)
+//lỗi quý ô C2
+
+//viết hàm check nếu chưa nhập đủ trọng số bắt buộc
+//tìm hiểu cách định dạng excel c# (auto size column)
