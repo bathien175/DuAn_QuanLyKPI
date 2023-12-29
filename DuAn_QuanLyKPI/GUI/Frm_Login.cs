@@ -19,7 +19,7 @@ namespace DuAn_QuanLyKPI.GUI
     public partial class Frm_Login : DevExpress.XtraEditors.XtraForm
     {
         //private string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        private string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        private string mconnectstring = Frm_A78.mconnectstring;
 
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");

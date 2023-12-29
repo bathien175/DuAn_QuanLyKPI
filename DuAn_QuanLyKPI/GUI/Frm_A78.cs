@@ -28,9 +28,9 @@ namespace DuAn_QuanLyKPI.GUI
 {
     public partial class Frm_A78 : DevExpress.XtraEditors.XtraForm
     {
-        //private string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        private string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-
+        #region Khai báo
+        //public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
@@ -48,18 +48,18 @@ namespace DuAn_QuanLyKPI.GUI
         private string Email = Frm_Login.Email;
         private string SDT = Frm_Login.SDT;
         private int CapDoBieuMauKPI = Frm_Login.CapDoBieuMauKPI;
-        Timer Time1;
-
+        Timer Time;
+        #endregion
         public Frm_A78()
         {
             InitializeComponent();
             LoadThongTinNhanVien();
             Load_DGV_MTBB();
 
-            Time1 = new Timer { Interval = 100 };
-            Time1.Tick += UpdateTimer_Tick;
+            Time = new Timer { Interval = 100 };
+            Time.Tick += UpdateTimer_Tick;
         }
-        #region Method
+        #region Phương thức
         private void LoadThongTinNhanVien()
         {
             txtTenNV1.Text = TenNV;
@@ -182,7 +182,7 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void Load_DGV_MTT()
         {
-            msql = "SELECT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, a.ChiTieu " +
+            msql = "SELECT DISTINCT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, a.ChiTieu " +
                 "FROM ChiTietDangKiThem_KPICaNhan a " +
                 "inner join KPI b on a.MaKPI = b.MaKPI " +
                 "inner join KPITrongNganHang c on c.MaKPI = b.MaKPI " +
@@ -191,8 +191,8 @@ namespace DuAn_QuanLyKPI.GUI
                 "WHERE a.MaKPI IS NOT NULL " +
                 "and e.MaPK = '" + MaPhongKhoa + "' " +
                 "and a.MaNV = '" + MaNV + "' " +
-                "and a.QuyNam = '" + QuyNam + "'" +
-                "and (d.MaChucDanh like 'PTP%' or d.MaChucDanh like 'PTK%')";
+                "and a.QuyNam = '" + QuyNam + "'";
+                //"and (d.MaChucDanh like 'PTP%' or d.MaChucDanh like 'PTK%')";
             DataTable dtA = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
 
             msql = "SELECT MaKPI_DKT, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo, c.TenPK, a.ChiTieu " +
@@ -276,9 +276,8 @@ namespace DuAn_QuanLyKPI.GUI
                 dgvKPICN_HTMTT.Rows[n].Cells["TH_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["TH_MTT"].Value.ToString();
             }
         }
-
         #endregion
-        #region Event
+        #region Sự kiện
         private void btnTiepTucTaiChinh_Click(object sender, EventArgs e)
         {
             if (SumTrongSo_MTBB() == 0)
@@ -311,7 +310,6 @@ namespace DuAn_QuanLyKPI.GUI
         {
             txtQTUX.Enabled = cbQTUX.Checked;
         }
-
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
             copyDataCNtoCN2();
@@ -334,15 +332,15 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void dgvCN_MouseLeave(object sender, EventArgs e)
         {
-            Time1.Stop();
+            Time.Stop();
         }
         private void dgvCN_MouseClick(object sender, MouseEventArgs e)
         {
-            Time1.Start();
+            Time.Start();
         }
         private void dgvCN_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            Time1.Stop();
+            Time.Stop();
         }
         private void dgvCN2_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -373,13 +371,12 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void dgvCN2_MouseHover(object sender, EventArgs e)
         {
-            Time1.Stop();
+            Time.Stop();
         }
         private void dgvCN2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             txtTongTrongSoCaNhan.Text = Convert.ToString(SumTrongSo_MTBB());
         }
-
         private void btnTTpnDKTPK_Click(object sender, EventArgs e)
         {
             if (SumTrongSo_MTT() == 0)
@@ -464,7 +461,6 @@ namespace DuAn_QuanLyKPI.GUI
                 AddDataGridViewsToExistingExcelSheet(dgvKPICN_HTMTBB, dgvKPICN_HTMTT, existingFilePath);
             }
         }
-
         private void AddDataGridViewsToExistingExcelSheet(DataGridView dgvKPICN_MTBB, DataGridView dgvKPICN_MTT, string existingFilePath)
         {
             // Mở một file Excel đã có sẵn
@@ -544,6 +540,7 @@ namespace DuAn_QuanLyKPI.GUI
 
             // Tự động điều chỉnh kích thước của hàng
             worksheet.Rows.AutoFit();
+            worksheet.Rows[6].RowHeight = 1;
 
             // Lưu file
             string tenfile = "" + Frm_Login.MaNV + "_" + yyyyMMddHHmmss + "";
@@ -554,3 +551,4 @@ namespace DuAn_QuanLyKPI.GUI
 }
 //viết hàm check nếu chưa nhập đủ trọng số bắt buộc
 //thêm trường ChiTieu trong bảng ChiTietTieuChiMucTieuKhoaPhong
+//Viết lại hàm của Công fix khi thời gian chạy reset trọng số vừa nhập

@@ -22,7 +22,7 @@ namespace DuAn_QuanLyKPI.GUI
         private static int CapDoBieuMauKPI = Frm_Login.CapDoBieuMauKPI;
         public static string QuyNam;
         //Conenect
-        private static string mconnectstring = Frm_Chinh_GUI.mconnectstring;
+        private static string mconnectstring = Frm_A78.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
