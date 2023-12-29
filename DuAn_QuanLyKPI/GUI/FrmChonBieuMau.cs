@@ -100,17 +100,28 @@ namespace DuAn_QuanLyKPI.GUI
                         case 76:
                             Frm_A76 A76 = new Frm_A76();
                             A76.Show(); break;
-                            //case 77:
-                            //    Frm_A710 A77 = new Frm_A710();
-                            //    A77.Show(); break;
-                            //case 78:
-                            //    Frm_A710 A78 = new Frm_A710();
-                            //    A78.Show(); break;
-                            //case 79:
-                            //    Frm_A710 A79 = new Frm_A710();
-                            //    A79.Show(); break;
-                            //case 710: frm_a710 a710 = new frm_a710();
-                            //a710.show();break;
+                        //case 77:
+                        //    Frm_A710 A77 = new Frm_A710();
+                        //    A77.Show(); break;
+                        //case 78:
+                        //    Frm_A710 A78 = new Frm_A710();
+                        //    A78.Show(); break;
+                        //case 79:
+                        //    Frm_A710 A79 = new Frm_A710();
+                        //    A79.Show(); break;
+                        //case 710: frm_a710 a710 = new frm_a710();
+                        //a710.show();break;
+                        case 78:
+                            try
+                            {
+                                Frm_A78 Frm_A78 = new Frm_A78();
+                                Frm_A78.Show();
+                            }
+                            catch (Exception)
+                            {
+                                ev.QFrmThongBaoError("Không có dữ liệu tương ứng");
+                            }
+                            break;
                     }
                 }
             }

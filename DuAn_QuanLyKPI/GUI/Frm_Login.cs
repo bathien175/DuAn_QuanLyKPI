@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -17,25 +18,25 @@ namespace DuAn_QuanLyKPI.GUI
 {
     public partial class Frm_Login : DevExpress.XtraEditors.XtraForm
     {
+        //private string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        private string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
-
-        #region Tạo biến truyền dữ liệu
-            public static string a;
-            public static string MaNV;
-            public static string TenNV;
-            public static string TenChucDanh;
-            public static string MaPhongKhoa;
-            public static string MaChucDanh;
-            public static string TenPhongKhoa;
-            public static string Email;
-            public static string SDT;
-            public static string PhanQuyen;
-            public static string TK;
-            public static byte[] HinhAnh;
-            public static bool TPK;
-            public static int CapDoBieuMauKPI;
-        # endregion
+        private string msql;
+        public static string MaNV;
+        public static string TenNV;
+        public static string TenChucDanh;
+        public static string MaPhongKhoa;
+        public static string MaChucDanh;
+        public static string TenPhongKhoa;
+        public static string Email;
+        public static string SDT;
+        public static string PhanQuyen;
+        public static string TK;
+        public static byte[] HinhAnh;
+        public static bool TPK;
+        public static int CapDoBieuMauKPI;
 
 
         Timer timer = new Timer();
@@ -48,11 +49,11 @@ namespace DuAn_QuanLyKPI.GUI
             timer1.Enabled = true;
         }
         #region DateTime
-            private void timer1_Tick(object sender, EventArgs e)
-            {
-                lbTime.Text = DateTime.Now.ToLongTimeString();
-                lbDate.Text = DateTime.Now.ToLongDateString();
-            }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToLongTimeString();
+            lbDate.Text = DateTime.Now.ToLongDateString();
+        }
         #endregion
         private byte[] ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat format)
         {
@@ -87,16 +88,16 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void txtPassword_Enter_1(object sender, EventArgs e)
         {
-            if (txtPassword.Text != "")
-            {
+            //if (txtPassword.Text != "")
+            //{
 
-            }
-            else
-            {
-                txtPassword.Text = "";
-            }
-            Bitmap bmpass = new Bitmap(@"D:\Thanh Phuc\Dự án quản lý KPI\Du An KPI\animation\textbox_password.png");
-            pictureBox1.Image = bmpass;
+            //}
+            //else
+            //{
+            //    txtPassword.Text = "";
+            //}
+            //Bitmap bmpass = new Bitmap(@"D:\Thanh Phuc\Dự án quản lý KPI\Du An KPI\animation\textbox_password.png");
+            //pictureBox1.Image = bmpass;
         }
         private void pbHien_Click_1(object sender, EventArgs e)
         {
@@ -109,7 +110,6 @@ namespace DuAn_QuanLyKPI.GUI
                 else
                     pictureBox1.Image = Properties.Resources.debut;
             }
-
         }
 
         private void pbAn_Click_1(object sender, EventArgs e)
@@ -118,8 +118,8 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 pbHien.BringToFront();
                 txtPassword.PasswordChar = '*';
-                Bitmap bmpass = new Bitmap(@"D:\Thanh Phuc\Dự án quản lý KPI\Du An KPI\animation\textbox_password.png");
-                pictureBox1.Image = bmpass;
+                //Bitmap bmpass = new Bitmap(@"D:\Thanh Phuc\Dự án quản lý KPI\Du An KPI\animation\textbox_password.png");
+                //pictureBox1.Image = bmpass;
             }
         }
 
@@ -137,45 +137,28 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string tentk = txtdangnhap.Text;
-            string mk = txtPassword.Text;
-            var db = DataProvider.Ins.DB;
-            var nguoidung = db.NguoiDung.Where(x => x.TenTaiKhoan == tentk && x.MatKhau == mk).FirstOrDefault();
-            if (nguoidung != null)
+            msql = "SELECT * FROM NguoiDung a " +
+                "inner join PhongKhoa b on a.MaPhongKhoa = b.MaPK " +
+                "inner join ChucDanh c on a.MaChucDanh = c.MaChucDanh " +
+                "where a.TenTaiKhoan = '" + txtdangnhap.Text + "' and a.MatKhau = '" + txtPassword.Text + "'";
+            DataTable dt = comm.GetDataTable(mconnectstring, msql, "NguoiDung");
+            if (dt.Rows.Count == 1)
             {
-                #region  truyền dữ liệu sau khi đăng nhập thành công
-                DataUserCurrent.Instance.IDUserCurrent = nguoidung.MaNV;
-                DataUserCurrent.Instance.Permission = nguoidung.MaQuyen;
+                MaNV = dt.Rows[0]["MaNV"].ToString();
+                MaPhongKhoa = dt.Rows[0]["MaPhongKhoa"].ToString();
+                MaChucDanh = dt.Rows[0]["MaChucDanh"].ToString();
+                TenPhongKhoa = dt.Rows[0]["TenPK"].ToString();
+                TenChucDanh = dt.Rows[0]["TenChucDanh"].ToString();
+                TenNV = dt.Rows[0]["TenNV"].ToString();
+                Email = dt.Rows[0]["Gmail"].ToString();
+                SDT = dt.Rows[0]["SDT"].ToString();
+                CapDoBieuMauKPI = int.Parse(dt.Rows[0]["MaCapDoKPIBenhVien"].ToString());
+                //byte[] hinhAnhBytes = Convert.FromBase64String(dt.Rows[0]["HinhAnhNV"].ToString()); HinhAnh = hinhAnhBytes;
 
-                MaNV = DataUserCurrent.Instance.Permission = nguoidung.MaNV;
-                MaPhongKhoa = DataUserCurrent.Instance.Permission = nguoidung.MaPhongKhoa;
-                TenPhongKhoa = DataUserCurrent.Instance.Permission = nguoidung.PhongKhoa.TenPK;
-                MaChucDanh = DataUserCurrent.Instance.Permission = nguoidung.MaChucDanh;
-                TenChucDanh = DataUserCurrent.Instance.Permission = nguoidung.ChucDanh.TenChucDanh;
-                TenNV = DataUserCurrent.Instance.Permission = nguoidung.TenNV;
-                Email = DataUserCurrent.Instance.Permission = nguoidung.Gmail;
-                SDT = DataUserCurrent.Instance.Permission = nguoidung.SDT;
-                TK = DataUserCurrent.Instance.Permission = nguoidung.TenTaiKhoan;
-                CapDoBieuMauKPI = (int)nguoidung.MaCapDoKPIBenhVien;
-                DataUserCurrent.Instance.Permission = CapDoBieuMauKPI.ToString();
-                byte[] hinhAnhBytes = nguoidung.HinhAnhNV;
-                DataUserCurrent.Instance.Permission = hinhAnhBytes.ToString();
-                HinhAnh = hinhAnhBytes;
-
-
-
-                #endregion
-                if (DataUserCurrent.Instance.Permission != "NV")
-                {
-                    ev.QFrmThongBao("Đăng nhập thành công");
-                    Frm_Chinh_GUI f = new Frm_Chinh_GUI();
-                    this.Hide();
-                    f.ShowDialog();
-                }
-                else
-                {
-                    ev.QFrmThongBaoError("Không có quyền vào form dành cho lãnh đạo");
-                }
+                ev.QFrmThongBao("Đăng nhập thành công");
+                Frm_Chinh_GUI f = new Frm_Chinh_GUI();
+                this.Hide();
+                f.ShowDialog();
             }
             else
             {
