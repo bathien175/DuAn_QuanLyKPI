@@ -552,3 +552,10 @@ namespace DuAn_QuanLyKPI.GUI
 //viết hàm check nếu chưa nhập đủ trọng số bắt buộc
 //thêm trường ChiTieu trong bảng ChiTietTieuChiMucTieuKhoaPhong
 //Viết lại hàm của Công fix khi thời gian chạy reset trọng số vừa nhập
+
+//trưởng khoa duyệt phiếu, phó khoa duyệt lặp
+//trọng số HT tự động tính theo phương pháp đo
+//đăng kí thêm chỉ được chọn, không nhập thực hiện. cuối quý/năm mới được nhập
+//KPI cá nhân theo quý(78) load theo KPI cá nhân năm(79). KPI cá nhân năm load theo KPI khoa phòng năm(73)
+//Nội dung KPI cá nhân quý(78) tham khảo và lấy, chỉnh sửa từ 79.(Trưởng khoa quyết định)
+//
