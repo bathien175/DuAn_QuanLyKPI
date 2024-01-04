@@ -23,14 +23,17 @@ using DevExpress.XtraPrinting.Native;
 using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 using System.Globalization;
 using System.Data.Entity;
+using DevExpress.XtraLayout.Filtering.Templates;
+using System.Text.RegularExpressions;
+using DevExpress.Schedule;
 
 namespace DuAn_QuanLyKPI.GUI
 {
     public partial class Frm_A78 : DevExpress.XtraEditors.XtraForm
     {
         #region Khai báo
-        //public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        //public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
@@ -87,7 +90,7 @@ namespace DuAn_QuanLyKPI.GUI
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             MaPhieuKPIKP = dtt.Rows[0]["MaPhieuKPIKP"].ToString();
 
-            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP, E.TenPK, A.ChiTieu " +
+            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP, E.TenPK, A.KeHoach " +
                 "FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B, KPITrongNganHang as C, NganHangKPI as D, PhongKhoa as E " +
                 "where A.MaKPI = B.MaKPI " +
                 "and C.MaKPI = B.MaKPI " +
@@ -107,7 +110,7 @@ namespace DuAn_QuanLyKPI.GUI
                 string phuongPhapDo = row.Cells["PPD_MTBB"].Value.ToString();
                 string noiDung = row.Cells["ND_MTBB"].Value.ToString();
 
-                if (noiDung.Contains(" X ") || noiDung.Contains(" X%") || noiDung.Contains(" X.") || noiDung.Contains(" Xlần"))
+                if (noiDung.Contains(" X ") || noiDung.Contains(" X%"))
                 {
                     phuongPhapDo = phuongPhapDo.Replace("X", row.Cells["KH_MTBB"].Value.ToString().Trim());
                     noiDung = noiDung.Replace("X", row.Cells["KH_MTBB"].Value.ToString().Trim());
@@ -120,6 +123,10 @@ namespace DuAn_QuanLyKPI.GUI
                 row.Cells["PPD_MTBB"].Value = phuongPhapDo;
                 row.Cells["ND_MTBB"].Value = noiDung;
             }
+
+            //Tô màu cho cột nhập giá trị
+            dgvKPICN_MTBB2.Columns["TH2_MTBB"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+
 
             dgvKPICN_MTBB.CurrentCellDirtyStateChanged += Dgv1_CurrentCellDirtyStateChanged;
             dgvKPICN_MTBB.CommitEdit(DataGridViewDataErrorContexts.Commit);
@@ -160,6 +167,8 @@ namespace DuAn_QuanLyKPI.GUI
                     dgvKPICN_MTBB2.Rows[n].Cells["DVT2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["DVT_MTBB"].Value.ToString();
                     dgvKPICN_MTBB2.Rows[n].Cells["NCM2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["NCM_MTBB"].Value.ToString();
                     dgvKPICN_MTBB2.Rows[n].Cells["KH2_MTBB"].Value = dgvKPICN_MTBB.Rows[i].Cells["KH_MTBB"].Value.ToString();
+                    dgvKPICN_MTBB2.Rows[n].Cells["TSHT2_MTBB"].Value = "0";
+                    dgvKPICN_MTBB2.Rows[n].Cells["TH2_MTBB"].Value = "0";
                 }
             }
         }
@@ -182,8 +191,8 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void Load_DGV_MTT()
         {
-            msql = "SELECT DISTINCT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, a.ChiTieu " +
-                "FROM ChiTietDangKiThem_KPICaNhan a " +
+            msql = "SELECT DISTINCT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, a.KeHoach " +
+                "FROM KPI_DangKiThem a " +
                 "inner join KPI b on a.MaKPI = b.MaKPI " +
                 "inner join KPITrongNganHang c on c.MaKPI = b.MaKPI " +
                 "inner join NganHangKPI d on d.MaNganHangKPI = c.MaNganHangKPI " +
@@ -195,8 +204,8 @@ namespace DuAn_QuanLyKPI.GUI
                 //"and (d.MaChucDanh like 'PTP%' or d.MaChucDanh like 'PTK%')";
             DataTable dtA = comm.GetDataTable(mconnectstring, msql, "DangKiMuctieuThem1");
 
-            msql = "SELECT MaKPI_DKT, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo, c.TenPK, a.ChiTieu " +
-                "FROM ChiTietDangKiThem_KPICaNhan a " +
+            msql = "SELECT MaKPI_DKT, NoiDung, TrongSoKPIDK, DonViTinh, PhuongPhapDo, c.TenPK, a.KeHoach " +
+                "FROM KPI_DangKiThem a " +
                 "inner join NguoiDung b on a.MaNV = b.MaNV " +
                 "inner join PhongKhoa c on b.MaPhongKhoa = c.MaPK " +
                 "WHERE MaKPI IS NULL " +
@@ -240,6 +249,9 @@ namespace DuAn_QuanLyKPI.GUI
                 tabMucTieuKhoaPhong.SelectTab(2);
             }
 
+            //Tô màu cho cột nhập giá trị
+            dgvKPICN_MTT.Columns["TH_MTT"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+
         }
         private int SumTrongSo_MTT()
         {
@@ -275,6 +287,92 @@ namespace DuAn_QuanLyKPI.GUI
                 dgvKPICN_HTMTT.Rows[n].Cells["KH_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["KH_MTT"].Value.ToString();
                 dgvKPICN_HTMTT.Rows[n].Cells["TH_HTMTT"].Value = dgvKPICN_MTT.Rows[i].Cells["TH_MTT"].Value.ToString();
             }
+        }
+        private string TinhTrongSoHT(string PhuongPhapDo, string KeHoach, string ThucHien)
+        {
+            if (string.IsNullOrEmpty(ThucHien))
+            {
+                return "0";
+            }
+
+            int sbd = PhuongPhapDo.IndexOf("KQ");
+            int skt = PhuongPhapDo.IndexOf(":");
+            if (skt == -1)
+                skt = PhuongPhapDo.IndexOf(";");
+
+            string newPPD = PhuongPhapDo.Substring(sbd, skt);
+
+            if (newPPD.Contains(KeHoach) || newPPD.Contains(KeHoach))
+            {
+                // Extract the comparison operator
+                string operatorString = ExtractOperator(newPPD);
+
+                // Parse KeHoach and ThucHien as floats
+                float keHoachValue = float.Parse(KeHoach);
+                float thucHienValue = float.Parse(ThucHien);
+
+                // Perform the comparison based on the operator
+                if (operatorString == ">=" || operatorString == "=>")
+                {
+                    if (thucHienValue >= keHoachValue)
+                    {
+                        return "100";
+                    }
+                }
+                else if (operatorString == "<=" || operatorString == "=<")
+                {
+                    if (thucHienValue <= keHoachValue)
+                    {
+                        return "100";
+                    }
+                }
+                else if (operatorString == ">")
+                {
+                    if (thucHienValue > keHoachValue)
+                    {
+                        return "100";
+                    }
+                }
+                else if (operatorString == "<")
+                {
+                    if (thucHienValue < keHoachValue)
+                    {
+                        return "100";
+                    }
+                }
+                else if (operatorString == " = ")
+                {
+                    if (thucHienValue == keHoachValue)
+                    {
+                        return "100";
+                    }
+                }
+            }
+
+            else if ((newPPD.Contains(KeHoach)))
+            {
+                DateTime _KeHoach;
+                DateTime _ThucHien;
+                DateTime.TryParseExact(KeHoach, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _KeHoach);
+                DateTime.TryParseExact(ThucHien, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ThucHien);
+
+                if ((newPPD.Contains(">=") || newPPD.Contains("=>")) && (_ThucHien >= _KeHoach) ||
+                    ((newPPD.Contains("<=") || newPPD.Contains("=<")) && (_ThucHien <= _KeHoach)) ||
+                    (newPPD.Contains(">") && (_ThucHien > _KeHoach)) ||
+                    (newPPD.Contains("<") && (_ThucHien < _KeHoach)) ||
+                    (newPPD.Contains(" = ") && (_ThucHien == _KeHoach)))
+                {
+                    return "100";
+                }
+            }
+            return "0";
+        }
+        private string ExtractOperator(string newPPD)
+        {
+            // Logic to extract the operator from newPPD, e.g., using regular expressions or string manipulation
+            // Example using a regular expression:
+            Match match = Regex.Match(newPPD, @"(>=|=>|<=|=<|>|<| = )");
+            return match.Success ? match.Value : "";
         }
         #endregion
         #region Sự kiện
@@ -376,6 +474,10 @@ namespace DuAn_QuanLyKPI.GUI
         private void dgvCN2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             txtTongTrongSoCaNhan.Text = Convert.ToString(SumTrongSo_MTBB());
+            foreach (DataGridViewRow row in dgvKPICN_MTBB2.Rows)
+            {
+                    row.Cells["TSHT2_MTBB"].Value = TinhTrongSoHT(row.Cells["PPD2_MTBB"].Value.ToString(), row.Cells["KH2_MTBB"].Value.ToString(), row.Cells["TH2_MTBB"].Value.ToString());
+            }
         }
         private void btnTTpnDKTPK_Click(object sender, EventArgs e)
         {
@@ -558,4 +660,4 @@ namespace DuAn_QuanLyKPI.GUI
 //đăng kí thêm chỉ được chọn, không nhập thực hiện. cuối quý/năm mới được nhập
 //KPI cá nhân theo quý(78) load theo KPI cá nhân năm(79). KPI cá nhân năm load theo KPI khoa phòng năm(73)
 //Nội dung KPI cá nhân quý(78) tham khảo và lấy, chỉnh sửa từ 79.(Trưởng khoa quyết định)
-//
+//Nếu Chỉ Tiêu khác X thì Kế hoạch = chỉ tiêu

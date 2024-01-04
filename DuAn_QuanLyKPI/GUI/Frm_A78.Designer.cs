@@ -41,6 +41,17 @@
             this.pnTongGrid = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dgvKPICN_MTBB2 = new System.Windows.Forms.DataGridView();
+            this.Xoa_MTBB = new System.Windows.Forms.DataGridViewImageColumn();
+            this.MaPhieuKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPI2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ND2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PPD2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NCM2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DVT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KH2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TH2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSMT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSHT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCaNhan = new System.Windows.Forms.TabPage();
             this.pTongGridView = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -103,6 +114,14 @@
             this.TSHT_HTMTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvKPICN_HTMTBB = new System.Windows.Forms.DataGridView();
+            this.MaKPI_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ND_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PPD_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NCM_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DVT_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KH_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TH_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSHT_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel32 = new System.Windows.Forms.Panel();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnQuayLaiHoanThanh = new System.Windows.Forms.Button();
@@ -130,23 +149,6 @@
             this.xFilteg11 = new ControlProject1510.XFilteg();
             this.label19 = new System.Windows.Forms.Label();
             this.stepProgressBar2 = new DevExpress.XtraEditors.StepProgressBar();
-            this.MaKPI_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ND_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PPD_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NCM_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVT_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KH_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TH_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSHT_HTMTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKPI_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ND_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PPD_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NCM_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KH_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TH_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSMT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSHT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chon_MTBB = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MaKPI_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ND_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -156,17 +158,15 @@
             this.KH_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TSMT_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TSHT_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Xoa_MTBB = new System.Windows.Forms.DataGridViewImageColumn();
-            this.MaPhieuKPI2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKPI2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ND2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PPD2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NCM2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KH2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TH2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSMT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSHT2_MTBB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKPI_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ND_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PPD_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DVT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NCM_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KH_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TH_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSMT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSHT_MTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKPICN_MTBB)).BeginInit();
             this.panel2.SuspendLayout();
@@ -357,6 +357,74 @@
             this.dgvKPICN_MTBB2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCN2_CellEndEdit);
             this.dgvKPICN_MTBB2.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCN2_ColumnHeaderMouseClick);
             this.dgvKPICN_MTBB2.MouseHover += new System.EventHandler(this.dgvCN2_MouseHover);
+            // 
+            // Xoa_MTBB
+            // 
+            this.Xoa_MTBB.HeaderText = "Xoá";
+            this.Xoa_MTBB.Image = ((System.Drawing.Image)(resources.GetObject("Xoa_MTBB.Image")));
+            this.Xoa_MTBB.Name = "Xoa_MTBB";
+            // 
+            // MaPhieuKPI2
+            // 
+            this.MaPhieuKPI2.HeaderText = "Mã Phiếu KPI";
+            this.MaPhieuKPI2.Name = "MaPhieuKPI2";
+            this.MaPhieuKPI2.ReadOnly = true;
+            this.MaPhieuKPI2.Visible = false;
+            // 
+            // MaKPI2_MTBB
+            // 
+            this.MaKPI2_MTBB.HeaderText = "Mã KPI";
+            this.MaKPI2_MTBB.Name = "MaKPI2_MTBB";
+            this.MaKPI2_MTBB.ReadOnly = true;
+            this.MaKPI2_MTBB.Visible = false;
+            // 
+            // ND2_MTBB
+            // 
+            this.ND2_MTBB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ND2_MTBB.HeaderText = "Nội dung";
+            this.ND2_MTBB.Name = "ND2_MTBB";
+            this.ND2_MTBB.ReadOnly = true;
+            // 
+            // PPD2_MTBB
+            // 
+            this.PPD2_MTBB.HeaderText = "Phương pháp đo";
+            this.PPD2_MTBB.Name = "PPD2_MTBB";
+            this.PPD2_MTBB.ReadOnly = true;
+            this.PPD2_MTBB.Width = 200;
+            // 
+            // NCM2_MTBB
+            // 
+            this.NCM2_MTBB.HeaderText = "Nguồn chứng minh";
+            this.NCM2_MTBB.Name = "NCM2_MTBB";
+            this.NCM2_MTBB.ReadOnly = true;
+            // 
+            // DVT2_MTBB
+            // 
+            this.DVT2_MTBB.HeaderText = "Đơn vị tính";
+            this.DVT2_MTBB.Name = "DVT2_MTBB";
+            this.DVT2_MTBB.ReadOnly = true;
+            // 
+            // KH2_MTBB
+            // 
+            this.KH2_MTBB.HeaderText = "Kế hoạch";
+            this.KH2_MTBB.Name = "KH2_MTBB";
+            this.KH2_MTBB.ReadOnly = true;
+            // 
+            // TH2_MTBB
+            // 
+            this.TH2_MTBB.HeaderText = "Thực hiện";
+            this.TH2_MTBB.Name = "TH2_MTBB";
+            // 
+            // TSMT2_MTBB
+            // 
+            this.TSMT2_MTBB.HeaderText = "Trọng số Mục Tiêu";
+            this.TSMT2_MTBB.Name = "TSMT2_MTBB";
+            this.TSMT2_MTBB.ReadOnly = true;
+            // 
+            // TSHT2_MTBB
+            // 
+            this.TSHT2_MTBB.HeaderText = "Trọng số Hoàn Thành";
+            this.TSHT2_MTBB.Name = "TSHT2_MTBB";
             // 
             // tabCaNhan
             // 
@@ -1120,6 +1188,57 @@
             this.dgvKPICN_HTMTBB.Size = new System.Drawing.Size(1333, 237);
             this.dgvKPICN_HTMTBB.TabIndex = 9;
             // 
+            // MaKPI_HTMTBB
+            // 
+            this.MaKPI_HTMTBB.HeaderText = "Mã KPI";
+            this.MaKPI_HTMTBB.Name = "MaKPI_HTMTBB";
+            this.MaKPI_HTMTBB.ReadOnly = true;
+            this.MaKPI_HTMTBB.Visible = false;
+            // 
+            // ND_HTMTBB
+            // 
+            this.ND_HTMTBB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ND_HTMTBB.HeaderText = "Nội dung mục tiêu bắt buộc";
+            this.ND_HTMTBB.Name = "ND_HTMTBB";
+            this.ND_HTMTBB.ReadOnly = true;
+            // 
+            // PPD_HTMTBB
+            // 
+            this.PPD_HTMTBB.HeaderText = "Phương pháp đo";
+            this.PPD_HTMTBB.Name = "PPD_HTMTBB";
+            this.PPD_HTMTBB.ReadOnly = true;
+            this.PPD_HTMTBB.Width = 200;
+            // 
+            // NCM_HTMTBB
+            // 
+            this.NCM_HTMTBB.HeaderText = "Nguồn chứng minh";
+            this.NCM_HTMTBB.Name = "NCM_HTMTBB";
+            this.NCM_HTMTBB.ReadOnly = true;
+            // 
+            // DVT_HTMTBB
+            // 
+            this.DVT_HTMTBB.HeaderText = "Đơn vị tính";
+            this.DVT_HTMTBB.Name = "DVT_HTMTBB";
+            this.DVT_HTMTBB.ReadOnly = true;
+            // 
+            // KH_HTMTBB
+            // 
+            this.KH_HTMTBB.HeaderText = "Kế hoạch";
+            this.KH_HTMTBB.Name = "KH_HTMTBB";
+            this.KH_HTMTBB.ReadOnly = true;
+            // 
+            // TH_HTMTBB
+            // 
+            this.TH_HTMTBB.HeaderText = "Thực hiện";
+            this.TH_HTMTBB.Name = "TH_HTMTBB";
+            this.TH_HTMTBB.ReadOnly = true;
+            // 
+            // TSHT_HTMTBB
+            // 
+            this.TSHT_HTMTBB.HeaderText = "Trọng số Hoàn Thành";
+            this.TSHT_HTMTBB.Name = "TSHT_HTMTBB";
+            this.TSHT_HTMTBB.ReadOnly = true;
+            // 
             // panel32
             // 
             this.panel32.Controls.Add(this.btnExel);
@@ -1472,119 +1591,6 @@
             this.stepProgressBar2.Size = new System.Drawing.Size(260, 90);
             this.stepProgressBar2.TabIndex = 20;
             // 
-            // MaKPI_HTMTBB
-            // 
-            this.MaKPI_HTMTBB.HeaderText = "Mã KPI";
-            this.MaKPI_HTMTBB.Name = "MaKPI_HTMTBB";
-            this.MaKPI_HTMTBB.ReadOnly = true;
-            this.MaKPI_HTMTBB.Visible = false;
-            // 
-            // ND_HTMTBB
-            // 
-            this.ND_HTMTBB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ND_HTMTBB.HeaderText = "Nội dung mục tiêu bắt buộc";
-            this.ND_HTMTBB.Name = "ND_HTMTBB";
-            this.ND_HTMTBB.ReadOnly = true;
-            // 
-            // PPD_HTMTBB
-            // 
-            this.PPD_HTMTBB.HeaderText = "Phương pháp đo";
-            this.PPD_HTMTBB.Name = "PPD_HTMTBB";
-            this.PPD_HTMTBB.ReadOnly = true;
-            this.PPD_HTMTBB.Width = 200;
-            // 
-            // NCM_HTMTBB
-            // 
-            this.NCM_HTMTBB.HeaderText = "Nguồn chứng minh";
-            this.NCM_HTMTBB.Name = "NCM_HTMTBB";
-            this.NCM_HTMTBB.ReadOnly = true;
-            // 
-            // DVT_HTMTBB
-            // 
-            this.DVT_HTMTBB.HeaderText = "Đơn vị tính";
-            this.DVT_HTMTBB.Name = "DVT_HTMTBB";
-            this.DVT_HTMTBB.ReadOnly = true;
-            // 
-            // KH_HTMTBB
-            // 
-            this.KH_HTMTBB.HeaderText = "Kế hoạch";
-            this.KH_HTMTBB.Name = "KH_HTMTBB";
-            this.KH_HTMTBB.ReadOnly = true;
-            // 
-            // TH_HTMTBB
-            // 
-            this.TH_HTMTBB.HeaderText = "Thực hiện";
-            this.TH_HTMTBB.Name = "TH_HTMTBB";
-            this.TH_HTMTBB.ReadOnly = true;
-            // 
-            // TSHT_HTMTBB
-            // 
-            this.TSHT_HTMTBB.HeaderText = "Trọng số Hoàn Thành";
-            this.TSHT_HTMTBB.Name = "TSHT_HTMTBB";
-            this.TSHT_HTMTBB.ReadOnly = true;
-            // 
-            // MaKPI_MTT
-            // 
-            this.MaKPI_MTT.DataPropertyName = "MaKPI_DKT";
-            this.MaKPI_MTT.HeaderText = "Mã KPI";
-            this.MaKPI_MTT.Name = "MaKPI_MTT";
-            this.MaKPI_MTT.ReadOnly = true;
-            this.MaKPI_MTT.Visible = false;
-            // 
-            // ND_MTT
-            // 
-            this.ND_MTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ND_MTT.DataPropertyName = "NoiDung";
-            this.ND_MTT.HeaderText = "Nội dung";
-            this.ND_MTT.Name = "ND_MTT";
-            this.ND_MTT.ReadOnly = true;
-            // 
-            // PPD_MTT
-            // 
-            this.PPD_MTT.DataPropertyName = "PhuongPhapDo";
-            this.PPD_MTT.HeaderText = "Phương pháp đo";
-            this.PPD_MTT.Name = "PPD_MTT";
-            this.PPD_MTT.ReadOnly = true;
-            this.PPD_MTT.Width = 200;
-            // 
-            // DVT_MTT
-            // 
-            this.DVT_MTT.DataPropertyName = "DonViTinh";
-            this.DVT_MTT.HeaderText = "Đơn vị tính";
-            this.DVT_MTT.Name = "DVT_MTT";
-            this.DVT_MTT.ReadOnly = true;
-            // 
-            // NCM_MTT
-            // 
-            this.NCM_MTT.DataPropertyName = "TenPK";
-            this.NCM_MTT.HeaderText = "Nguồn chứng minh";
-            this.NCM_MTT.Name = "NCM_MTT";
-            this.NCM_MTT.ReadOnly = true;
-            // 
-            // KH_MTT
-            // 
-            this.KH_MTT.DataPropertyName = "ChiTieu";
-            this.KH_MTT.HeaderText = "Kế hoạch";
-            this.KH_MTT.Name = "KH_MTT";
-            this.KH_MTT.ReadOnly = true;
-            // 
-            // TH_MTT
-            // 
-            this.TH_MTT.HeaderText = "Thực hiện";
-            this.TH_MTT.Name = "TH_MTT";
-            // 
-            // TSMT_MTT
-            // 
-            this.TSMT_MTT.DataPropertyName = "TrongSoKPIDK";
-            this.TSMT_MTT.HeaderText = "Trọng số Mục Tiêu";
-            this.TSMT_MTT.Name = "TSMT_MTT";
-            this.TSMT_MTT.ReadOnly = true;
-            // 
-            // TSHT_MTT
-            // 
-            this.TSHT_MTT.HeaderText = "Trọng số Hoàn Thành";
-            this.TSHT_MTT.Name = "TSHT_MTT";
-            // 
             // Chon_MTBB
             // 
             this.Chon_MTBB.HeaderText = "Chọn";
@@ -1632,7 +1638,7 @@
             // 
             // KH_MTBB
             // 
-            this.KH_MTBB.DataPropertyName = "ChiTieu";
+            this.KH_MTBB.DataPropertyName = "KeHoach";
             this.KH_MTBB.HeaderText = "Kế hoạch";
             this.KH_MTBB.Name = "KH_MTBB";
             this.KH_MTBB.ReadOnly = true;
@@ -1651,73 +1657,67 @@
             this.TSHT_MTBB.ReadOnly = true;
             this.TSHT_MTBB.Visible = false;
             // 
-            // Xoa_MTBB
+            // MaKPI_MTT
             // 
-            this.Xoa_MTBB.HeaderText = "Xoá";
-            this.Xoa_MTBB.Image = ((System.Drawing.Image)(resources.GetObject("Xoa_MTBB.Image")));
-            this.Xoa_MTBB.Name = "Xoa_MTBB";
+            this.MaKPI_MTT.DataPropertyName = "MaKPI_DKT";
+            this.MaKPI_MTT.HeaderText = "Mã KPI";
+            this.MaKPI_MTT.Name = "MaKPI_MTT";
+            this.MaKPI_MTT.ReadOnly = true;
+            this.MaKPI_MTT.Visible = false;
             // 
-            // MaPhieuKPI2
+            // ND_MTT
             // 
-            this.MaPhieuKPI2.HeaderText = "Mã Phiếu KPI";
-            this.MaPhieuKPI2.Name = "MaPhieuKPI2";
-            this.MaPhieuKPI2.ReadOnly = true;
-            this.MaPhieuKPI2.Visible = false;
+            this.ND_MTT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ND_MTT.DataPropertyName = "NoiDung";
+            this.ND_MTT.HeaderText = "Nội dung";
+            this.ND_MTT.Name = "ND_MTT";
+            this.ND_MTT.ReadOnly = true;
             // 
-            // MaKPI2_MTBB
+            // PPD_MTT
             // 
-            this.MaKPI2_MTBB.HeaderText = "Mã KPI";
-            this.MaKPI2_MTBB.Name = "MaKPI2_MTBB";
-            this.MaKPI2_MTBB.ReadOnly = true;
-            this.MaKPI2_MTBB.Visible = false;
+            this.PPD_MTT.DataPropertyName = "PhuongPhapDo";
+            this.PPD_MTT.HeaderText = "Phương pháp đo";
+            this.PPD_MTT.Name = "PPD_MTT";
+            this.PPD_MTT.ReadOnly = true;
+            this.PPD_MTT.Width = 200;
             // 
-            // ND2_MTBB
+            // DVT_MTT
             // 
-            this.ND2_MTBB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ND2_MTBB.HeaderText = "Nội dung";
-            this.ND2_MTBB.Name = "ND2_MTBB";
-            this.ND2_MTBB.ReadOnly = true;
+            this.DVT_MTT.DataPropertyName = "DonViTinh";
+            this.DVT_MTT.HeaderText = "Đơn vị tính";
+            this.DVT_MTT.Name = "DVT_MTT";
+            this.DVT_MTT.ReadOnly = true;
             // 
-            // PPD2_MTBB
+            // NCM_MTT
             // 
-            this.PPD2_MTBB.HeaderText = "Phương pháp đo";
-            this.PPD2_MTBB.Name = "PPD2_MTBB";
-            this.PPD2_MTBB.ReadOnly = true;
-            this.PPD2_MTBB.Width = 200;
+            this.NCM_MTT.DataPropertyName = "TenPK";
+            this.NCM_MTT.HeaderText = "Nguồn chứng minh";
+            this.NCM_MTT.Name = "NCM_MTT";
+            this.NCM_MTT.ReadOnly = true;
             // 
-            // NCM2_MTBB
+            // KH_MTT
             // 
-            this.NCM2_MTBB.HeaderText = "Nguồn chứng minh";
-            this.NCM2_MTBB.Name = "NCM2_MTBB";
-            this.NCM2_MTBB.ReadOnly = true;
+            this.KH_MTT.DataPropertyName = "KeHoach";
+            this.KH_MTT.HeaderText = "Kế hoạch";
+            this.KH_MTT.Name = "KH_MTT";
+            this.KH_MTT.ReadOnly = true;
             // 
-            // DVT2_MTBB
+            // TH_MTT
             // 
-            this.DVT2_MTBB.HeaderText = "Đơn vị tính";
-            this.DVT2_MTBB.Name = "DVT2_MTBB";
-            this.DVT2_MTBB.ReadOnly = true;
+            this.TH_MTT.HeaderText = "Thực hiện";
+            this.TH_MTT.Name = "TH_MTT";
             // 
-            // KH2_MTBB
+            // TSMT_MTT
             // 
-            this.KH2_MTBB.HeaderText = "Kế hoạch";
-            this.KH2_MTBB.Name = "KH2_MTBB";
-            this.KH2_MTBB.ReadOnly = true;
+            this.TSMT_MTT.DataPropertyName = "TrongSoKPIDK";
+            this.TSMT_MTT.HeaderText = "Trọng số Mục Tiêu";
+            this.TSMT_MTT.Name = "TSMT_MTT";
+            this.TSMT_MTT.ReadOnly = true;
             // 
-            // TH2_MTBB
+            // TSHT_MTT
             // 
-            this.TH2_MTBB.HeaderText = "Thực hiện";
-            this.TH2_MTBB.Name = "TH2_MTBB";
-            // 
-            // TSMT2_MTBB
-            // 
-            this.TSMT2_MTBB.HeaderText = "Trọng số Mục Tiêu";
-            this.TSMT2_MTBB.Name = "TSMT2_MTBB";
-            this.TSMT2_MTBB.ReadOnly = true;
-            // 
-            // TSHT2_MTBB
-            // 
-            this.TSHT2_MTBB.HeaderText = "Trọng số Hoàn Thành";
-            this.TSHT2_MTBB.Name = "TSHT2_MTBB";
+            this.TSHT_MTT.HeaderText = "Trọng số Hoàn Thành";
+            this.TSHT_MTT.Name = "TSHT_MTT";
             // 
             // Frm_A78
             // 
@@ -1878,15 +1878,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KH_HTMTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TH_HTMTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_HTMTT;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ND_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PPD_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NCM_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVT_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KH_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TSMT_MTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_MTBB;
         private System.Windows.Forms.DataGridViewImageColumn Xoa_MTBB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuKPI2;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI2_MTBB;
@@ -1898,6 +1889,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TH2_MTBB;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSMT2_MTBB;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSHT2_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ND_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PPD_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NCM_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DVT_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KH_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TH_HTMTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_HTMTBB;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ND_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PPD_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NCM_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DVT_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KH_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TSMT_MTBB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_MTBB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ND_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn PPD_MTT;
@@ -1907,13 +1915,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TH_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSMT_MTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_MTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKPI_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ND_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PPD_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NCM_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVT_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KH_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TH_HTMTBB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TSHT_HTMTBB;
     }
 }
