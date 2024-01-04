@@ -32,8 +32,8 @@ namespace DuAn_QuanLyKPI.GUI
     public partial class Frm_A78 : DevExpress.XtraEditors.XtraForm
     {
         #region Khai báo
-        public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        //public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        //public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
@@ -90,7 +90,7 @@ namespace DuAn_QuanLyKPI.GUI
             DataTable dtt = comm.GetDataTable(mconnectstring, msql, "KPI");
             MaPhieuKPIKP = dtt.Rows[0]["MaPhieuKPIKP"].ToString();
 
-            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP, E.TenPK, A.KeHoach " +
+            msql = "SELECT A.MaKPI, B.NoiDung, B.PhuongPhapDo, B.DonViTinh, A.TrongSoKPIKP, E.TenPK, CASE WHEN B.ChiTieu <> 'X' and B.ChiTieu <> 'dd/mm/yyyy' THEN B.ChiTieu ELSE A.KeHoach END AS KeHoach " +
                 "FROM ChiTietTieuChiMucTieuKhoaPhong as A, KPI as B, KPITrongNganHang as C, NganHangKPI as D, PhongKhoa as E " +
                 "where A.MaKPI = B.MaKPI " +
                 "and C.MaKPI = B.MaKPI " +
@@ -191,7 +191,7 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void Load_DGV_MTT()
         {
-            msql = "SELECT DISTINCT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, a.KeHoach " +
+            msql = "SELECT DISTINCT a.MaKPI_DKT, b.NoiDung, a.TrongSoKPIDK, b.DonViTinh, b.PhuongPhapDo, e.TenPK, CASE WHEN b.ChiTieu <> 'X' and b.ChiTieu <> 'dd/mm/yyyy' THEN b.ChiTieu ELSE a.KeHoach END AS KeHoach " +
                 "FROM KPI_DangKiThem a " +
                 "inner join KPI b on a.MaKPI = b.MaKPI " +
                 "inner join KPITrongNganHang c on c.MaKPI = b.MaKPI " +
@@ -294,24 +294,40 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 return "0";
             }
-
+            //làm sạch dữ liệu
             int sbd = PhuongPhapDo.IndexOf("KQ");
             int skt = PhuongPhapDo.IndexOf(":");
             if (skt == -1)
                 skt = PhuongPhapDo.IndexOf(";");
+            if(KeHoach.Contains("%"))
+                KeHoach = KeHoach.Substring(0, KeHoach.Length - 1);
 
             string newPPD = PhuongPhapDo.Substring(sbd, skt);
 
-            if (newPPD.Contains(KeHoach) || newPPD.Contains(KeHoach))
+            if (IsValidDate(KeHoach))
             {
-                // Extract the comparison operator
+                DateTime _KeHoach;
+                DateTime _ThucHien;
+                DateTime.TryParseExact(KeHoach, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _KeHoach);
+                DateTime.TryParseExact(ThucHien, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ThucHien);
+
+                if ((newPPD.Contains(">=") || newPPD.Contains("=>")) && (_ThucHien >= _KeHoach) ||
+                    ((newPPD.Contains("<=") || newPPD.Contains("=<")) && (_ThucHien <= _KeHoach)) ||
+                    (newPPD.Contains(">") && (_ThucHien > _KeHoach)) ||
+                    (newPPD.Contains("<") && (_ThucHien < _KeHoach)) ||
+                    (newPPD.Contains(" = ") && (_ThucHien == _KeHoach)))
+                {
+                    return "100";
+                }
+            }
+
+            else if (newPPD.Contains(KeHoach) || newPPD.Contains(KeHoach))
+            {
                 string operatorString = ExtractOperator(newPPD);
 
-                // Parse KeHoach and ThucHien as floats
                 float keHoachValue = float.Parse(KeHoach);
                 float thucHienValue = float.Parse(ThucHien);
 
-                // Perform the comparison based on the operator
                 if (operatorString == ">=" || operatorString == "=>")
                 {
                     if (thucHienValue >= keHoachValue)
@@ -340,7 +356,7 @@ namespace DuAn_QuanLyKPI.GUI
                         return "100";
                     }
                 }
-                else if (operatorString == " = ")
+                else if (operatorString == "=")
                 {
                     if (thucHienValue == keHoachValue)
                     {
@@ -349,28 +365,16 @@ namespace DuAn_QuanLyKPI.GUI
                 }
             }
 
-            else if ((newPPD.Contains(KeHoach)))
-            {
-                DateTime _KeHoach;
-                DateTime _ThucHien;
-                DateTime.TryParseExact(KeHoach, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _KeHoach);
-                DateTime.TryParseExact(ThucHien, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ThucHien);
-
-                if ((newPPD.Contains(">=") || newPPD.Contains("=>")) && (_ThucHien >= _KeHoach) ||
-                    ((newPPD.Contains("<=") || newPPD.Contains("=<")) && (_ThucHien <= _KeHoach)) ||
-                    (newPPD.Contains(">") && (_ThucHien > _KeHoach)) ||
-                    (newPPD.Contains("<") && (_ThucHien < _KeHoach)) ||
-                    (newPPD.Contains(" = ") && (_ThucHien == _KeHoach)))
-                {
-                    return "100";
-                }
-            }
+            
             return "0";
+        }
+        private bool IsValidDate(string dateString)
+        {
+            DateTime dateValue;
+            return DateTime.TryParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateValue);
         }
         private string ExtractOperator(string newPPD)
         {
-            // Logic to extract the operator from newPPD, e.g., using regular expressions or string manipulation
-            // Example using a regular expression:
             Match match = Regex.Match(newPPD, @"(>=|=>|<=|=<|>|<| = )");
             return match.Success ? match.Value : "";
         }
@@ -661,3 +665,6 @@ namespace DuAn_QuanLyKPI.GUI
 //KPI cá nhân theo quý(78) load theo KPI cá nhân năm(79). KPI cá nhân năm load theo KPI khoa phòng năm(73)
 //Nội dung KPI cá nhân quý(78) tham khảo và lấy, chỉnh sửa từ 79.(Trưởng khoa quyết định)
 //Nếu Chỉ Tiêu khác X thì Kế hoạch = chỉ tiêu
+//xoá trọng số mục tiêu
+
+//mã KPI số 1648 bị sai, 2117 đọc hơi cấn
