@@ -364,8 +364,6 @@ namespace DuAn_QuanLyKPI.GUI
                     }
                 }
             }
-
-            
             return "0";
         }
         private bool IsValidDate(string dateString)
@@ -658,13 +656,28 @@ namespace DuAn_QuanLyKPI.GUI
 //viết hàm check nếu chưa nhập đủ trọng số bắt buộc
 //thêm trường ChiTieu trong bảng ChiTietTieuChiMucTieuKhoaPhong
 //Viết lại hàm của Công fix khi thời gian chạy reset trọng số vừa nhập
-
+//Nếu phiếu KPI cá nhân đã được xét duyệt thì không được chỉnh sửa
 //trưởng khoa duyệt phiếu, phó khoa duyệt lặp
 //trọng số HT tự động tính theo phương pháp đo
 //đăng kí thêm chỉ được chọn, không nhập thực hiện. cuối quý/năm mới được nhập
 //KPI cá nhân theo quý(78) load theo KPI cá nhân năm(79). KPI cá nhân năm load theo KPI khoa phòng năm(73)
 //Nội dung KPI cá nhân quý(78) tham khảo và lấy, chỉnh sửa từ 79.(Trưởng khoa quyết định)
 //Nếu Chỉ Tiêu khác X thì Kế hoạch = chỉ tiêu
-//xoá trọng số mục tiêu
-
+//xoá trọng số mục tiêu vì bây giờ trọng số hoàn thành được tính tự động theo phương pháp đo 100% hoặc 0% nên không cần tsmt để tham chiếu nữa
 //mã KPI số 1648 bị sai, 2117 đọc hơi cấn
+
+//C Lưu ý khi đăng ký KPI								
+//1	KPI cá nhân tháng/quý bao gồm 2 phần: Thái độ hành vi và mục tiêu công việc, tổng trọng số 2 phần bằng 100%, trọng số của 02 nội dung đánh giá này do Ban Giám đốc quyết định, cấp quản lý và nhân viên không được thay đổi trọng số này.								
+//2	Phần mục tiêu công việc trong KPI cá nhân tháng/quý bao gồm mục tiêu bắt buộc và mục tiêu đăng ký thêm sẽ có tối thiểu là 3 và tối đa là 5 mục tiêu. Tổng trọng số các mục tiêu là 100%, cấp quản lý trực tiếp có quyền điều chỉnh trọng số của các mục tiêu này.								
+//3	Không đăng ký quá nhiều mục tiêu cho KPI cá nhân tháng/quý, mỗi cá nhân đi làm đều làm theo bảng Mô tả công việc, do đó việc cần làm rất nhiều, nhưng trong tháng/quý thì công việc nào quan trọng, trở thành mục tiêu quan trọng, thì phải đo mức độ hoàn thành của các mục tiêu này. (tối thiểu 3 - tối đa 5 mục tiêu)								
+//4 Đăng ký mục tiêu KPI cá nhân bắt buộc phải thực hiện đúng quy trình và thời gian quy định để không ảnh hưởng đến tiến độ đánh giá KPI của toàn Bệnh viện/Phòng/Ban								
+//5	Quản lý trực tiếp rà soát kỹ mục tiêu nhân viên đăng ký hàng tháng/quý trước khi duyệt, đảm bảo các mục tiêu đăng ký đúng theo bảng phân bổ mục tiêu từ Khoa/phòng xuống cá nhân được thực hiện, tránh nhân viên đăng ký các mục tiêu công việc không quan trọng, không góp phần hoàn thành mục tiêu Khoa/phòng, mục tiêu Bệnh viện.								
+//6	Ngoài các mục tiêu từ Khoa/phòng phân bổ xuống cho nhân viên, cấp quản lý trực tiếp ưu tiên giao các mục tiêu định hướng giải quyết các tồn đọng, nâng cao hiệu quả hoạt động của Khoa/phòng và có thể đề xuất các mục tiêu để Khoa/phòng liên quan phối hợp đăng ký thực hiện.								
+//D	Lưu ý khi đánh giá KPI tháng/quý/năm								
+//1	Khi đánh giá kết quả KPI tháng/quý, đối với những mục chưa hoàn thành, nhân viên cần đưa ra được nguyên nhân, đề xuất các phương án, giải pháp (nếu có) nhằm nâng cao hiệu quả cho việc hoàn thành mục tiêu lần tới.								
+//2	Kết quả KPI không xét nguyên nhân hay quá trình cần làm những gì, KPI chỉ đánh giá kết quả cuối cùng, do đó không vì lý do khách quan, chủ quan để đánh giá kết quả khác so với kết quả cuối cùng								
+//3	Đánh giá KPI cá nhân tháng/quý/năm đều bắt buộc thực hiện đúng quy trình và thời gian quy định để không ảnh hưởng đến tiến độ xét KPI của toàn phòng/ban/Bệnh viện								
+//4	Ban kiểm soát KPI có trách nhiệm triển khai, rà soát, kiểm tra công tác hoạch định KPI Bệnh viện, phân bổ KPI, đăng ký và đánh giá KPI của các Khoa/phòng và nhân viên 								
+//5	Ban kiểm soát KPI cần thường xuyên theo dõi, giám sát quá trình thực hiện KPI từ các Khoa/phòng, mạnh dạn chỉ ra những Khoa/phòng, cá nhân đi ngược lại định hướng của Bệnh viện để sớm xử lý								
+//6	Bệnh viện cần tăng cường công tác truyền thông nội bộ nhằm giúp nhân viên thấu hiểu, chủ động tham gia tích cực, tự nguyện làm việc có định hướng hiệu quả, biến việc thực hiện BSC-KPI trở thành thói quen, nét Văn hóa doanh nghiệp								
+//7	Định kỳ hàng quý/6 tháng, Ban kiểm soát KPI tổ chức họp với Ban Giám đốc và cấp lãnh đạo Khoa/phòng để tổng kết quá trình thực hiện mục tiêu Bệnh viện, phòng ban, cập nhật các thay đổi, biến động để đưa ra những điều chỉnh mục tiêu hoặc chỉ tiêu cho phù hợp								
