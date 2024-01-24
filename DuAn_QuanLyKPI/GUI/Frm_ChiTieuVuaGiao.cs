@@ -21,7 +21,7 @@ namespace DuAn_QuanLyKPI.GUI
         public static string TenPhongKhoa = Frm_Login.TenPhongKhoa;
         private List<int> receivedItems;
         //private string mconnectstring = "server=192.168.50.108,1433; database=QuanLyKPI;uid=sa;pwd=123";
-        private static string mconnectstring = Frm_Chinh_GUI.mconnectstring;
+        private static string mconnectstring = Frm_A78.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;

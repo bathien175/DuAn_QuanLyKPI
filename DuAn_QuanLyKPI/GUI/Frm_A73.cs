@@ -23,7 +23,7 @@ namespace DuAn_QuanLyKPI.GUI
         private static string QuyNamPhieu = FrmChonBieuMau.QuyNam;
 
         //coneect & event
-        private static string mconnectstring = Frm_Chinh_GUI.mconnectstring;
+        private static string mconnectstring = Frm_A78.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs(string.Empty);
         private string msql;

@@ -39,7 +39,7 @@ namespace DuAn_QuanLyKPI.GUI
         public static string TenNV = Frm_Login.TenNV;
         public static string TenChucDanh = Frm_Login.TenChucDanh;
         public static string TenPhongKhoa = Frm_Login.TenPhongKhoa;
-        private static string mconnectstring = Frm_Chinh_GUI.mconnectstring;
+        private static string mconnectstring = Frm_A78.mconnectstring;
         //private string mconnectstring = "server=192.168.50.108,1433; database=QuanLyKPI;uid=sa;pwd=123";
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");

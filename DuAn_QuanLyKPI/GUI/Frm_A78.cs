@@ -33,7 +33,7 @@ namespace DuAn_QuanLyKPI.GUI
     {
         #region Khai báo
         //public static string mconnectstring = "Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
-        public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI;Persist Security Info=True;User ID=sa;Password=123";
+        public static string mconnectstring = "Data Source=LEDUONG\\LEDUONG;Initial Catalog=QuanLyKPI1;Persist Security Info=True;User ID=sa;Password=123";
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
@@ -221,9 +221,16 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 dgvKPICN_MTT.DataSource = MTT;
 
+                foreach (DataGridViewRow row in dgvKPICN_MTT.Rows)
+                {
+                    row.Cells["TH_MTT"].Value = "0";
+                    row.Cells["TSHT_MTT"].Value = "0";
+                }
+
                 // Đổi giá trị của cột phương pháp đo và  nội dung
                 foreach (DataGridViewRow row in dgvKPICN_MTT.Rows)
                 {
+
                     string phuongPhapDo = row.Cells["PPD_MTT"].Value.ToString();
                     string noiDung = row.Cells["ND_MTT"].Value.ToString();
 
@@ -364,6 +371,8 @@ namespace DuAn_QuanLyKPI.GUI
                     }
                 }
             }
+
+            //chưa làm trường hợp ExtractOperator trả về ""
             return "0";
         }
         private bool IsValidDate(string dateString)
@@ -504,6 +513,11 @@ namespace DuAn_QuanLyKPI.GUI
         }
         private void dgvDKMTT_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in dgvKPICN_MTT.Rows)
+            {
+                if (row.Cells["TH_MTT"].Value.ToString() == row.Cells["TSMT_MTT"].Value.ToString())
+                    row.Cells["TSHT_MTT"].Value = "100";
+            }
             txtTongTrongSoMucTieuThem.Text = SumTrongSo_MTT().ToString();
         }
         private void btnQLtabDKMTT_Click(object sender, EventArgs e)
@@ -554,6 +568,7 @@ namespace DuAn_QuanLyKPI.GUI
             }
 
             ev.QFrmThongBao("Chúc mừng bạn đã hoàn thành KPI Cá nhân !");
+            this.Hide();
         }
         private void btnExel_Click(object sender, EventArgs e)
         {

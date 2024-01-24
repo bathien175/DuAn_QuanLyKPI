@@ -16,7 +16,7 @@ namespace DuAn_QuanLyKPI.GUI
 {
     public partial class Frm_CapKPISau : DevExpress.XtraEditors.XtraForm
     {
-        private static string mconnectstring = Frm_Chinh_GUI.mconnectstring;
+        private static string mconnectstring = Frm_A78.mconnectstring;
         public List<int> SelectedKPIs { get; private set; }
         public List<string> Items { get; set; }
         private clsCommonMethod comm = new clsCommonMethod();

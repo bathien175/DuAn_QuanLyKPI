@@ -20,7 +20,7 @@ namespace DuAn_QuanLyKPI.GUI
     {
 
 
-        private string mconnectstring = "server=192.168.50.108,1433;database = QuanLyKPI; uid=sa;pwd=123";
+        private string mconnectstring = Frm_A78.mconnectstring;
         private clsCommonMethod comm = new clsCommonMethod();
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
