@@ -25,7 +25,6 @@ namespace DuAn_QuanLyKPI.DTO
         public Nullable<double> KetQua { get; set; }
     
         public virtual KPI KPI { get; set; }
-        public virtual KPI KPI1 { get; set; }
         public virtual KPI_BenhVien KPI_BenhVien { get; set; }
     }
 }

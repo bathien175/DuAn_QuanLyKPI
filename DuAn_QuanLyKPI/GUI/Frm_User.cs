@@ -314,7 +314,7 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void btnThem_Enter(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void btnThem_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
         private void btnclear_Click_1(object sender, EventArgs e)
         {
@@ -343,82 +343,94 @@ namespace DuAn_QuanLyKPI.GUI
             pbUser.Image = null;
         }
 
-            //try
-            //{
+        //try
+        //{
 
-            //    byte[] image = null;
-            //    string sqlquery = "insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')";
-            //    cmd = new SqlCommand(sqlquery, connection);
-            //    cmd.Parameters.Add(new SqlParameter("@img", image));
-            //    int n = cmd.ExecuteNonQuery();
-            //    connection.Close();
-            //    MessageBox.Show(n.ToString() + "Thêm người dùng thành công");
-            //    txtMaNV.Clear();
-            //    txtHoten.Clear();
-            //    txtMaNV.Focus();
-
-
-            //}
-            //catch (Exception ee)
-            //{
-            //    MessageBox.Show(ee.Message);
-
-            //}
-
-            //MemoryStream s = new MemoryStream();
-            //pbUser.Image.Save(s, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //byte[] pic = s.ToArray();
-
-            //msql = "insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')";
-            //comm.RunSQL(mconnectstring, msql);
-            //ev.QFrmThongBao("Thêm người dùng thành công");
+        //    byte[] image = null;
+        //    string sqlquery = "insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')";
+        //    cmd = new SqlCommand(sqlquery, connection);
+        //    cmd.Parameters.Add(new SqlParameter("@img", image));
+        //    int n = cmd.ExecuteNonQuery();
+        //    connection.Close();
+        //    MessageBox.Show(n.ToString() + "Thêm người dùng thành công");
+        //    txtMaNV.Clear();
+        //    txtHoten.Clear();
+        //    txtMaNV.Focus();
 
 
+        //}
+        //catch (Exception ee)
+        //{
+        //    MessageBox.Show(ee.Message);
 
-            //LoadData();
+        //}
+
+        //MemoryStream s = new MemoryStream();
+        //pbUser.Image.Save(s, System.Drawing.Imaging.ImageFormat.Jpeg);
+        //byte[] pic = s.ToArray();
+
+        //msql = "insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')";
+        //comm.RunSQL(mconnectstring, msql);
+        //ev.QFrmThongBao("Thêm người dùng thành công");
 
 
 
-            //if(pbUser.Image!=null)
-
-            //   {
-
-            //       SqlConnection con = new SqlConnection(@"Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;User ID=sa;Password=123");
-            //       SqlCommand cmd = new SqlCommand("insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')", con);
-            //       MemoryStream s = new MemoryStream();
-            //       pbUser.Image.Save(s, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //       byte[] pic = s.ToArray();
-            //       cmd.Parameters.AddWithValue("@img", pic);
-            //       con.Open();
-            //       cmd.ExecuteNonQuery();
-            //       con.Close();
-            //       ev.QFrmThongBao("Thêm người dùng thành công");
-            //       LoadData();
-            //   }
-
-
-            //   else
-            //   {
-
-            //       ev.QFrmThongBaoError("loi");
-
-            //   }
+        //LoadData();
 
 
 
+        //if(pbUser.Image!=null)
 
-        
+        //   {
+
+        //       SqlConnection con = new SqlConnection(@"Data Source=192.168.50.108,1433;Initial Catalog=QuanLyKPI;User ID=sa;Password=123");
+        //       SqlCommand cmd = new SqlCommand("insert into NguoiDung(MaNV,TenNV,HinhAnhNV,SDT,Gmail,TenTaiKhoan,MatKhau,MaPhongKhoa,MaChucDanh) values ('" + txtMaNV.Text + "',N'" + txtHoten.Text + "',@img,'" + txtSDT.Text + "','" + txtEmail.Text + "',N'" + txtTenTaiKhoan.Text + "','" + txtMatKhau.Text + "',N'" + cboPhongKhoa.SelectedValue + "',N'" + cboChucDanh.SelectedValue + "')", con);
+        //       MemoryStream s = new MemoryStream();
+        //       pbUser.Image.Save(s, System.Drawing.Imaging.ImageFormat.Jpeg);
+        //       byte[] pic = s.ToArray();
+        //       cmd.Parameters.AddWithValue("@img", pic);
+        //       con.Open();
+        //       cmd.ExecuteNonQuery();
+        //       con.Close();
+        //       ev.QFrmThongBao("Thêm người dùng thành công");
+        //       LoadData();
+        //   }
+
+
+        //   else
+        //   {
+
+        //       ev.QFrmThongBaoError("loi");
+
+        //   }
+
+
+
+
+
         //    else
         //        ev.QFrmThongBaoError("Vui lòng nhập thông tin ");
 
         //}
-        void AddPhanQuyen()
+        void xoa()
         {
-            msql = "INSERT INTO[dbo].[PhanQuyen]" +
-            "([MaQuyen]" +
-          ",[MaNhanVien])" +
-          "VALUES (N'" + cboPhanQuyen.SelectedValue + "','" + txtMaNV.Text + "')";
-            comm.RunSQL(mconnectstring, msql);
+            try
+            {
+                var db = DataProvider.Ins.DB;
+                if (db != null)
+                {
+                    string id = txtMaNV.Text;
+                    NguoiDung sv = db.NguoiDung.Where(p => p.MaNV == id).SingleOrDefault();
+                    db.NguoiDung.Remove(sv);
+                    db.SaveChanges();
+                    LoadData();
+                }
+            }
+            catch (Exception)
+            {
+                ev.QFrmThongBaoError("Không tìm thấy tên người dùng cần xóa");
+            }
+            //Ngu
         }
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
@@ -482,6 +494,8 @@ namespace DuAn_QuanLyKPI.GUI
                 pbUser.Image = DuAn_QuanLyKPI.Properties.Resources.noimage;
             }
         }
+    
+        
         private void SuaNhanVien()
         {
             var db = DataProvider.Ins.DB;
@@ -513,7 +527,21 @@ namespace DuAn_QuanLyKPI.GUI
                     pnThongTinNhanVien.Visible = true;
                     addBiding();
                 }
+            }
+            else if(dgrDanhSach["Xóa", e.RowIndex] == dgrDanhSach.CurrentCell)
+            {
+                if (ev.QFrmThongBao_YesNo("Bạn có muốn xoá thông tin người dùng " + dgrDanhSach.CurrentRow.Cells["cHoTen"].Value.ToString() + " này không ?"))
+                {
+                    xoa();
+                    addBiding();
+                }
+
             }    
+
+
+
+
+
         }
 
         private void dgrDanhSach_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -524,6 +552,71 @@ namespace DuAn_QuanLyKPI.GUI
         private void btnLuuSua_Click(object sender, EventArgs e)
         {
             SuaNhanVien();
+        }
+
+        private void btnView_Click_1(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnLuuSua_Click_1(object sender, EventArgs e)
+        {
+            if (txtMaNV.Text.Trim()!="")
+            {
+                ev.QFrmThongBao_YesNo("Bạn có muốn sửa thông tin người dùng này không!");
+                SuaNhanVien();
+
+            }
+            else
+            {
+                ev.QFrmThongBaoError("Vui lòng nhập đủ thông tin!");
+
+            }
+    //        msql = "INSERT INTO [dbo].[NguoiTruyCap]"+
+    //       "([MaNV]" +
+    //       ",[TenNguoiTruyCap]" +
+    //      " ,[MaChucNang]" +
+    //       ",[QuyenTruyCap]" +
+    //       ",[MaQuyen])" +
+    //" VALUES" +
+    //        "('"+txtMaNV.Text+"'" +
+    //       ",'"+txtHoten.Text+"'" +
+    //        "'"+txtHoten.Text+"'" +
+    //        ",< QuyenTruyCap, bit,>" +
+    //       ",< MaQuyen, nchar(10),>)";
+    //        comm.RunSQL(mconnectstring, msql);
+        }
+
+        private void btnTaiHinh_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Hình ảnh (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|Tất cả các tệp tin (*.*)|*.*";
+                openFileDialog.Title = "Chọn hình ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        Image selectedImage = Image.FromFile(openFileDialog.FileName);
+                        pbUser.Image = selectedImage;
+                    }
+                    catch (Exception ex)
+                    {
+                        ev.QFrmThongBaoError("Lỗi tải hình ảnh: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            txtMaNV.Clear();
+            txtHoten.Clear();
+            txtEmail.Clear();
+            txtMatKhau.Clear();
+            txtSDT.Clear();
+            txtTenTaiKhoan.Clear();
         }
     }
 }

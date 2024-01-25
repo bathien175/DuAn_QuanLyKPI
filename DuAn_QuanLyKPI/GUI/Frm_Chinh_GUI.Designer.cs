@@ -218,6 +218,7 @@ namespace DuAn_QuanLyKPI
             this.btnPhanQuyen.Caption = "Phân quyền";
             this.btnPhanQuyen.Id = 19;
             this.btnPhanQuyen.Name = "btnPhanQuyen";
+            this.btnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhanQuyen_ItemClick);
             // 
             // btnCauHinhHeThong
             // 
@@ -511,6 +512,7 @@ namespace DuAn_QuanLyKPI
             this.lbUsername.Size = new System.Drawing.Size(100, 24);
             this.lbUsername.TabIndex = 1;
             this.lbUsername.Text = "Username";
+            this.lbUsername.Click += new System.EventHandler(this.lbUsername_Click);
             // 
             // label1
             // 
@@ -547,6 +549,9 @@ namespace DuAn_QuanLyKPI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm đánh giá hiệu quả công việc (KPI)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.Frm_Chinh_GUI_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Chinh_GUI_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Chinh_GUI_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateTimeOffsetEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
@@ -594,7 +599,6 @@ namespace DuAn_QuanLyKPI
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarSubItem btnQuanLyNguoiDung;
         private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
-        private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private DevExpress.XtraBars.BarButtonItem btnUser;
         private DevExpress.XtraBars.BarButtonItem btnMucTieuKPI;
         private DevExpress.XtraBars.BarButtonItem btnNganHangKPI;
@@ -614,5 +618,6 @@ namespace DuAn_QuanLyKPI
         private System.Windows.Forms.Label lbkhoaphong;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        public DevExpress.XtraBars.BarButtonItem btnDangXuat;
     }
 }

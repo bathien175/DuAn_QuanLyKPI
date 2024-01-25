@@ -130,6 +130,8 @@ namespace DuAn_QuanLyKPI.GUI
             }
         }
 
+        public Frm_Chinh_GUI MainForm { get; set; }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string tentk = txtdangnhap.Text;
@@ -138,7 +140,7 @@ namespace DuAn_QuanLyKPI.GUI
             var nguoidung = db.NguoiDung.Where(x => x.TenTaiKhoan == tentk && x.MatKhau == mk).FirstOrDefault();
             if (nguoidung != null)
             {
-                #region  truyền dữ liệu sau khi đăng nhập thành công
+                // Truyền dữ liệu sau khi đăng nhập thành công
                 DataUserCurrent.Instance.IDUserCurrent = nguoidung.MaNV;
                 DataUserCurrent.Instance.Permission = nguoidung.MaQuyen;
 
@@ -157,27 +159,37 @@ namespace DuAn_QuanLyKPI.GUI
                 DataUserCurrent.Instance.Permission = hinhAnhBytes.ToString();
                 HinhAnh = hinhAnhBytes;
 
+                // Hiển thị thông báo
+                ev.QFrmThongBao("Đăng nhập thành công");
 
+                // Nếu MainForm chưa được khởi tạo, thì tạo mới
+                if (Program.MainForm == null)
+                {
+                    Program.MainForm = new Frm_Chinh_GUI();
+                }
 
-                #endregion
-                if (DataUserCurrent.Instance.Permission != "NV")
-                {
-                    ev.QFrmThongBao("Đăng nhập thành công");
-                    Frm_Chinh_GUI f = new Frm_Chinh_GUI();
-                    this.Hide();
-                    f.ShowDialog();
-                }
-                else
-                {
-                    ev.QFrmThongBaoError("Không có quyền vào form dành cho lãnh đạo");
-                }
+                // Pass user data to the main form
+                Program.MainForm.SetUserData(nguoidung);
+
+                // Ẩn form đăng nhập
+                this.Hide();
+
+                // Hiển thị form chính
+                Program.MainForm.ShowDialog();
             }
             else
             {
                 ev.QFrmThongBaoError("Đăng nhập thất bại");
             }
-            Frm_Login fl = new Frm_Login();
-            fl.Close();
+        }
+
+        public void Logout()
+        {
+            if (!this.IsDisposed)
+            {
+                // Đóng form đăng nhập
+                this.Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

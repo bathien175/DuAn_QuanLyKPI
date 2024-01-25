@@ -28,6 +28,7 @@ namespace DuAn_QuanLyKPI.GUI
         public Frm_AddUser()
         {
             InitializeComponent();
+            LoadData();
         }
         public byte[] ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat format)
         {
@@ -52,7 +53,7 @@ namespace DuAn_QuanLyKPI.GUI
         {
             var db = DataProvider.Ins.DB;
 
-          
+
 
             msql = "SELECT * FROM [QuanLyKPI].[dbo].[PhongKhoa]";
             DataTable tb1 = comm.GetDataTable(mconnectstring, msql, "PhongKhoa");
@@ -90,11 +91,6 @@ namespace DuAn_QuanLyKPI.GUI
 
         void AddPhanQuyen()
         {
-            msql = "INSERT INTO[dbo].[PhanQuyen]" +
-            "([MaQuyen]" +
-          ",[MaNhanVien])" +
-          "VALUES (N'" + cboPhanQuyen.SelectedValue + "','" + txtMaNV.Text + "')";
-            comm.RunSQL(mconnectstring, msql);
         }
         #region MyRegion
         void AddNguoiDung()
@@ -113,6 +109,7 @@ namespace DuAn_QuanLyKPI.GUI
                 nguoidung.MatKhau = txtMatKhau.Text;
                 nguoidung.MaPhongKhoa = cboPhongKhoa.SelectedValue.ToString();
                 nguoidung.MaChucDanh = cboChucDanh.SelectedValue.ToString();
+                nguoidung.MaQuyen = cboPhanQuyen.SelectedValue.ToString();
                 db.NguoiDung.Add(nguoidung);
                 db.SaveChanges();
                 ev.QFrmThongBao("Thêm người dùng thành công");
@@ -127,7 +124,7 @@ namespace DuAn_QuanLyKPI.GUI
 
 
 
-            #endregion}
+        #endregion}
         private void btnLuuThem_Click(object sender, EventArgs e)
         {
             if (txtMaNV.Text.Trim() != "")
@@ -140,4 +137,28 @@ namespace DuAn_QuanLyKPI.GUI
                 ev.QFrmThongBaoError("Vui lòng nhập đủ thông tin");
             }
         }
-    }}
+
+        private void btnUpImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Hình ảnh (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|Tất cả các tệp tin (*.*)|*.*";
+                openFileDialog.Title = "Chọn hình ảnh";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        Image selectedImage = Image.FromFile(openFileDialog.FileName);
+                        pbUser.Image = selectedImage;
+                    }
+                    catch (Exception ex)
+                    {
+                        ev.QFrmThongBaoError("Lỗi tải hình ảnh: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+    }
+}

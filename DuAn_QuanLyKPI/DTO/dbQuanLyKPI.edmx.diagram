@@ -5,27 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="31fb9cf60ccb452dbb3ac58ae6cf89e6" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChucDanh" Width="1.5" PointX="3" PointY="19.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.DanhsachBieuMau" Width="1.5" PointX="8.25" PointY="14.875" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.KPI" Width="1.5" PointX="6" PointY="11.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_BenhVien" Width="1.5" PointX="10.5" PointY="18.25" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_CaNhan" Width="1.5" PointX="21" PointY="14.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_KhoaPhong" Width="1.5" PointX="15.75" PointY="12.625" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_TruongKhoaPhong" Width="1.5" PointX="18" PointY="14.875" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.NganHangKPI" Width="1.5" PointX="8.25" PointY="19.25" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.NguoiDung" Width="1.5" PointX="5.25" PointY="17" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.NhomTieuChi" Width="1.5" PointX="3.75" PointY="12.5" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.PhongKhoa" Width="1.5" PointX="0.75" PointY="19.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.Quyen" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChucDanh" Width="1.5" PointX="3" PointY="25.625" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.DanhsachBieuMau" Width="1.5" PointX="18.75" PointY="17.25" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI" Width="1.5" PointX="10.5" PointY="24.75" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_BenhVien" Width="1.5" PointX="13.5" PointY="24.75" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_CaNhan" Width="1.5" PointX="21" PointY="25" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_DangKiThem" Width="1.5" PointX="15.75" PointY="29.75" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_KhoaPhong" Width="1.5" PointX="18.75" PointY="29" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.KPI_TruongKhoaPhong" Width="1.5" PointX="24" PointY="25.625" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.NganHangKPI" Width="1.5" PointX="5.25" PointY="25.625" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.NguoiDung" Width="1.5" PointX="8.25" PointY="23.375" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.NhomTieuChi" Width="1.5" PointX="8.25" PointY="19.875" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.PhongKhoa" Width="1.5" PointX="0.75" PointY="25.625" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.Quyen" Width="1.5" PointX="6" PointY="23" />
         <EntityTypeShape EntityType="QuanLyKPIModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ThongBao" Width="1.5" PointX="7.5" PointY="24" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.TongHopBieuMauPhieuKPI" Width="1.5" PointX="10.5" PointY="15.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPIBenhVien" Width="1.5" PointX="12.75" PointY="18.75" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPICaNhan" Width="1.5" PointX="23.25" PointY="15.75" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPIKhoaPhong" Width="1.5" PointX="18" PointY="10.375" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPITruongKhoaPhong" Width="1.5" PointX="26.25" PointY="16.125" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietTieuChiMucTieuBV" Width="1.5" PointX="15.75" PointY="19.25" />
-        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietTieuChiMucTieuKhoaPhong" Width="1.5" PointX="21" PointY="11.25" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.TongHopBieuMauPhieuKPI" Width="1.5" PointX="21" PointY="17.125" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ThongBao" Width="1.5" PointX="10.5" PointY="30.375" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPIBenhVien" Width="1.5" PointX="15.75" PointY="25.125" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPICaNhan" Width="1.5" PointX="15.75" PointY="19.75" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPIKhoaPhong" Width="1.5" PointX="18.75" PointY="21.125" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietKPITruongKhoaPhong" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietTieuChiMucTieuBV" Width="1.5" PointX="18.75" PointY="25.625" />
+        <EntityTypeShape EntityType="QuanLyKPIModel.ChiTietTieuChiMucTieuKhoaPhong" Width="1.5" PointX="12.75" PointY="29.625" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChucDanh_PhongKhoa" />
         <AssociationConnector Association="QuanLyKPIModel.FK_NganHangKPI_MaChucDanh" />
         <AssociationConnector Association="QuanLyKPIModel.FK_NguoiDung_ChucDanh" />
@@ -36,14 +37,12 @@
         <AssociationConnector Association="QuanLyKPIModel.FK_TongHopBieuMauPhieuKPI_DanhsachBieuMau" />
         <AssociationConnector Association="QuanLyKPIModel.FK_TongHopBieuMauPhieuKPI_DanhsachBieuMau1" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIBenhVien_KPI" />
-        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIBenhVien_KPI1" />
-        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIBV_KPI" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPICaNhan_KPI" />
-        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPICaNhan_KPI1" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIKhoaPhong_KPI" />
-        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIKhoaPhong_KPI1" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPITruongKhoaPhong_KPI" />
-        <AssociationConnector Association="QuanLyKPIModel.FK_KPI_KhoaPhong_KPI" />
+        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietTieuChiMucTieuBV_KPI" />
+        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietTieuChiMucTieuKhoaPhong_KPI" />
+        <AssociationConnector Association="QuanLyKPIModel.FK_KPI_DangKiThem_KPI" />
         <AssociationConnector Association="QuanLyKPIModel.FK_KPI_NhomTieuChi" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIBenhVien_KPI_BenhVien" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietTieuChiMucTieuBV_KPI_BenhVien" />
@@ -61,6 +60,9 @@
         <AssociationConnector Association="QuanLyKPIModel.FK_KPI_CaNhan_NguoiDung5" />
         <AssociationConnector Association="QuanLyKPIModel.FK_KPI_CaNhan_NguoiDung6" />
         <AssociationConnector Association="QuanLyKPIModel.FK_KPI_CaNhan_NguoiDung7" />
+        <AssociationConnector Association="QuanLyKPIModel.FK__ChiTietDan__MaNV__4CC05EF3" />
+        <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPICaNhan_ChiTietDangKiThem_KPICaNhan" />
+        <AssociationConnector Association="QuanLyKPIModel.FK_KPI_DangKiThem_NhomTieuChi" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietKPIKhoaPhong_KPI_KhoaPhong" />
         <AssociationConnector Association="QuanLyKPIModel.FK_ChiTietTieuChiMucTieuKhoaPhong_KPI_KhoaPhong" />
         <AssociationConnector Association="QuanLyKPIModel.FK_KPI_KhoaPhong_NguoiDung" />

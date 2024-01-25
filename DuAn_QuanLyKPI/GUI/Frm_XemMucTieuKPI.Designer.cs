@@ -32,6 +32,14 @@ namespace DuAn_QuanLyKPI.GUI
             this.pnTong = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.dtgv_XemTatCaMucTieuDaChon = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNhapTrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNhapChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvXemMucTieu = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cMaKPI = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,14 +58,6 @@ namespace DuAn_QuanLyKPI.GUI
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.pn = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNhapTrongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNhapChiTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnTong.SuspendLayout();
             this.pnGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_XemTatCaMucTieuDaChon)).BeginInit();
@@ -106,6 +106,50 @@ namespace DuAn_QuanLyKPI.GUI
             this.dtgv_XemTatCaMucTieuDaChon.RowHeadersWidth = 30;
             this.dtgv_XemTatCaMucTieuDaChon.Size = new System.Drawing.Size(1364, 607);
             this.dtgv_XemTatCaMucTieuDaChon.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã KPI";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nội dung";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Đơn vị tính";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Phương pháp đo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Công việc cá nhân";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Chỉ tiêu";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // cNhapTrongSo
+            // 
+            this.cNhapTrongSo.HeaderText = "Nhập trọng số";
+            this.cNhapTrongSo.Name = "cNhapTrongSo";
+            // 
+            // cNhapChiTieu
+            // 
+            this.cNhapChiTieu.HeaderText = "Nhập chỉ tiêu";
+            this.cNhapChiTieu.Name = "cNhapChiTieu";
             // 
             // dgvXemMucTieu
             // 
@@ -316,50 +360,6 @@ namespace DuAn_QuanLyKPI.GUI
             this.label1.Size = new System.Drawing.Size(700, 55);
             this.label1.TabIndex = 1;
             this.label1.Text = "XEM TẤT CẢ CÁC MỤC TIÊU";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã KPI";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nội dung";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Đơn vị tính";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Phương pháp đo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Công việc cá nhân";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Chỉ tiêu";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // cNhapTrongSo
-            // 
-            this.cNhapTrongSo.HeaderText = "Nhập trọng số";
-            this.cNhapTrongSo.Name = "cNhapTrongSo";
-            // 
-            // cNhapChiTieu
-            // 
-            this.cNhapChiTieu.HeaderText = "Nhập chỉ tiêu";
-            this.cNhapChiTieu.Name = "cNhapChiTieu";
             // 
             // Frm_XemMucTieuKPI
             // 

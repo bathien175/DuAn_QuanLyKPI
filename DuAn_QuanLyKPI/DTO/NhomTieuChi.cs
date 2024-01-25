@@ -18,6 +18,7 @@ namespace DuAn_QuanLyKPI.DTO
         public NhomTieuChi()
         {
             this.KPI = new HashSet<KPI>();
+            this.KPI_DangKiThem = new HashSet<KPI_DangKiThem>();
         }
     
         public string TieuChiID { get; set; }
@@ -25,5 +26,7 @@ namespace DuAn_QuanLyKPI.DTO
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KPI> KPI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KPI_DangKiThem> KPI_DangKiThem { get; set; }
     }
 }

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessCommon;
 using DuAn_QuanLyKPI.GUI;
+using DuAn_QuanLyKPI.Constants;
+using DuAn_QuanLyKPI.DTO;
 
 namespace DuAn_QuanLyKPI
 {
@@ -24,16 +26,41 @@ namespace DuAn_QuanLyKPI
         private clsEventArgs ev = new clsEventArgs("");
         private string msql;
         Timer timer = new Timer();
+
+
+
+        private static string role = Frm_Login.PhanQuyen;  // Retrieve the role from the login form
+
+       
+
+
         public Frm_Chinh_GUI()
         {
             InitializeComponent();
-
             IsMdiContainer = true;
             lbUsername.Text = username;
             lbkhoaphong.Text = kp;
             timer1.Enabled = true;
         }
-        //Khai báo hàm không cho mở nhiều form giống nhau, khi mở form trùng thì sẽ tự động chuyển về form cũ
+        public void SetUserData(NguoiDung nguoidung)
+        {
+
+            username = nguoidung.TenNV;
+            lbUsername.Text = username;
+
+            if (nguoidung.PhongKhoa != null)
+            {
+                kp = nguoidung.PhongKhoa.TenPK;
+                lbkhoaphong.Text = kp;
+            }
+            else
+            {
+                // Xử lý trường hợp không có PhongKhoa
+                kp = "Phòng không xác định";
+                lbkhoaphong.Text = kp;
+            }
+        }
+
         public void OpenForm(Type typeForm)
         {
             foreach (Form frm in MdiChildren)
@@ -90,17 +117,39 @@ namespace DuAn_QuanLyKPI
         {
             OpenForm(typeof(Frm_Change_Password));
         }
-
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(ev.QFrmThongBao_YesNo("Bạn có thật sự muốn đăng xuất không?"))
+            if (ev.QFrmThongBao_YesNo("Bạn có thật sự muốn đăng xuất không?"))
             {
-                this.Hide();
-                Frm_Login home = new Frm_Login();
-                home.ShowDialog();
-                this.Show();
-            }    
+                // Reset các biến thông tin người dùng
+                Frm_Login.MaNV = null;
+                Frm_Login.TenNV = null;
+                Frm_Login.TenChucDanh = null;
+                Frm_Login.MaPhongKhoa = null;
+                Frm_Login.MaChucDanh = null;
+                Frm_Login.TenPhongKhoa = null;
+                Frm_Login.Email = null;
+                Frm_Login.SDT = null;
+                Frm_Login.PhanQuyen = null;
+                Frm_Login.TK = null;
+                Frm_Login.HinhAnh = null;
+                Frm_Login.TPK = false;
+                Frm_Login.CapDoBieuMauKPI = 0;
+
+                // Cập nhật lại phân quyền trước khi đóng form
+                // ...
+
+                // Hiển thị lại form đăng nhập
+                //Frm_Login loginForm = new Frm_Login();
+                //loginForm.Show();
+
+                // Đóng form chính
+                this.Close();
+            }
         }
+
+
+
         private void btnMucTieuKPI_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenForm(typeof(Frm_XemMucTieuKPI));
@@ -131,6 +180,33 @@ namespace DuAn_QuanLyKPI
         {
             lbTime.Text = DateTime.Now.ToLongTimeString();
             lbDate.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void Frm_Chinh_GUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Frm_Login loginForm = new Frm_Login();
+            loginForm.Show();
+            //loginForm.Logout();
+        }
+
+        private void Frm_Chinh_GUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void Frm_Chinh_GUI_Activated(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(FrmPhanQuyen));
+        }
+
+        private void lbUsername_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

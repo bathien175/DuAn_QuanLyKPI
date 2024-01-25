@@ -15,6 +15,7 @@ namespace DuAn_QuanLyKPI
         /// The main entry point for the application.
         /// </summary>
         //Khai báo biến để hạn chế mở phần mềm 2 lần cùng lúc 
+        public static Frm_Chinh_GUI MainForm;
         public const int ALLOW_INSTANCE = 1;
         static Semaphore semaphore = new Semaphore(ALLOW_INSTANCE, ALLOW_INSTANCE, "KPI");
 
@@ -37,7 +38,7 @@ namespace DuAn_QuanLyKPI
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Frm_Login());
+                    Application.Run(new FrmPhanToMucTieuNhanVien());
                 }
                 finally
                 {

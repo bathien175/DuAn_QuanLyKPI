@@ -33,28 +33,84 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlProject1510, Version=1.0.7075.38120, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Admin\Downloads\test_pm\test_pm\ControlProject1510.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v23.1.Win, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v23.1.UI, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1.UI, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v23.1.Wizard, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Presets, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Win, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v23.1.Core.Desktop, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v23.1.UI, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="barcode">
-      <HintPath>..\..\..\Chính\KhoDuocphuc\KhoDuoc\bin\Debug\barcode.dll</HintPath>
+      <HintPath>C:\Users\Admin\Downloads\test_pm\test_pm\barcode.dll</HintPath>
     </Reference>
     <Reference Include="BusinessCommon">
-      <HintPath>..\..\..\Chính\KhoDuocphuc\KhoDuoc\bin\Debug\BusinessCommon.dll</HintPath>
+      <HintPath>C:\Users\Admin\Downloads\test_pm\test_pm\BusinessCommon.dll</HintPath>
     </Reference>
-    <Reference Include="ControlProject1510">
-      <HintPath>..\..\..\Chính\KhoDuocphuc\KhoDuoc\bin\Debug\ControlProject1510.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\PC\Downloads\framwork-main\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,28 +120,292 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DataProvider.cs" />
+    <Compile Include="Constants\DataUserCurrent.cs" />
+    <Compile Include="DAO\myFunctions.cs" />
+    <Compile Include="DAO\PHONGKHOA.cs" />
+    <Compile Include="DTO\ChiTietKPIBenhVien.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietKPICaNhan.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietKPIKhoaPhong.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietKPITruongKhoaPhong.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietTieuChiMucTieuBV.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChiTietTieuChiMucTieuKhoaPhong.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ChucDanh.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DanhsachBieuMau.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DataPoint.cs" />
+    <Compile Include="DTO\dbQuanLyKPI.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQuanLyKPI.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\dbQuanLyKPI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\dbQuanLyKPI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQuanLyKPI.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KPI.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KPI_BenhVien.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KPI_BENHVIEN_DTO.cs" />
+    <Compile Include="DTO\KPI_CaNhan.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KPI_KhoaPhong.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\KPI_TruongKhoaPhong.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ListKPI_DTO.cs" />
+    <Compile Include="DTO\NganHangKPI.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\NguoiDung.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\NhomTieuChi.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\PhongKhoa.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Quyen.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\sp_helpdiagrams_Result.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\sysdiagrams.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ThongBao.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\TongHopBieuMauPhieuKPI.cs">
+      <DependentUpon>dbQuanLyKPI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\backup.Designer.cs">
+      <DependentUpon>backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_A75.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_A75.Designer.cs">
+      <DependentUpon>Frm_A75.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_A73.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_A73.Designer.cs">
+      <DependentUpon>Frm_A73.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_A76.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_A76.Designer.cs">
+      <DependentUpon>Frm_A76.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_A77.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_A77.Designer.cs">
+      <DependentUpon>Frm_A77.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_A78.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_A78.Designer.cs">
+      <DependentUpon>Frm_A78.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_AddUser.Designer.cs">
+      <DependentUpon>Frm_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmChonBieuMau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChonBieuMau.Designer.cs">
+      <DependentUpon>FrmChonBieuMau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_CapDanhSachKPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_CapDanhSachKPI.Designer.cs">
+      <DependentUpon>Frm_CapDanhSachKPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_CapKPISau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_CapKPISau.Designer.cs">
+      <DependentUpon>Frm_CapKPISau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_ChinhSuaCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_ChinhSuaCap.Designer.cs">
+      <DependentUpon>Frm_ChinhSuaCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_ChiTieuVuaGiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_ChiTieuVuaGiao.Designer.cs">
+      <DependentUpon>Frm_ChiTieuVuaGiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_InfoUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_InfoUser.Designer.cs">
+      <DependentUpon>Frm_InfoUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_Change_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_Change_Password.Designer.cs">
+      <DependentUpon>Frm_Change_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_Chinh_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_Chinh_GUI.Designer.cs">
+      <DependentUpon>Frm_Chinh_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_ImportExcel_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_ImportExcel_GUI.Designer.cs">
+      <DependentUpon>Frm_ImportExcel_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Frm_TongQuatChinh.cs">
+    <Compile Include="GUI\Frm_QuanLyNganHangKPI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Frm_TongQuatChinh.Designer.cs">
-      <DependentUpon>Frm_TongQuatChinh.cs</DependentUpon>
+    <Compile Include="GUI\Frm_QuanLyNganHangKPI.Designer.cs">
+      <DependentUpon>Frm_QuanLyNganHangKPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_User.Designer.cs">
+      <DependentUpon>Frm_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_XemChiTietQuanLyNganHangKPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_XemChiTietQuanLyNganHangKPI.Designer.cs">
+      <DependentUpon>Frm_XemChiTietQuanLyNganHangKPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Frm_XemMucTieuKPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Frm_XemMucTieuKPI.Designer.cs">
+      <DependentUpon>Frm_XemMucTieuKPI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\backup.resx">
+      <DependentUpon>backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_A75.resx">
+      <DependentUpon>Frm_A75.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_A73.resx">
+      <DependentUpon>Frm_A73.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_A76.resx">
+      <DependentUpon>Frm_A76.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_A77.resx">
+      <DependentUpon>Frm_A77.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_A78.resx">
+      <DependentUpon>Frm_A78.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_AddUser.resx">
+      <DependentUpon>Frm_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChonBieuMau.resx">
+      <DependentUpon>FrmChonBieuMau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_CapDanhSachKPI.resx">
+      <DependentUpon>Frm_CapDanhSachKPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_CapKPISau.resx">
+      <DependentUpon>Frm_CapKPISau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_ChinhSuaCap.resx">
+      <DependentUpon>Frm_ChinhSuaCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_ChiTieuVuaGiao.resx">
+      <DependentUpon>Frm_ChiTieuVuaGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_InfoUser.resx">
+      <DependentUpon>Frm_InfoUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_Change_Password.resx">
+      <DependentUpon>Frm_Change_Password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_Chinh_GUI.resx">
+      <DependentUpon>Frm_Chinh_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_ImportExcel_GUI.resx">
+      <DependentUpon>Frm_ImportExcel_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Frm_TongQuatChinh.resx">
-      <DependentUpon>Frm_TongQuatChinh.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Frm_QuanLyNganHangKPI.resx">
+      <DependentUpon>Frm_QuanLyNganHangKPI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_User.resx">
+      <DependentUpon>Frm_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_XemChiTietQuanLyNganHangKPI.resx">
+      <DependentUpon>Frm_XemChiTietQuanLyNganHangKPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Frm_XemMucTieuKPI.resx">
+      <DependentUpon>Frm_XemMucTieuKPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,7 +415,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="DTO\dbQuanLyKPI.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbQuanLyKPI.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DTO\dbQuanLyKPI.edmx.diagram">
+      <DependentUpon>dbQuanLyKPI.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,8 +439,74 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="DTO\" />
+    <Folder Include="Custom_Control\" />
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mentoring Arrow.gif" />
+    <None Include="Resources\success %281%29.gif" />
+    <None Include="Resources\circle-loader.gif" />
+    <None Include="Resources\Loading.gif" />
+    <None Include="Resources\loading-carga-refresh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DTO\dbQuanLyKPI.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbQuanLyKPI.edmx</DependentUpon>
+      <LastGenOutput>dbQuanLyKPI.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DTO\dbQuanLyKPI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbQuanLyKPI.edmx</DependentUpon>
+      <LastGenOutput>dbQuanLyKPI.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\actions_checkcircled.svg" />
+    <None Include="Resources\close.svg" />
+    <None Include="Resources\markcomplete.svg" />
+    <None Include="Resources\textbox_user_24.jpg" />
+    <None Include="Resources\debut.JPG" />
+    <None Include="Resources\assigntask.svg" />
+    <None Include="Resources\apply_32x323.png" />
+    <None Include="Resources\apply_32x322.png" />
+    <None Include="Resources\apply_32x321.png" />
+    <None Include="Resources\previewchart_32x32.png" />
+    <None Include="Resources\publicfix_32x321.png" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\lock111.png" />
+    <None Include="Resources\Tiêu_đề_Website_BV_16_-removebg-preview.png" />
+    <None Include="Resources\Tiêu đề Website BV%2816%29.png" />
+    <None Include="Resources\noimage1.jpg" />
+    <None Include="Resources\morefunctions_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttoxlsx.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentpdf.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\underlineword.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editnames.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\task_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publicfix_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

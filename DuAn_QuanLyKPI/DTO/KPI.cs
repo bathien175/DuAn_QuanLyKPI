@@ -18,14 +18,12 @@ namespace DuAn_QuanLyKPI.DTO
         public KPI()
         {
             this.ChiTietKPIBenhVien = new HashSet<ChiTietKPIBenhVien>();
-            this.ChiTietKPIBenhVien1 = new HashSet<ChiTietKPIBenhVien>();
-            this.ChiTietTieuChiMucTieuBV = new HashSet<ChiTietTieuChiMucTieuBV>();
             this.ChiTietKPICaNhan = new HashSet<ChiTietKPICaNhan>();
-            this.ChiTietKPICaNhan1 = new HashSet<ChiTietKPICaNhan>();
             this.ChiTietKPIKhoaPhong = new HashSet<ChiTietKPIKhoaPhong>();
-            this.ChiTietKPIKhoaPhong1 = new HashSet<ChiTietKPIKhoaPhong>();
             this.ChiTietKPITruongKhoaPhong = new HashSet<ChiTietKPITruongKhoaPhong>();
+            this.ChiTietTieuChiMucTieuBV = new HashSet<ChiTietTieuChiMucTieuBV>();
             this.ChiTietTieuChiMucTieuKhoaPhong = new HashSet<ChiTietTieuChiMucTieuKhoaPhong>();
+            this.KPI_DangKiThem = new HashSet<KPI_DangKiThem>();
             this.NganHangKPI = new HashSet<NganHangKPI>();
         }
     
@@ -40,21 +38,17 @@ namespace DuAn_QuanLyKPI.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietKPIBenhVien> ChiTietKPIBenhVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietKPIBenhVien> ChiTietKPIBenhVien1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietTieuChiMucTieuBV> ChiTietTieuChiMucTieuBV { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietKPICaNhan> ChiTietKPICaNhan { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietKPICaNhan> ChiTietKPICaNhan1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietKPIKhoaPhong> ChiTietKPIKhoaPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietKPIKhoaPhong> ChiTietKPIKhoaPhong1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietKPITruongKhoaPhong> ChiTietKPITruongKhoaPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietTieuChiMucTieuBV> ChiTietTieuChiMucTieuBV { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTieuChiMucTieuKhoaPhong> ChiTietTieuChiMucTieuKhoaPhong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KPI_DangKiThem> KPI_DangKiThem { get; set; }
         public virtual NhomTieuChi NhomTieuChi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NganHangKPI> NganHangKPI { get; set; }

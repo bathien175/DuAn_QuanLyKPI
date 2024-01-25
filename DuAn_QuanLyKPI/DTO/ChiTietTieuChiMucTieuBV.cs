@@ -18,6 +18,7 @@ namespace DuAn_QuanLyKPI.DTO
         public int MaKPI { get; set; }
         public Nullable<double> TrongSoTCBV { get; set; }
         public Nullable<double> TrongSoKPIBV { get; set; }
+        public string KeHoach { get; set; }
     
         public virtual KPI KPI { get; set; }
         public virtual KPI_BenhVien KPI_BenhVien { get; set; }

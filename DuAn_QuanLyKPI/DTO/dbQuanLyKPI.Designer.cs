@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Thanh Phuc\Dự án quản lý KPI\Du An KPI\DuAn_QuanLyKPI\DTO\dbQuanLyKPI.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\KPI\DuAn_QuanLyKPI\DTO\dbQuanLyKPI.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

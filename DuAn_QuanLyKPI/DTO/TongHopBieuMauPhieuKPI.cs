@@ -16,7 +16,12 @@ namespace DuAn_QuanLyKPI.DTO
     {
         public string MaPhieuKPI { get; set; }
         public Nullable<int> IDBieuMau { get; set; }
-        public Nullable<int> QuyNam { get; set; }
+        public Nullable<bool> Quy1 { get; set; }
+        public Nullable<bool> Quy2 { get; set; }
+        public Nullable<bool> Quy3 { get; set; }
+        public Nullable<bool> Quy4 { get; set; }
+        public Nullable<bool> Nam { get; set; }
+        public Nullable<int> NamPhieu { get; set; }
         public Nullable<System.DateTime> NguoiLapPhieuKPI { get; set; }
         public Nullable<int> TrangThai { get; set; }
     
