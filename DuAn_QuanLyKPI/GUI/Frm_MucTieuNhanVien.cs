@@ -28,7 +28,7 @@ namespace DuAn_QuanLyKPI.GUI
             cbTruongKhoa.CheckedChanged += new EventHandler(cbTruongKhoa_CheckedChanged);
             cbPhoTruongKhoa.CheckedChanged += new EventHandler(cbPhoTruongKhoa_CheckedChanged);
             // Thêm sự kiện cho các checkbox khác
-            dgrDanhSachMucTieuTaiChinhKPI.CellFormatting += dgrDanhSachMucTieuTaiChinhKPI_CellFormatting;
+
 
         }
 
@@ -622,7 +622,7 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void dgrDanhSachMucTieuTaiChinhKPI_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgrDanhSachMucTieuTaiChinhKPI.Columns[e.ColumnIndex].Name == "cTrongSoTC" && e.Value != null)
+            if (dgrDanhSachMucTieuTaiChinhKPI.Columns[e.ColumnIndex].Name == "cTrongSo" && e.Value != null)
             {
                 e.Value = $"{e.Value} %"; // Thêm đơn vị vào giá trị
                 e.FormattingApplied = true;
@@ -655,5 +655,140 @@ namespace DuAn_QuanLyKPI.GUI
                 e.FormattingApplied = true;
             }
         }
+        private string Checked(string muctieu, string manhom)
+        {
+            string msql = "SELECT id FROM NoiDungMucTieuNhanVien WHERE NDMucTieu = N'" + muctieu + "' AND MaNhom = N'" + manhom + "'";
+            DataTable tb = comm.GetDataTable(mconnectstring, msql, "");
+            string id_noidungmuctieu = tb.Rows[0]["id"].ToString();
+            return id_noidungmuctieu;
+        }
+
+        private void UpdateDataInMucTieuKHKPI(string mucTieuValue, string columnName, bool isChecked, string ttValue, string maNhomValue, int trongSoValue)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(mconnectstring))
+                {
+                    connection.Open();
+
+                    // Thực hiện INSERT dữ liệu
+                    string insertSql = "INSERT INTO NoiDungMucTieuNhanVien (NDMucTieu, TT, MaNhom, TrongSo) VALUES (@MucTieuValue, @TT, @MaNhom, @TrongSo)";
+                    using (SqlCommand insertCmd = new SqlCommand(insertSql, connection))
+                    {
+                        insertCmd.Parameters.AddWithValue("@TT", ttValue);
+                        insertCmd.Parameters.AddWithValue("@MucTieuValue", mucTieuValue);
+                        insertCmd.Parameters.AddWithValue("@MaNhom", maNhomValue);
+                        insertCmd.Parameters.AddWithValue("@TrongSo", trongSoValue);
+                        insertCmd.ExecuteNonQuery();
+                    }
+
+                    string updateSql1 = $"UPDATE NoiDungMucTieuNhanVien SET ";
+
+                    switch (columnName)
+                    {
+                        case "cTruongKhoaKH":
+                            updateSql1 += "TruongKhoa = @IsChecked";
+                            break;
+                        case "cPhoTruongKhoaKH":
+                            updateSql1 += "PhoTruongKhoa = @IsChecked";
+                            break;
+                        case "cDDTruongKH":
+                            updateSql1 += "DDTruong = @IsChecked";
+                            break;
+                        case "cBSNoiNhiKH":
+                            updateSql1 += "BSNoiNhi = @IsChecked";
+                            break;
+                        case "cDDCSKH":
+                            updateSql1 += "DDCS = @IsChecked";
+                            break;
+                        case "cTKYKKH":
+                            updateSql1 += "TKYK = @IsChecked";
+                            break;
+                        case "cNVHDKH":
+                            updateSql1 += "NVHD = @IsChecked";
+                            break;
+                        case "cHoLyKH":
+                            updateSql1 += "HoLy = @IsChecked";
+                            break;
+                        case "cNVBaoTriKH":
+                            updateSql1 += "NVBaoTri = @IsChecked";
+                            break;
+                        default:
+                            // Trường hợp mặc định nếu không phải là một cột bạn quan tâm
+                            return;
+                    }
+
+
+                    //updateSql1 += " WHERE NDMucTieu = @MucTieu AND MaNhom = @MaNhom"; // Add MaNhom for specificity
+                    updateSql1 += " WHERE id = '" + Checked(mucTieuValue, maNhomValue) + "'"; // Add MaNhom for specificity
+
+                    using (SqlCommand updateCmd1 = new SqlCommand(updateSql1, connection))
+                    {
+                        updateCmd1.Parameters.AddWithValue("@IsChecked", isChecked ? 1 : 0);
+                        //    updateCmd1.Parameters.AddWithValue("@MucTieu", mucTieuValue);
+                        //    updateCmd1.Parameters.AddWithValue("@MaNhom", maNhomValue); // Add MaNhom parameter
+                        updateCmd1.ExecuteNonQuery();
+                    }
+
+
+
+                    // Thực hiện UPDATE cho cột trong bảng MucTieuKPI
+                    string updateSql2 = $"UPDATE MucTieuKPI SET ";
+
+                    switch (columnName)
+                    {
+                        case "cTruongKhoaKH":
+                            updateSql2 += "TruongKhoa = @IsChecked";
+                            break;
+                        case "cPhoTruongKhoaKH":
+                            updateSql2 += "PhoTruongKhoa = @IsChecked";
+                            break;
+                        case "cDDTruongKH":
+                            updateSql2 += "DDTruong = @IsChecked";
+                            break;
+                        case "cBSNoiNhiKH":
+                            updateSql2 += "BSNoiNhi = @IsChecked";
+                            break;
+                        case "cDDCSKH":
+                            updateSql2 += "DDCS = @IsChecked";
+                            break;
+                        case "cTKYKKH":
+                            updateSql2 += "TKYK = @IsChecked";
+                            break;
+                        case "cNVHDKH":
+                            updateSql2 += "NVHD = @IsChecked";
+                            break;
+                        case "cHoLyKH":
+                            updateSql2 += "HoLy = @IsChecked";
+                            break;
+                        case "cNVBaoTriKH":
+                            updateSql2 += "NVBaoTri = @IsChecked";
+                            break;
+                        default:
+                            // Trường hợp mặc định nếu không phải là một cột bạn quan tâm
+                            return;
+                    }
+
+                    updateSql2 += " WHERE MucTieu = @MucTieu AND MaNhom = @MaNhom"; // Add MaNhom for specificity
+
+                    using (SqlCommand updateCmd2 = new SqlCommand(updateSql2, connection))
+                    {
+                        updateCmd2.Parameters.AddWithValue("@IsChecked", isChecked ? 1 : 0);
+                        updateCmd2.Parameters.AddWithValue("@MucTieu", mucTieuValue);
+                        updateCmd2.Parameters.AddWithValue("@MaNhom", maNhomValue); // Add MaNhom parameter
+                        updateCmd2.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi thực hiện thay đổi dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
     }
 }

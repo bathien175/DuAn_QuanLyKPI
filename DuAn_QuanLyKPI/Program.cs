@@ -38,7 +38,7 @@ namespace DuAn_QuanLyKPI
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new FrmPhanToMucTieuNhanVien());
+                    Application.Run(new Frm_Login());
                 }
                 finally
                 {

@@ -67,7 +67,7 @@ namespace DuAn_QuanLyKPI.GUI
 
 
 
-            dgrDanhSachMucTieuTCKPI.CellContentClick += dgrDanhSachMucTieuTCKPI_CellContentClick;
+         
 
 
 
@@ -914,16 +914,7 @@ namespace DuAn_QuanLyKPI.GUI
             }
         }
 
-        private void dgrDanhSachMucTieuTCKPI_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgrDanhSachMucTieuTCKPI.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
-            {
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgrDanhSachMucTieuTCKPI.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-                // Đảo ngược trạng thái của checkbox khi được click
-                cell.Value = !(bool)cell.Value;
-            }
-        }
+       
 
         private void dgrDanhSachMucTieuTCKPI_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -1020,34 +1011,39 @@ namespace DuAn_QuanLyKPI.GUI
 
         private void dgrDanhSachMucTieuPTKPI_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.RowIndex < dgrDanhSachMucTieuPTKPI.Rows.Count)
             {
                 DataGridViewCell cell = dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
                 if (cell is DataGridViewCheckBoxCell)
                 {
                     bool isChecked = (bool)cell.Value;
-                    string mucTieuValue = dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cMucTieuPT"].Value.ToString();
-                    string columnName = dgrDanhSachMucTieuPTKPI.Columns[e.ColumnIndex].Name;
 
-                    // Lấy giá trị của cột "cTT" tương ứng với dòng hiện tại
-                    string ttValue = dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cTTPT"].Value.ToString();
-                    string maNhomValue = dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cMaNhomPT"].Value.ToString();
-                    int trongSoValue = Convert.ToInt32(dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cTrongSoPT"].Value);
+                    if (dgrDanhSachMucTieuPTKPI.Columns.Contains("cMucTieuPT") &&
+                        dgrDanhSachMucTieuPTKPI.Columns.Contains("cTTPT") &&
+                        dgrDanhSachMucTieuPTKPI.Columns.Contains("cMaNhomPT") &&
+                        dgrDanhSachMucTieuPTKPI.Columns.Contains("cTrongSoPT"))
+                    {
+                        string mucTieuValue = Convert.ToString(dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cMucTieuPT"].Value);
+                        string columnName = dgrDanhSachMucTieuPTKPI.Columns[e.ColumnIndex].Name;
 
-                    if (isChecked)
-                    {
-                        // Gọi hàm UpdateDataInMucTieuKPI với tên cột, giá trị tương ứng, giá trị TT, MaNhom và TrongSo
-                        UpdateDataInMucTieuPTKPI(mucTieuValue, columnName, isChecked, ttValue, maNhomValue, trongSoValue);
-                    }
-                    else
-                    {
-                        // Nếu checkbox bị bỏ chọn, gọi hàm DeleteDataFromTblNoiDung
-                        DeleteDataFromTblNoiDungPT(mucTieuValue, columnName, isChecked);
+                        string ttValue = Convert.ToString(dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cTTPT"].Value);
+                        string maNhomValue = Convert.ToString(dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cMaNhomPT"].Value);
+                        int trongSoValue = Convert.ToInt32(dgrDanhSachMucTieuPTKPI.Rows[e.RowIndex].Cells["cTrongSoPT"].Value);
+
+                        if (isChecked)
+                        {
+                            UpdateDataInMucTieuPTKPI(mucTieuValue, columnName, isChecked, ttValue, maNhomValue, trongSoValue);
+                        }
+                        else
+                        {
+                            DeleteDataFromTblNoiDungPT(mucTieuValue, columnName, isChecked);
+                        }
                     }
                 }
             }
         }
+
 
         private void dgrDanhSachMucTieuTCKPI_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1126,6 +1122,14 @@ namespace DuAn_QuanLyKPI.GUI
             {
                 e.Value = $"{e.Value} %"; // Thêm đơn vị vào giá trị
                 e.FormattingApplied = true;
+            }
+        }
+
+        private void dgrDanhSachMucTieuTCKPI_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgrDanhSachMucTieuTCKPI.IsCurrentCellDirty)
+            {
+                dgrDanhSachMucTieuTCKPI.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
     }
